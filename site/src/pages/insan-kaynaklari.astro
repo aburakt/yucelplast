@@ -1,6 +1,7 @@
 ---
 import ContactForm from "../components/ContactForm.astro"
 import PageHero from "../components/PageHero.astro"
+import Photo from "../components/Photo.astro"
 import Base from "../layouts/Base.astro"
 import { loadSite } from "../lib/content"
 import { breadcrumbList, graph, webPage } from "../lib/jsonld"
@@ -20,6 +21,11 @@ const jsonLd = graph(
       <div>
         <h2 class="title">İş başvurusu</h2>
         {paragraphs.map((p) => <p class="muted mt-4">{p}</p>)}
+        {s.hrImage && (
+          <div class="framed mt-10 max-w-md">
+            <Photo img={s.hrImage} alt={`${s.companyName} binası`} sizes="(min-width: 1024px) 420px, 100vw" width={840} />
+          </div>
+        )}
       </div>
       <ContactForm topic="is-basvurusu" />
     </div>

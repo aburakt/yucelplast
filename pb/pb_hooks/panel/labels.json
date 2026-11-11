@@ -19,6 +19,7 @@
     "settings.since": "Kuruluş yılı",
     "settings.design_text": "Tasarım ve Özelleştirme metni",
     "settings.design_image": "Tasarım ve Özelleştirme fotoğrafı",
+    "settings.hr_image": "İnsan Kaynakları fotoğrafı",
     "settings.hr_text": "İnsan Kaynakları metni",
     "settings.form_recipient": "Form bildirim adresi",
     "settings.cf_analytics_token": "Ziyaret istatistiği anahtarı (Cloudflare)",

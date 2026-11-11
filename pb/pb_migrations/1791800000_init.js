@@ -59,6 +59,7 @@ migrate((app) => {
     long("design_text", "Tasarım ve Özelleştirme sayfasının giriş metni. Paragrafları boş satırla ayırın.", { required: true, max: 3000 }),
     image("design_image", "Tasarım ve Özelleştirme sayfasındaki fotoğraf. " + IMG),
     long("hr_text", "İnsan Kaynakları sayfasındaki metin (iş başvurusu nasıl yapılır). Paragrafları boş satırla ayırın.", { required: true, max: 3000 }),
+    image("hr_image", "İnsan Kaynakları sayfasındaki fotoğraf (ör. fabrika binası). Boşsa görünmez. " + IMG),
     text("seo_description", "Google'da ve link paylaşımlarında görünen site açıklaması (150-160 karakter).", { max: 300 }),
     image("share_image", "Site linki paylaşılınca görünen görsel. Yatay, 1200x630 piksel önerilir. Boşsa ana sayfa fotoğrafı kullanılır."),
   ], PUBLIC)

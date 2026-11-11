@@ -16,7 +16,7 @@ export type Content = {
   settings: {
     companyName: string; phone: string; phone2: string; email: string; address: string; mapsUrl: string
     heroTitle: string; heroText: string; heroImage: string; aboutTitle: string; aboutText: string; aboutImage: string; aboutImage2: string
-    since: number; designText: string; designImage: string; hrText: string; seoDescription: string; cfAnalyticsToken?: string
+    since: number; designText: string; designImage: string; hrText: string; hrImage?: string; seoDescription: string; cfAnalyticsToken?: string
   }
   features: { title: string; text: string }[]
   categories: Category[]
@@ -52,7 +52,7 @@ export async function seed(pb: Pb): Promise<void> {
     company_name: s.companyName, phone: s.phone, phone_2: s.phone2, email: s.email, address: s.address, maps_url: s.mapsUrl,
     hero_title: s.heroTitle, hero_text: s.heroText, about_title: s.aboutTitle, about_text: s.aboutText, since: s.since,
     design_text: s.designText, hr_text: s.hrText, seo_description: s.seoDescription, cf_analytics_token: s.cfAnalyticsToken,
-  }, { hero_image: s.heroImage, about_image: s.aboutImage, about_image_2: s.aboutImage2, design_image: s.designImage })
+  }, { hero_image: s.heroImage, about_image: s.aboutImage, about_image_2: s.aboutImage2, design_image: s.designImage, hr_image: s.hrImage })
   for (const [i, f] of features.entries()) await save(pb, "features", { title: f.title, text: f.text, position: (i + 1) * 10, published: true })
 
   // önce üst gruplar (alt grup üst grubun id'sine bağlanır)
