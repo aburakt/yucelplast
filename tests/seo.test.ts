@@ -5,7 +5,10 @@ import { cfBeacon, jsonLdText, organizationJsonLd } from "../site/src/lib/seo"
 import type { Settings } from "../site/src/lib/types"
 
 // SİTEYE ÖZEL: Site Ayarları'ndan üretilen yapılandırılmış veri (site/src/lib/seo.ts).
-const base: Settings = { companyName: "Örnek Kurum", phone: "", email: "", address: "", heroTitle: "x", heroText: "", seoDescription: "" }
+const base: Settings = {
+  companyName: "Örnek Kurum", phone: "", email: "", address: "", heroTitle: "x", heroText: "", seoDescription: "",
+  aboutTitle: "x", aboutText: "x", designText: "x", hrText: "x",
+}
 const SITE = "https://www.ornek.com.tr"
 
 describe("kurum yapılandırılmış verisi", () => {

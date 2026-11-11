@@ -1,30 +1,43 @@
 ---
-// SİTEYE ÖZEL (örnek): ziyaretçi formu, PB "messages" kutusuna gönderir (pb/pb_hooks/site.js FORMS).
+// SİTEYE ÖZEL: ziyaretçi formu, PB "messages" kutusuna gönderir (pb/pb_hooks/site.js FORMS).
+// topic verilirse sabit (ör. İnsan Kaynakları: is-basvurusu), verilmezse ziyaretçi konu seçer (genel / teklif).
 // Spam tuzağı (website), KVKK onayı ve bildirim PB tarafında (forms.pb.js, core). Önizlemede (fixture) form kapalıdır.
 // CSP: gönderim fetch ile PB adresine gider; connect-src'ye PB adresi build'de eklenir (integrations/pb-csp.ts).
 // WebMCP bildirimsel API (docs/geo-webmcp.md): toolname/tooldescription/toolparamdescription tarayıcıdaki ajana formu
 // tanıtır; ajan alanları doldurabilir, toolautosubmit OLMADIĞI için gönder düğmesine ziyaretçi kendisi basar.
+import { loadSite } from "../lib/content"
 import { isFixtureMode, pbUrl } from "../lib/pb"
 
-interface Props { collection?: string }
-const { collection = "messages" } = Astro.props
+interface Props { topic?: "is-basvurusu"; id?: string }
+const { topic, id = "form" } = Astro.props
+const { pages } = await loadSite()
+const kvkk = pages.find((p) => p.slug === "kvkk-aydinlatma-metni")
 const fixture = isFixtureMode()
-const endpoint = fixture ? "" : `${pbUrl()}/api/collections/${collection}/records`
+const endpoint = fixture ? "" : `${pbUrl()}/api/collections/messages/records`
+const hr = topic === "is-basvurusu"
 ---
 {fixture ? (
-  <p data-fixture-notice class="text-ink-soft">İletişim formu önizlemede kapalıdır.</p>
+  <p data-fixture-notice id={id} class="card p-6 muted">Form önizlemede kapalıdır.</p>
 ) : (
-  <form data-contact-form toolname="contact_message" tooldescription="Kuruma mesaj formu: ad, e-posta, isteğe bağlı telefon ve mesaj. Ajan alanları doldurur; gönderimi ve KVKK onayını ziyaretçi kendisi yapar." method="post" data-endpoint={endpoint} data-ok="Teşekkürler, mesajınız alındı. En kısa sürede dönüş yapacağız." data-fail="Mesaj gönderilemedi. Lütfen biraz sonra tekrar deneyin ya da bize telefonla ulaşın." class="card grid max-w-2xl gap-4 p-6">
+  <form id={id} data-contact-form toolname={hr ? "job_application" : "contact_message"} tooldescription={hr ? "İş başvurusu formu: ad, e-posta, telefon ve kısa özgeçmiş. Gönderimi ve KVKK onayını ziyaretçi kendisi yapar." : "Firmaya mesaj ya da teklif isteği: konu, ad, e-posta, isteğe bağlı telefon ve mesaj. Gönderimi ve KVKK onayını ziyaretçi kendisi yapar."} method="post" data-endpoint={endpoint} data-ok={hr ? "Teşekkürler, başvurunuz alındı." : "Teşekkürler, mesajınız alındı. En kısa sürede dönüş yapacağız."} data-fail="Gönderilemedi. Lütfen biraz sonra tekrar deneyin ya da bize telefonla ulaşın." class="card grid gap-4 p-6 md:p-8">
+    {hr ? <input type="hidden" name="topic" value="is-basvurusu" /> : (
+      <label class="field">Konu
+        <select name="topic" toolparamdescription="genel: soru ya da görüş, teklif: ürün ya da fiyat teklifi isteği">
+          <option value="teklif">Teklif isteği</option>
+          <option value="genel">Soru ya da görüş</option>
+        </select>
+      </label>
+    )}
     <label class="field">Ad soyad<input name="name" toolparamdescription="Ziyaretçinin adı ve soyadı" autocomplete="name" required maxlength="200" /></label>
     <div class="grid gap-4 md:grid-cols-2">
       <label class="field">E-posta<input name="email" type="email" toolparamdescription="Dönüş yapılacak e-posta adresi" autocomplete="email" required /></label>
-      <label class="field">Telefon (isteğe bağlı)<input name="phone" type="tel" toolparamdescription="İsteğe bağlı telefon numarası" autocomplete="tel" maxlength="50" /></label>
+      <label class="field">{hr ? "Telefon" : "Telefon (isteğe bağlı)"}<input name="phone" type="tel" toolparamdescription="Telefon numarası" autocomplete="tel" maxlength="50" required={hr} /></label>
     </div>
-    <label class="field">Mesajınız<textarea name="message" toolparamdescription="Ziyaretçinin sorusu ya da talebi" required maxlength="5000" rows="5"></textarea></label>
-    <label class="flex items-start gap-2 text-sm"><input name="kvkk_consent" type="checkbox" required class="mt-1" />Kişisel verilerimin, mesajıma dönüş yapılması amacıyla işlenmesine ilişkin aydınlatma metnini okudum ve onaylıyorum.</label>
+    <label class="field">{hr ? "Kendinizi ve ilgilendiğiniz pozisyonu kısaca anlatın" : "Mesajınız (ürün, adet, ölçü, logo)"}<textarea name="message" toolparamdescription={hr ? "Eğitim, deneyim ve ilgilenilen pozisyon" : "Talep: ürün, adet, ölçü, malzeme, logo"} required maxlength="5000" rows="5"></textarea></label>
+    <label class="flex items-start gap-2.5 text-sm"><input name="kvkk_consent" type="checkbox" required class="mt-1" /><span>Kişisel verilerimin, {hr ? "başvurumun değerlendirilmesi" : "mesajıma dönüş yapılması"} amacıyla işlenmesine ilişkin {kvkk ? <a href={`/${kvkk.slug}/`}>aydınlatma metnini</a> : "aydınlatma metnini"} okudum ve onaylıyorum.</span></label>
     <div aria-hidden="true" class="hp"><label>Web sitesi<input name="website" tabindex="-1" autocomplete="off" /></label></div>
     <div class="flex flex-wrap items-center gap-4">
-      <button type="submit" class="btn">Gönder</button>
+      <button type="submit" class="btn btn-primary">{hr ? "Başvuruyu gönder" : "Gönder"}</button>
       <p data-form-status role="status" class="text-sm"></p>
     </div>
   </form>

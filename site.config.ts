@@ -16,38 +16,48 @@ const patch = async (pb: Pb, collection: string, id: string, body: Record<string
 export const SITE: SiteConfig = {
   checks: [
     // tek dilli: hreflang yok (çok dilli sitede hasNot kaldırılır, has'a hreflang eklenir; docs/i18n.md)
-    { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Örnek Kurum", 'rel="canonical"', 'property="og:image"', "Örnek yazı", '"@type":"LocalBusiness"', 'href="/kvkk-aydinlatma-metni/"'], hasNot: ["hreflang"] },
-    { name: "Yazı sayfası", path: "/yazilar/ornek-yazi/", has: ["<h1", "Örnek yazı", "Yazının metni"] },
+    { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Markanıza özel dosya, kap ve kutu üretimi", 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün seçimi danışmanlığı", "1977", 'href="/kvkk-aydinlatma-metni/"'], hasNot: ["hreflang", 'href="/urunler/yillik/" class="card'] },
+    { name: "Ürünler", path: "/urunler/", has: ["<h1", 'href="/urunler/kutu-uretimi/"', 'href="/urunler/canta/"', '"@type":"BreadcrumbList"'], hasNot: ['href="/urunler/kutu-uretimi/kapakli-kutu/" class="card'] },
+    { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "18 Yaprak İçten Körüklü İmza Dosyası", "Fotoğraflar", '"@type":"CollectionPage"'] },
+    { name: "Üst grup alt gruplarını listeler", path: "/urunler/kutu-uretimi/", has: ["Kutu Üretimi çeşitleri", 'href="/urunler/kutu-uretimi/kapakli-kutu/"', 'href="/urunler/kutu-uretimi/miknatisli-kutu/"', "Diğer modeller", "Silindir Kutu"] },
+    { name: "Alt grup sayfası", path: "/urunler/kutu-uretimi/miknatisli-kutu/", has: ["<h1", "Mıknatıslı Kutu", 'href="/urunler/kutu-uretimi/">Kutu Üretimi</a>'] },
+    { name: "Fotoğrafsız grup simgeyle görünür", path: "/urunler/canta/", has: ["<h1", "Karton Çanta", '<svg viewBox="0 0 24 24"'] },
+    { name: "Hakkımızda", path: "/hakkimizda/", has: ["<h1", "İnovasyon ve kaliteli işçiliğin buluştuğu nokta", '"@type":"AboutPage"'] },
+    { name: "Tasarım ve Özelleştirme", path: "/tasarim-ve-ozellestirme/", has: ["<h1", "Sıvama kutu modelleri", "Nasıl çalışıyoruz?"] },
+    { name: "İnsan Kaynakları formu", path: "/insan-kaynaklari/", has: ["<h1", 'name="topic" value="is-basvurusu"', 'toolname="job_application"', "/api/collections/messages/records"] },
+    { name: "İletişim formu PB'ye gönderir", path: "/iletisim/", has: ["İvedik Organize Sanayi Bölgesi", 'data-contact-form', 'id="form"', "/api/collections/messages/records", 'name="kvkk_consent"', 'name="website"', 'name="topic"', '"@type":"ContactPage"'] },
     { name: "KVKK aydınlatma metni", path: "/kvkk-aydinlatma-metni/", has: ["<h1", "KVKK Aydınlatma Metni", "Taslak metin, gözden geçirilmeli"] },
     { name: "Gizlilik ve çerez politikası", path: "/gizlilik-politikasi/", has: ["<h1", "Çerezler"] },
-    { name: "İletişim formu PB'ye gönderir", path: "/", has: ['data-contact-form', "/api/collections/messages/records", 'name="kvkk_consent"', 'name="website"'] },
     // PB adresi build'de connect-src'ye eklenir (site/integrations/pb-csp.ts); verify PB'si 127.0.0.1'de çalışır
     { name: "CSP form gönderimine izin verir", path: "/_headers", has: ["connect-src 'self' https://cloudflareinsights.com http://127.0.0.1:"] },
     { name: "404 sayfası", path: "/yok-boyle-bir-sayfa/", status: 404, has: ["Sayfa bulunamadı"] },
     { name: "Sitemap", path: "/sitemap-index.xml" },
-    { name: "Sitemap tarihleri", path: "/sitemap-0.xml", has: ["<lastmod>2026-10-01"] },
+    { name: "Sitemap grupları", path: "/sitemap-0.xml", has: ["/urunler/kutu-uretimi/kapakli-kutu/</loc>"] },
     { name: "Robots", path: "/robots.txt", has: ["Sitemap:"] },
     // GEO ve WebMCP (lib/geo.ts, docs/geo-webmcp.md): ortak kontroller, sonra bu sitenin içeriği
     ...GEO_CHECKS,
     { name: "Robots: eğitim tarayıcıları izinli (geo.ts aiTraining)", path: "/robots.txt", has: ["User-agent: meta-externalagent\nAllow: /\n"] },
-    { name: "llms.txt", path: "/llms.txt", has: ["Örnek Kurum", "/yazilar/ornek-yazi/): ", "## Yasal bilgiler"] },
-    { name: "llms-full.txt", path: "/llms-full.txt", has: ["## Örnek yazı", "Yazının metni", "## Veri sorumlusu"] },
-    { name: "Yazının markdown eşi", path: "/yazilar/ornek-yazi/index.md", has: ["# Örnek yazı", "Kaynak: ", "Tarih: 2026-10-01"] },
-    { name: "Markdown eşi ve WebMCP betiği sayfada", path: "/yazilar/ornek-yazi/", has: ['<link rel="alternate" type="text/markdown" href="/yazilar/ornek-yazi/index.md">', '"@type":"Article"', '"@type":"BreadcrumbList"'] },
-    { name: "WebMCP verisi", path: "/webmcp.json", has: ['"name":"Örnek Kurum"', '"path":"/yazilar/ornek-yazi/"', '"kind":"form"'] },
-    { name: "İletişim formu WebMCP bildirimsel araç", path: "/", has: ['toolname="contact_message"', "toolparamdescription="], hasNot: ["toolautosubmit"] },
-    { name: "Yönlendirmeler", path: "/_redirects", has: ["\n/index.html / 301\n", "\n/eski-yazi /yazilar/ornek-yazi/ 301\n/eski-yazi/ /yazilar/ornek-yazi/ 301\n"] },
+    { name: "llms.txt", path: "/llms.txt", has: ["Yücel Plast", "/urunler/imza-dosyasi/): ", "## Ürünler", "## Yasal bilgiler"] },
+    { name: "llms-full.txt", path: "/llms-full.txt", has: ["## İmza Dosyası", "PVC İmza Dosyası", "## Veri sorumlusu"] },
+    { name: "Grubun markdown eşi", path: "/urunler/kutu-uretimi/index.md", has: ["# Kutu Üretimi", "Kaynak: ", "## Kutu Üretimi çeşitleri"] },
+    { name: "Markdown eşi ve WebMCP betiği sayfada", path: "/urunler/kutu-uretimi/", has: ['<link rel="alternate" type="text/markdown" href="/urunler/kutu-uretimi/index.md">'] },
+    { name: "WebMCP verisi", path: "/webmcp.json", has: ['"name":"Yücel Plast"', '"path":"/urunler/klasor/"', '"kind":"form"'] },
+    { name: "İletişim formu WebMCP bildirimsel araç", path: "/iletisim/", has: ['toolname="contact_message"', "toolparamdescription="], hasNot: ["toolautosubmit"] },
+    { name: "Yönlendirmeler", path: "/_redirects", has: ["\n/index.html / 301\n", "/urunler/kutu-uretimi/miknatisli-kutuzz /urunler/kutu-uretimi/miknatisli-kutu/ 301"] },
   ],
   hookSample: {
-    collection: "posts",
-    create: { title: "hook-testi", date: "2026-01-01 00:00:00.000Z", summary: "x", body: "<p>x</p>", published: true },
-    update: (n) => ({ summary: `özet ${n}` }),
+    collection: "features",
+    create: { title: "hook-testi", text: "x", published: true },
+    update: (n) => ({ text: `metin ${n}` }),
   },
-  // Gerçek içerikte olmayan durumlar: ziyaret sayacı anahtarı dolu, KVKK metni taslakta (bağlantısı ve sayfası yok olmalı).
+  // Gerçek içerikte olmayan durumlar: ziyaret sayacı anahtarı dolu, KVKK metni taslakta (bağlantısı ve sayfası yok olmalı),
+  // üst grubu taslakta olan alt grup (sayfası üretilmez), taslak ürün.
   testSeed: async (pb) => {
     await seed(pb)
     await patch(pb, "settings", await first(pb, "settings"), { cf_analytics_token: TOKEN })
     await patch(pb, "pages", await first(pb, "pages", 'slug = "kvkk-aydinlatma-metni"'), { published: false })
+    await patch(pb, "categories", await first(pb, "categories", 'slug = "kutu-uretimi"'), { published: false })
+    await patch(pb, "products", await first(pb, "products", 'title = "PVC İmza Dosyası"'), { published: false })
   },
   testChecks: [
     {
@@ -56,5 +66,8 @@ export const SITE: SiteConfig = {
       hasNot: ['href="/kvkk-aydinlatma-metni/"'],
     },
     { name: "Taslak sayfa yayınlanmaz", path: "/kvkk-aydinlatma-metni/", status: 404 },
+    { name: "Taslak üst grup ve alt grupları yayınlanmaz", path: "/urunler/kutu-uretimi/miknatisli-kutu/", status: 404 },
+    { name: "Taslak ürün görünmez", path: "/urunler/imza-dosyasi/", has: ["İçi Süet İmza Dosyası"], hasNot: ["PVC İmza Dosyası"] },
+    { name: "Taslak grup menüde yok", path: "/urunler/", hasNot: ['href="/urunler/kutu-uretimi/"'] },
   ],
 }

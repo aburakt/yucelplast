@@ -1,0 +1,9 @@
+---
+import { CATEGORY_ICONS, type IconName, UI_ICONS, type UiIconName } from "../lib/icons"
+
+// Çizgi simge (currentColor). Dekoratif: ekran okuyucudan gizli; anlamı yanındaki metin taşır.
+interface Props { name: IconName | UiIconName; class?: string; stroke?: number }
+const { name, class: cls = "h-5 w-5", stroke = 1.6 } = Astro.props
+const d = name in CATEGORY_ICONS ? CATEGORY_ICONS[name as IconName] : UI_ICONS[name as UiIconName]
+---
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={stroke} stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class={cls}><path d={d} /></svg>

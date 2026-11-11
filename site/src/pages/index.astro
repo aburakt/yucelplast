@@ -1,35 +1,84 @@
 ---
-import ContactForm from "../components/ContactForm.astro"
+import CategoryCard from "../components/CategoryCard.astro"
+import CtaBand from "../components/CtaBand.astro"
+import Icon from "../components/Icon.astro"
 import Photo from "../components/Photo.astro"
 import Base from "../layouts/Base.astro"
-import { loadSite } from "../lib/content"
-import { formatDate } from "../lib/format"
+import { loadSite, topCategories } from "../lib/content"
 
-const { settings, posts } = await loadSite()
+const site = await loadSite()
+const { settings: s, features } = site
+const featured = topCategories(site).filter((c) => c.featured)
+const paragraphs = s.aboutText.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
 ---
 <Base path="/">
-  <section class="wrap py-16 md:py-24">
-    <h1 class="text-[clamp(2.2rem,5vw,3.6rem)]">{settings.heroTitle}</h1>
-    {settings.heroText && <p class="lead mt-5">{settings.heroText}</p>}
-    {settings.heroImage && <Photo img={settings.heroImage} alt={settings.heroTitle} class="mt-10 w-full rounded-2xl" sizes="(min-width: 1152px) 1152px, 100vw" loading="eager" />}
+  <section class="overflow-hidden">
+    <div class="wrap grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <div>
+        <p class="eyebrow">{s.since ? `${s.since}'den bu yana · Ankara` : "Ankara"}</p>
+        <h1 class="mt-5 text-[clamp(2.3rem,5.2vw,3.7rem)]">{s.heroTitle}</h1>
+        {s.heroText && <p class="lead mt-5">{s.heroText}</p>}
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/urunler/" class="btn btn-primary">Ürünleri inceleyin<Icon name="arrow" /></a>
+          <a href="/iletisim/#form" class="btn btn-ghost">Teklif isteyin</a>
+        </div>
+      </div>
+      {s.heroImage && (
+        <div class="framed ml-3 aspect-[4/3]">
+          <Photo img={s.heroImage} alt={`${s.companyName} ürünleri`} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" width={1200} />
+        </div>
+      )}
+    </div>
   </section>
 
-  <section id="yazilar" class="wrap pb-20">
-    <h2 class="text-2xl">Yazılar</h2>
-    <ul class="mt-6 grid gap-4 md:grid-cols-2">
-      {posts.map((p) => (
-        <li class="card p-6">
-          <time datetime={p.date} class="text-sm text-ink-soft">{formatDate(p.date)}</time>
-          <h3 class="mt-1 text-xl"><a href={`/yazilar/${p.slug}/`}>{p.title}</a></h3>
-          <p class="mt-2 text-ink-soft">{p.summary}</p>
-        </li>
-      ))}
-    </ul>
+  <section class="section bg-paper">
+    <div class="wrap">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="eyebrow">Ürün grupları</p>
+          <h2 class="title mt-3">Ne üretiyoruz?</h2>
+        </div>
+        <a href="/urunler/" class="arrow-link">Tüm ürün grupları<Icon name="arrow" /></a>
+      </div>
+      <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map((c) => <li class="flex"><CategoryCard category={c} /></li>)}
+      </ul>
+    </div>
   </section>
 
-  <section id="iletisim" class="wrap pb-20">
-    <h2 class="text-2xl">İletişim</h2>
-    <p class="mt-2 text-ink-soft">Sorularınızı yazın, size dönüş yapalım.</p>
-    <div class="mt-6"><ContactForm /></div>
+  <section class="section">
+    <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+      {s.aboutImage && (
+        <div class="framed ml-3 aspect-[4/3]">
+          <Photo img={s.aboutImage} alt={`${s.companyName} fabrika binası`} sizes="(min-width: 1024px) 560px, 100vw" width={1200} />
+        </div>
+      )}
+      <div>
+        <p class="eyebrow">Hakkımızda</p>
+        <h2 class="title mt-3">{s.aboutTitle}</h2>
+        {paragraphs.map((p) => <p class="muted mt-4">{p}</p>)}
+        <a href="/hakkimizda/" class="arrow-link mt-6">Yücel Plast hakkında<Icon name="arrow" /></a>
+      </div>
+    </div>
   </section>
+
+  {features.length > 0 && (
+    <section class="section border-t border-line bg-paper">
+      <div class="wrap">
+        <p class="eyebrow">Neden Yücel Plast?</p>
+        <h2 class="title mt-3">Tasarımdan teslimata tek elden</h2>
+        <ul class="mt-10 grid gap-5 md:grid-cols-3">
+          {features.map((f, i) => (
+            <li class="card p-6">
+              <span class="feature-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <h3 class="mt-4 text-lg">{f.title}</h3>
+              <p class="muted mt-2">{f.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
 </Base>

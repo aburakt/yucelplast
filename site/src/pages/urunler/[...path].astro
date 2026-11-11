@@ -1,0 +1,93 @@
+---
+import CategoryCard from "../../components/CategoryCard.astro"
+import CtaBand from "../../components/CtaBand.astro"
+import Icon from "../../components/Icon.astro"
+import PageHero from "../../components/PageHero.astro"
+import Photo from "../../components/Photo.astro"
+import Base from "../../layouts/Base.astro"
+import { childrenOf, loadSite } from "../../lib/content"
+import { breadcrumbList, graph, webPage } from "../../lib/jsonld"
+import { sanitize } from "../../lib/sanitize"
+import type { Category } from "../../lib/types"
+
+// Ürün grubu: /urunler/<slug>/ ya da alt grup /urunler/<üst>/<slug>/. Yalnız yayındaki gruplar üretilir.
+export async function getStaticPaths() {
+  const site = await loadSite()
+  return site.categories.map((category) => ({
+    params: { path: category.path.slice("/urunler/".length, -1) },
+    props: { category, children: childrenOf(site, category.slug), parent: site.categories.find((c) => c.slug === category.parent) },
+  }))
+}
+
+const { category: c, children, parent } = Astro.props as { category: Category; children: Category[]; parent?: Category }
+const crumbs = [{ href: "/urunler/", label: "Ürünler" }, ...(parent ? [{ href: parent.path, label: parent.title }] : [])]
+const jsonLd = graph(
+  webPage({ site: Astro.site!, path: c.path, name: c.title, description: c.summary, type: "CollectionPage" }),
+  breadcrumbList([{ name: "Ana sayfa", path: "/" }, ...crumbs.map((x) => ({ name: x.label, path: x.href })), { name: c.title, path: c.path }], Astro.site!),
+)
+const body = c.body ? sanitize(c.body) : ""
+---
+<Base title={c.title} path={c.path} description={c.summary} jsonLd={jsonLd}>
+  <PageHero title={c.title} lead={c.summary} crumbs={crumbs} />
+
+  <section class="section">
+    <div class:list={["wrap grid gap-12", c.cover && "lg:grid-cols-[1fr_1.05fr] lg:items-start"]}>
+      <div>
+        {body && <div class="prose-body" set:html={body} />}
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/iletisim/#form" class="btn btn-primary">Bu ürün için teklif isteyin<Icon name="arrow" /></a>
+        </div>
+      </div>
+      {c.cover && (
+        <div class="framed ml-3 aspect-[4/3]">
+          <Photo img={c.cover} alt={c.title} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" width={1200} />
+        </div>
+      )}
+    </div>
+  </section>
+
+  {children.length > 0 && (
+    <section class="section border-t border-line bg-paper">
+      <div class="wrap">
+        <h2 class="title">{c.title} çeşitleri</h2>
+        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {children.map((k) => <li class="flex"><CategoryCard category={k} /></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {c.products.length > 0 && (
+    <section class:list={["section border-t border-line", children.length === 0 && "bg-paper"]}>
+      <div class="wrap">
+        <h2 class="title">{children.length > 0 ? "Diğer modeller" : "Modeller"}</h2>
+        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {c.products.map((p) => (
+            <li class="card overflow-hidden">
+              <div class="product-media">
+                {p.image ? <Photo img={p.image} alt={p.title} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" width={800} /> : <Icon name={c.icon} stroke={1.2} class="" />}
+              </div>
+              <div class="p-5">
+                <h3 class="text-base">{p.title}</h3>
+                {p.description && <p class="muted mt-1.5 text-sm">{p.description}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {c.gallery.length > 0 && (
+    <section class="section border-t border-line">
+      <div class="wrap">
+        <h2 class="title">Fotoğraflar</h2>
+        <div class="gallery mt-8">
+          {c.gallery.map((g, i) => <Photo img={g} alt={`${c.title}, fotoğraf ${i + 1}`} sizes="(min-width: 768px) 33vw, 50vw" width={800} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
+</Base>

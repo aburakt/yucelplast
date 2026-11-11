@@ -1,0 +1,20 @@
+---
+import Icon from "./Icon.astro"
+import { loadSite } from "../lib/content"
+import { telHref } from "../lib/format"
+
+// Sayfa sonu çağrısı: teklif formu ve telefon.
+const { settings: s } = await loadSite()
+---
+<section class="on-dark">
+  <div class="wrap grid items-center gap-8 py-14 md:grid-cols-[1fr_auto] md:py-16">
+    <div>
+      <h2 class="text-[clamp(1.6rem,3vw,2.2rem)]">Markanıza özel ürün için teklif alın</h2>
+      <p class="muted mt-3 max-w-[56ch]">Adet, ölçü, malzeme ve logo bilgisini yazın; numune ve fiyatla dönelim.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="/iletisim/#form" class="btn btn-primary">Teklif isteyin<Icon name="arrow" /></a>
+      {s.phone && <a href={telHref(s.phone)} class="btn btn-ghost"><Icon name="phone" />{s.phone}</a>}
+    </div>
+  </div>
+</section>

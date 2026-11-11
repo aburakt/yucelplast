@@ -1,0 +1,25 @@
+---
+import CategoryCard from "../../components/CategoryCard.astro"
+import CtaBand from "../../components/CtaBand.astro"
+import PageHero from "../../components/PageHero.astro"
+import Base from "../../layouts/Base.astro"
+import { loadSite, topCategories } from "../../lib/content"
+import { breadcrumbList, graph, webPage } from "../../lib/jsonld"
+
+const site = await loadSite()
+const cats = topCategories(site)
+const lead = "Markanıza özel ölçü, kaplama ve logo uygulamasıyla ürettiğimiz ürün grupları."
+const jsonLd = graph(
+  webPage({ site: Astro.site!, path: "/urunler/", name: "Ürünler", description: lead, type: "CollectionPage" }),
+  breadcrumbList([{ name: "Ana sayfa", path: "/" }, { name: "Ürünler", path: "/urunler/" }], Astro.site!),
+)
+---
+<Base title="Ürünler" path="/urunler/" description={lead} jsonLd={jsonLd}>
+  <PageHero title="Ürünler" lead={lead} crumbs={[]} />
+  <section class="section">
+    <ul class="wrap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {cats.map((c) => <li class="flex"><CategoryCard category={c} level={2} /></li>)}
+    </ul>
+  </section>
+  <CtaBand />
+</Base>

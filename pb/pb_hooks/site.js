@@ -1,10 +1,10 @@
 // SİTEYE ÖZEL: core.pb.js ve lib/protect.js bu dosyayı okur. Yeni sitede ilk iş buradaki değerleri değiştirmektir.
 module.exports = {
   // Kısa site adı: cron adı, elle yayın adresi (POST /api/<ID>/deploy) ve test dizinlerinin öneki.
-  ID: "ornek",
+  ID: "yucelplast",
 
   // Değişince siteyi yeniden yayınlatan koleksiyonlar. Yeni içerik koleksiyonu buraya da eklenir (test ölçer).
-  CONTENT: ["settings", "posts", "redirects", "pages"],
+  CONTENT: ["settings", "features", "categories", "products", "redirects", "pages"],
 
   // Ziyaretçi formlarının kutusu (ör. form_submissions): yayın tetiklemez, CONTENT'e girmez; ziyaretçi yalnız gönderir (test ölçer).
   // Spam tuzağı, KVKK onayı, e-posta bildirimi ve saklama süresi: pb_hooks/forms.pb.js (core).
@@ -25,13 +25,13 @@ module.exports = {
   // logo yoksa boş kalır, e-postada ve panelde ad yazıyla (marka renginde) görünür. icon: site/public/favicon.svg ya da
   // favicon.png varsa build <url>/brand/icon.png üretir, panel sekme simgesi o olur; yoksa boş (baş harfli rozet).
   BRAND: {
-    name: "Örnek Kurum",
-    color: "#2f5d50",
-    ink: "#1f2124",
-    paper: "#f6f5f1",
-    url: "https://ornek.pages.dev",
-    logo: "",
-    icon: "https://ornek.pages.dev/brand/icon.png",
+    name: "Yücel Plast",
+    color: "#0061a3",
+    ink: "#14202e",
+    paper: "#f3f6f9",
+    url: "https://www.yucelplast.com",
+    logo: "https://www.yucelplast.com/brand/logo-mail.png",
+    icon: "https://www.yucelplast.com/brand/icon.png",
   },
 
   // Mağaza (isteğe bağlı; açma listesi docs/shop.md, alanların anlamı lib/shop.js başında). null kalırsa shop.pb.js
@@ -43,7 +43,7 @@ module.exports = {
   // Panel korumaları; alanların anlamı lib/protect.js başında.
   RULES: {
     settings: { label: "Site Ayarları", singleton: true, noDelete: true, deleteHint: "alanları düzenleyin." },
-    posts: { slugFrom: "title", locked: ["slug"] },
+    categories: { slugFrom: "title", locked: ["slug"] },
     pages: { slugFrom: "title", locked: ["slug"] },
   },
 
@@ -52,7 +52,7 @@ module.exports = {
   LANG: {
     langs: ["tr"],
     default: "tr",
-    reserved: ["tr", "api", "_astro", "yazilar"],
+    reserved: ["tr", "api", "_astro", "urunler", "hakkimizda", "iletisim", "insan-kaynaklari", "tasarim-ve-ozellestirme"],
     rules: {},
   },
 }

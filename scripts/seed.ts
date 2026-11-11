@@ -7,9 +7,19 @@ const SITE = join(import.meta.dir, "..", "site")
 const MEDIA = join(SITE, "src", "assets", "media")
 
 type Json = Record<string, unknown>
+type Product = { title: string; description: string; image?: string }
+type Category = {
+  title: string; slug: string; parent?: string; icon: string; summary: string; body: string; cover?: string; gallery: string[]
+  featured: boolean; products: Product[]
+}
 export type Content = {
-  settings: { companyName: string; phone: string; email: string; address: string; heroTitle: string; heroText: string; seoDescription: string; cfAnalyticsToken?: string }
-  posts: { title: string; slug: string; date: string; summary: string; body: string; cover?: string }[]
+  settings: {
+    companyName: string; phone: string; phone2: string; email: string; address: string; mapsUrl: string
+    heroTitle: string; heroText: string; heroImage: string; aboutTitle: string; aboutText: string; aboutImage: string; aboutImage2: string
+    since: number; designText: string; designImage: string; hrText: string; seoDescription: string; cfAnalyticsToken?: string
+  }
+  features: { title: string; text: string }[]
+  categories: Category[]
   redirects: { from: string; to: string; code: string }[]
   pages: { title: string; slug: string; seoDescription: string; body: string; published: boolean }[]
 }
@@ -17,14 +27,16 @@ export const loadContent = async (): Promise<Content> => (await Bun.file(join(SI
 
 const blob = async (name: string) => new Blob([await Bun.file(join(MEDIA, name)).arrayBuffer()], { type: "image/webp" })
 
-/** Kayıt açar. Boş alanlar gönderilmez; görseller media klasöründen yüklenir. */
-export async function save(pb: Pb, collection: string, fields: Json, files: Record<string, string | undefined> = {}): Promise<Json> {
+/** Kayıt açar. Boş alanlar gönderilmez; görseller media klasöründen yüklenir (dizi = çoklu dosya alanı, sırasıyla). */
+export async function save(pb: Pb, collection: string, fields: Json, files: Record<string, string | string[] | undefined> = {}): Promise<Json> {
   const form = new FormData()
   for (const [k, v] of Object.entries(fields)) {
     if (v === undefined || v === null || v === "" || v === 0) continue
     form.set(k, String(v))
   }
-  for (const [field, name] of Object.entries(files)) if (name) form.append(field, await blob(name), name)
+  for (const [field, names] of Object.entries(files)) {
+    for (const name of [names ?? []].flat()) form.append(field, await blob(name), name)
+  }
   const res = await pb.admin(`/api/collections/${collection}/records`, { method: "POST", body: form })
   if (!res.ok) throw new Error(`seed ${collection}: ${res.status} ${await res.text()}`)
   return (await res.json()) as Json
@@ -35,14 +47,29 @@ export async function seed(pb: Pb): Promise<void> {
   const existing = await pb.admin("/api/collections/settings/records?perPage=1")
   if (!existing.ok) throw new Error(`seed settings: ${existing.status}`)
   if (((await existing.json()) as { totalItems: number }).totalItems > 0) throw new Error("PB dolu (settings kaydı var); tohumlama yalnız boş PB'ye yapılır")
-  const { settings: s, posts, redirects, pages } = await loadContent()
+  const { settings: s, features, categories, redirects, pages } = await loadContent()
   await save(pb, "settings", {
-    company_name: s.companyName, phone: s.phone, email: s.email, address: s.address, hero_title: s.heroTitle, hero_text: s.heroText,
-    seo_description: s.seoDescription, cf_analytics_token: s.cfAnalyticsToken,
-  })
-  for (const [i, p] of posts.entries()) {
-    await save(pb, "posts", { title: p.title, slug: p.slug, date: `${p.date} 00:00:00.000Z`, summary: p.summary, body: p.body, position: (i + 1) * 10, published: true }, { cover: p.cover })
+    company_name: s.companyName, phone: s.phone, phone_2: s.phone2, email: s.email, address: s.address, maps_url: s.mapsUrl,
+    hero_title: s.heroTitle, hero_text: s.heroText, about_title: s.aboutTitle, about_text: s.aboutText, since: s.since,
+    design_text: s.designText, hr_text: s.hrText, seo_description: s.seoDescription, cf_analytics_token: s.cfAnalyticsToken,
+  }, { hero_image: s.heroImage, about_image: s.aboutImage, about_image_2: s.aboutImage2, design_image: s.designImage })
+  for (const [i, f] of features.entries()) await save(pb, "features", { title: f.title, text: f.text, position: (i + 1) * 10, published: true })
+
+  // önce üst gruplar (alt grup üst grubun id'sine bağlanır)
+  const ids = new Map<string, string>()
+  const ordered = [...categories.filter((c) => !c.parent), ...categories.filter((c) => c.parent)]
+  for (const c of ordered) {
+    const position = (categories.indexOf(c) + 1) * 10
+    const rec = await save(pb, "categories", {
+      title: c.title, slug: c.slug, parent: c.parent ? ids.get(c.parent) : undefined, summary: c.summary, body: c.body, icon: c.icon,
+      featured: c.featured, position, published: true,
+    }, { cover: c.cover, gallery: c.gallery })
+    ids.set(c.slug, rec.id as string)
+    for (const [j, p] of c.products.entries()) {
+      await save(pb, "products", { title: p.title, category: rec.id, description: p.description, position: (j + 1) * 10, published: true }, { image: p.image })
+    }
   }
+
   for (const [i, p] of pages.entries()) {
     await save(pb, "pages", { title: p.title, slug: p.slug, body: p.body, seo_description: p.seoDescription, position: (i + 1) * 10, published: p.published })
   }

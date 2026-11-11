@@ -1,0 +1,56 @@
+---
+import ContactForm from "../components/ContactForm.astro"
+import Icon from "../components/Icon.astro"
+import PageHero from "../components/PageHero.astro"
+import Base from "../layouts/Base.astro"
+import { loadSite } from "../lib/content"
+import { lines, telHref } from "../lib/format"
+import { breadcrumbList, graph, webPage } from "../lib/jsonld"
+import { mapsHref } from "../lib/nav"
+
+const { settings: s } = await loadSite()
+const lead = "Teklif, numune ve sorularınız için bize yazın ya da arayın."
+const jsonLd = graph(
+  webPage({ site: Astro.site!, path: "/iletisim/", name: "İletişim", description: lead, type: "ContactPage" }),
+  breadcrumbList([{ name: "Ana sayfa", path: "/" }, { name: "İletişim", path: "/iletisim/" }], Astro.site!),
+)
+---
+<Base title="İletişim" path="/iletisim/" description={lead} jsonLd={jsonLd}>
+  <PageHero title="İletişim" lead={lead} crumbs={[]} />
+  <section class="section">
+    <div class="wrap grid items-start gap-12 lg:grid-cols-[1fr_1.4fr]">
+      <div class="grid gap-5">
+        <div class="card flex gap-4 p-6">
+          <Icon name="pin" class="h-6 w-6 shrink-0 text-brand" />
+          <div>
+            <h2 class="text-lg">Adres</h2>
+            <address class="muted mt-1 not-italic">{lines(s.address).map((l) => <span class="block">{l}</span>)}</address>
+            <a href={mapsHref(s.mapsUrl, s.address)} rel="noopener" target="_blank" class="arrow-link mt-3 text-sm">Yol tarifi al<Icon name="arrow" /></a>
+          </div>
+        </div>
+        {(s.phone || s.phone2) && (
+          <div class="card flex gap-4 p-6">
+            <Icon name="phone" class="h-6 w-6 shrink-0 text-brand" />
+            <div>
+              <h2 class="text-lg">Telefon</h2>
+              {[s.phone, s.phone2].filter(Boolean).map((t) => <a href={telHref(t!)} class="mt-1 block font-semibold no-underline">{t}</a>)}
+            </div>
+          </div>
+        )}
+        {s.email && (
+          <div class="card flex gap-4 p-6">
+            <Icon name="mail" class="h-6 w-6 shrink-0 text-brand" />
+            <div>
+              <h2 class="text-lg">E-posta</h2>
+              <a href={`mailto:${s.email}`} class="mt-1 block font-semibold no-underline">{s.email}</a>
+            </div>
+          </div>
+        )}
+      </div>
+      <div>
+        <h2 class="title mb-6">Teklif ve mesaj formu</h2>
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,21 @@
+---
+// İç sayfa başlığı: yol (breadcrumb; crumbs verilirse, boş dizi = yalnız Ana sayfa), büyük başlık ve isteğe bağlı giriş. Yol JSON-LD'si sayfanın kendisinde.
+interface Props { title: string; lead?: string; crumbs?: { href: string; label: string }[] }
+const { title, lead, crumbs } = Astro.props
+---
+<section class="border-b border-line bg-paper">
+  <div class="wrap py-10 md:py-14">
+    {crumbs && (
+      <nav aria-label="Konum">
+        <ol class="crumbs">
+          <li><a href="/">Ana sayfa</a></li>
+          {crumbs.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+          <li aria-current="page">{title}</li>
+        </ol>
+      </nav>
+    )}
+    <h1 class="mt-4 text-[clamp(2rem,4.5vw,3.1rem)]">{title}</h1>
+    {lead && <p class="lead mt-4">{lead}</p>}
+    <slot />
+  </div>
+</section>

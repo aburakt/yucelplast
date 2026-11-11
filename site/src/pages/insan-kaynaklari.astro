@@ -1,0 +1,27 @@
+---
+import ContactForm from "../components/ContactForm.astro"
+import PageHero from "../components/PageHero.astro"
+import Base from "../layouts/Base.astro"
+import { loadSite } from "../lib/content"
+import { breadcrumbList, graph, webPage } from "../lib/jsonld"
+
+const { settings: s } = await loadSite()
+const paragraphs = s.hrText.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+const lead = `${s.companyName} ailesine katılmak için başvurun.`
+const jsonLd = graph(
+  webPage({ site: Astro.site!, path: "/insan-kaynaklari/", name: "İnsan Kaynakları", description: lead }),
+  breadcrumbList([{ name: "Ana sayfa", path: "/" }, { name: "İnsan Kaynakları", path: "/insan-kaynaklari/" }], Astro.site!),
+)
+---
+<Base title="İnsan Kaynakları" path="/insan-kaynaklari/" description={lead} jsonLd={jsonLd}>
+  <PageHero title="İnsan Kaynakları" lead={lead} crumbs={[]} />
+  <section class="section">
+    <div class="wrap grid items-start gap-12 lg:grid-cols-[1fr_1.4fr]">
+      <div>
+        <h2 class="title">İş başvurusu</h2>
+        {paragraphs.map((p) => <p class="muted mt-4">{p}</p>)}
+      </div>
+      <ContactForm topic="is-basvurusu" />
+    </div>
+  </section>
+</Base>
