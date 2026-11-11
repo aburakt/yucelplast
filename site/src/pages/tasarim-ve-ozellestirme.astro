@@ -9,24 +9,23 @@ import { breadcrumbList, graph, webPage } from "../lib/jsonld"
 
 const { settings: s } = await loadSite()
 const paragraphs = s.designText.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+// Eski sayfadaki gibi: ilk paragraf "Ürün Seçimi Danışmanlığı", gerisi "Ürün Özellikleri: Sıvama Kutu"
+const [intro, ...rest] = paragraphs
 const lead = "Ürün seçiminden kaplama, baskı ve iç düzene kadar markanıza özel üretim."
-const STEPS = [
-  { title: "Danışmanlık", text: "Hedef kitlenize ve bütçenize uygun ürünü birlikte seçiyoruz." },
-  { title: "Tasarım", text: "Grafik ekibimiz logo, yaldız, gofre ve baskı uygulamasını hazırlıyor." },
-  { title: "Numune", text: "Onayınız için malzeme ve renk seçenekli numune çıkarıyoruz." },
-  { title: "Üretim ve teslim", text: "Onaylanan tasarım kendi tesisimizde üretilip teslim ediliyor." },
-]
 const jsonLd = graph(
   webPage({ site: Astro.site!, path: "/tasarim-ve-ozellestirme/", name: "Tasarım ve Özelleştirme", description: lead }),
   breadcrumbList([{ name: "Ana sayfa", path: "/" }, { name: "Tasarım ve Özelleştirme", path: "/tasarim-ve-ozellestirme/" }], Astro.site!),
 )
 ---
 <Base title="Tasarım ve Özelleştirme" path="/tasarim-ve-ozellestirme/" description={lead} jsonLd={jsonLd}>
-  <PageHero title="Tasarım ve Özelleştirme" lead={lead} crumbs={[]} />
+  <PageHero title="Tasarım ve Özelleştirme" lead={lead} crumbs={[]} icon="kutu" />
   <section class="section">
-    <div class="wrap grid items-start gap-14 lg:grid-cols-2">
-      <div class="prose-body">
-        {paragraphs.map((p) => <p class="text-[1.05rem]">{p}</p>)}
+    <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+      <div>
+        <p class="text-[1.6rem] font-semibold text-brand">{s.companyName}</p>
+        <h2 class="title title-rule mt-1">Ürün Seçimi Danışmanlığı</h2>
+        {intro && <p class="muted mt-6 text-[1.05rem]">{intro}</p>}
+        <a href="/iletisim/#form" class="btn btn-primary mt-8">Projenizi anlatın<Icon name="arrow" /></a>
       </div>
       {s.designImage && (
         <div class="framed ml-3 aspect-[4/3]">
@@ -35,20 +34,17 @@ const jsonLd = graph(
       )}
     </div>
   </section>
-  <section class="section border-t border-line bg-paper">
-    <div class="wrap">
-      <h2 class="title">Nasıl çalışıyoruz?</h2>
-      <ol class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {STEPS.map((st, i) => (
-          <li class="card p-6">
-            <span class="feature-num" aria-hidden="true">{i + 1}</span>
-            <h3 class="mt-4 text-lg">{st.title}</h3>
-            <p class="muted mt-2">{st.text}</p>
-          </li>
-        ))}
-      </ol>
-      <a href="/iletisim/#form" class="btn btn-primary mt-10">Projenizi anlatın<Icon name="arrow" /></a>
-    </div>
-  </section>
+  {rest.length > 0 && (
+    <section class="section bg-mist">
+      <div class="wrap">
+        <h2 class="title title-rule text-brand">Ürün Özellikleri</h2>
+        <div class="card mt-10 p-6 md:p-10">
+          <h3 class="text-xl">Sıvama Kutu</h3>
+          <div class="prose-body mt-4 max-w-none">{rest.map((p) => <p class="muted text-[1.05rem]">{p}</p>)}</div>
+          <a href="/urunler/kutu-uretimi/" class="arrow-link mt-6">Sıvama kutu modelleri<Icon name="arrow" /></a>
+        </div>
+      </div>
+    </section>
+  )}
   <CtaBand />
 </Base>

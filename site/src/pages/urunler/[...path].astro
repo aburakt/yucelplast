@@ -28,29 +28,13 @@ const jsonLd = graph(
 const body = c.body ? sanitize(c.body) : ""
 ---
 <Base title={c.title} path={c.path} description={c.summary} jsonLd={jsonLd}>
-  <PageHero title={c.title} lead={c.summary} crumbs={crumbs} />
-
-  <section class="section">
-    <div class:list={["wrap grid gap-12", c.cover && "lg:grid-cols-[1fr_1.05fr] lg:items-start"]}>
-      <div>
-        {body && <div class="prose-body" set:html={body} />}
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="/iletisim/#form" class="btn btn-primary">Bu ürün için teklif isteyin<Icon name="arrow" /></a>
-        </div>
-      </div>
-      {c.cover && (
-        <div class="framed ml-3 aspect-[4/3]">
-          <Photo img={c.cover} alt={c.title} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" width={1200} />
-        </div>
-      )}
-    </div>
-  </section>
+  <PageHero title={c.title} lead={c.summary} crumbs={crumbs} icon={c.icon} />
 
   {children.length > 0 && (
-    <section class="section border-t border-line bg-paper">
+    <section class="section">
       <div class="wrap">
-        <h2 class="title">{c.title} çeşitleri</h2>
-        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 class="title title-rule">{c.title} çeşitleri</h2>
+        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {children.map((k) => <li class="flex"><CategoryCard category={k} /></li>)}
         </ul>
       </div>
@@ -58,18 +42,21 @@ const body = c.body ? sanitize(c.body) : ""
   )}
 
   {c.products.length > 0 && (
-    <section class:list={["section border-t border-line", children.length === 0 && "bg-paper"]}>
+    <section class:list={["section", children.length > 0 && "bg-mist"]}>
       <div class="wrap">
-        <h2 class="title">{children.length > 0 ? "Diğer modeller" : "Modeller"}</h2>
-        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 class="title title-rule">{children.length > 0 ? "Diğer modeller" : "Modeller"}</h2>
+        <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {c.products.map((p) => (
-            <li class="card overflow-hidden">
-              <div class="product-media">
-                {p.image ? <Photo img={p.image} alt={p.title} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" width={800} /> : <Icon name={c.icon} stroke={1.2} class="" />}
-              </div>
-              <div class="p-5">
-                <h3 class="text-base">{p.title}</h3>
-                {p.description && <p class="muted mt-1.5 text-sm">{p.description}</p>}
+            <li class="flex">
+              <div class="box-card">
+                <div class:list={["box-media", !p.image && "icon"]}>
+                  {p.image ? <Photo img={p.image} alt={p.title} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width={800} /> : <Icon name={c.icon} stroke={1.1} class="" />}
+                </div>
+                <div class="box-body">
+                  <h3>{p.title}</h3>
+                  {p.description && <p>{p.description}</p>}
+                  <a href="/iletisim/#form" class="box-btn">Teklif iste</a>
+                </div>
               </div>
             </li>
           ))}
@@ -78,11 +65,28 @@ const body = c.body ? sanitize(c.body) : ""
     </section>
   )}
 
-  {c.gallery.length > 0 && (
+  {(body || c.cover) && (
     <section class="section border-t border-line">
+      <div class:list={["wrap grid gap-12", c.cover && "lg:grid-cols-[1fr_1.05fr] lg:items-start"]}>
+        <div>
+          <h2 class="title title-rule text-brand">{c.title}</h2>
+          {body && <div class="prose-body mt-6" set:html={body} />}
+          <a href="/iletisim/#form" class="btn btn-primary mt-8">Bu ürün için teklif isteyin<Icon name="arrow" /></a>
+        </div>
+        {c.cover && (
+          <div class="framed ml-3 aspect-[4/3]">
+            <Photo img={c.cover} alt={c.title} sizes="(min-width: 1024px) 560px, 100vw" width={1200} />
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  {c.gallery.length > 0 && (
+    <section class="section bg-mist">
       <div class="wrap">
-        <h2 class="title">Fotoğraflar</h2>
-        <div class="gallery mt-8">
+        <h2 class="title title-rule">Fotoğraflar</h2>
+        <div class="gallery mt-10">
           {c.gallery.map((g, i) => <Photo img={g} alt={`${c.title}, fotoğraf ${i + 1}`} sizes="(min-width: 768px) 33vw, 50vw" width={800} />)}
         </div>
       </div>

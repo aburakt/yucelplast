@@ -2,14 +2,15 @@
 @import "@fontsource-variable/dm-sans/wght.css";
 
 /*
- * Yücel Plast teması: eski sitenin kurumsal mavisi (#0061a3, logodan) ve beyaz kartları korunur; zemin buz mavisi-gri,
- * koyu bantlar lacivert. Ürün fotoğrafları öne çıkar; ince mavi çerçeveli yuvarlak köşeli fotoğraf eski sitenin imzasıdır.
+ * Yücel Plast teması: eski sitenin düzeni modernleştirildi. Kurumsal mavi (#0061a3, logodan) degrade bantlar (üst menü,
+ * sayfa başlığı, alt bilgi), beyaz zemin, mavi kutulu ürün kartları, ince mavi kaydırılmış çerçeveli fotoğraf.
  * Tek sabit tema: koyu moda otomatik geçiş yok. CSP style-src 'self': stil yalnız bu dosyada, style= yok.
  * Renkler pb/pb_hooks/site.js BRAND ile aynı (color = brand, ink = ink, paper = canvas).
  */
 @theme {
   --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --color-canvas: #f3f6f9;
+  --color-canvas: #ffffff;
+  --color-mist: #f3f6f9;
   --color-paper: #ffffff;
   --color-line: #d9e2ea;
   --color-ink: #14202e;
@@ -40,14 +41,10 @@
 
   .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brand); }
   .eyebrow::before { content: ""; width: 1.75rem; height: 2px; background: currentColor; }
-  .on-dark .eyebrow { color: #8ec5ef; }
   .title { font-size: clamp(1.9rem, 3.6vw, 2.75rem); }
   .lead { font-size: 1.125rem; color: var(--color-ink-soft); max-width: 62ch; }
   .muted { color: var(--color-ink-soft); }
 
-  .on-dark { background: var(--color-navy); color: #e8eef5; }
-  .on-dark .muted { color: #a9bacb; }
-  .on-dark a { color: #fff; }
 
   .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1rem; }
 
@@ -62,36 +59,112 @@
   .btn-primary:hover { background: var(--color-brand-deep); }
   .btn-ghost { border: 1.5px solid var(--color-line); color: var(--color-ink); background: var(--color-paper); }
   .btn-ghost:hover { border-color: var(--color-brand); color: var(--color-brand); }
-  .on-dark .btn-ghost { background: transparent; color: #fff; border-color: rgb(255 255 255 / 0.35); }
-  .on-dark .btn-ghost:hover { border-color: #fff; }
   .btn:disabled { opacity: 0.6; cursor: wait; }
   .arrow-link { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none; }
   .arrow-link svg { width: 1rem; height: 1rem; transition: transform 0.15s; }
   .arrow-link:hover svg { transform: translateX(3px); }
 
+  /* eski sitenin degrade mavi bandı: üst menü, sayfa başlığı, alt bilgi */
+  .band { background: linear-gradient(115deg, #006bb4 0%, #00599a 45%, #0b3f70 100%); color: #fff; }
+  .band .muted { color: #c4d8ea; }
+  .band a { color: #fff; }
+
   /* üst menü */
-  .site-nav a { color: var(--color-ink); text-decoration: none; font-weight: 500; }
-  .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--color-brand); }
+  .site-header { position: sticky; top: 0; z-index: 30; box-shadow: 0 1px 0 rgb(255 255 255 / 0.12); }
+  .site-nav > a, .dd > a { color: #fff; text-decoration: none; font-weight: 500; padding-block: 0.5rem; }
+  .site-nav > a:hover, .dd > a:hover, .site-nav [aria-current="page"] { color: #bfe0f8; }
+  .home-btn { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 0.35rem; background: #fff; color: var(--color-brand) !important; }
+  .home-btn svg { width: 1.15rem; height: 1.15rem; }
+  .dd { position: relative; display: flex; align-items: center; gap: 0.3rem; }
+  .dd > a { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .dd > a svg { width: 0.9rem; height: 0.9rem; transition: transform 0.15s; }
+  .dd-panel { position: absolute; left: -1rem; top: 100%; min-width: 15rem; padding: 0.5rem; border-radius: 0.6rem; background: #fff; box-shadow: 0 18px 40px -16px rgb(11 42 74 / 0.45); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.15s, transform 0.15s, visibility 0.15s; }
+  .dd:hover .dd-panel, .dd:focus-within .dd-panel { opacity: 1; visibility: visible; transform: none; }
+  .dd:hover > a svg, .dd:focus-within > a svg { transform: rotate(180deg); }
+  .dd-panel a { display: block; padding: 0.5rem 0.75rem; border-radius: 0.4rem; color: var(--color-ink); text-decoration: none; font-weight: 500; white-space: nowrap; }
+  .dd-panel a:hover, .dd-panel a[aria-current="page"] { background: var(--color-brand-soft); color: var(--color-brand); }
+  .dd-panel.cols { display: grid; grid-template-columns: 1fr 1fr; min-width: 26rem; }
   .menu > summary { list-style: none; }
   .menu > summary::-webkit-details-marker { display: none; }
+  .mobile-nav a { color: var(--color-ink); text-decoration: none; font-weight: 500; }
+  .mobile-nav a[aria-current="page"] { color: var(--color-brand); }
 
-  /* ürün grubu kartı */
-  .cat-card { display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s; }
-  .cat-card:hover { border-color: var(--color-brand); transform: translateY(-2px); box-shadow: 0 12px 28px -18px rgb(11 42 74 / 0.45); }
-  .cat-media { aspect-ratio: 4 / 3; background: linear-gradient(160deg, var(--color-brand) 0%, var(--color-navy) 100%); display: grid; place-items: center; color: #fff; overflow: hidden; }
-  .cat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-  .cat-card:hover .cat-media img { transform: scale(1.03); }
-  .cat-media svg { width: 30%; height: auto; opacity: 0.95; }
-  .product-media { aspect-ratio: 3 / 2; background: var(--color-brand-soft); display: grid; place-items: center; color: var(--color-brand); overflow: hidden; }
-  .product-media img { width: 100%; height: 100%; object-fit: cover; }
-  .product-media svg { width: 22%; height: auto; }
+  /* sayfa başlık bandı: başlığın önünde beyaz çizgi, sağda büyük beyaz simge (eski site) */
+  .page-band h1 { display: flex; align-items: center; gap: 1rem; }
+  .page-band h1::before { content: ""; width: clamp(1.5rem, 4vw, 3rem); height: 2px; background: currentColor; flex: none; }
+  .page-band .band-icon { width: clamp(3.5rem, 7vw, 5.5rem); height: auto; color: #fff; opacity: 0.95; }
+  .page-band .crumbs { color: #c4d8ea; }
+  .page-band .crumbs a:hover { color: #fff; }
+
+  /* ana sayfa hero: koyulaştırılmış bina fotoğrafı üstünde metin */
+  .hero { position: relative; isolation: isolate; overflow: hidden; color: #fff; }
+  .hero-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(4 30 56 / 0.88) 0%, rgb(4 30 56 / 0.6) 55%, rgb(0 97 163 / 0.25) 100%); }
+  .hero h1 { font-weight: 700; }
+  .hero h1 em { display: block; font-style: normal; color: #9fd0f5; }
+
+  /* değişen kelime (eski sitedeki "İnovasyon ve ... Buluştuğu Nokta"): yalnız CSS, hareket azaltılınca ilk kelime sabit */
+  .rotator { display: inline-grid; vertical-align: bottom; color: var(--color-brand); }
+  .rotator > span { grid-area: 1 / 1; opacity: 0; animation: rotator 7.5s infinite; }
+  .rotator > span:nth-child(2) { animation-delay: 2.5s; }
+  .rotator > span:nth-child(3) { animation-delay: 5s; }
+  @keyframes rotator { 0% { opacity: 0; transform: translateY(0.4em); } 4%, 30% { opacity: 1; transform: none; } 34%, 100% { opacity: 0; transform: translateY(-0.4em); } }
+  @media (prefers-reduced-motion: reduce) { .rotator > span { animation: none; } .rotator > span:first-child { opacity: 1; } }
+  .title-rule::after { content: ""; display: block; width: 5.5rem; height: 3px; margin-top: 1.1rem; background: var(--color-ink-soft); opacity: 0.6; }
+
+  /* akordeon ("Neden Yücel Plast?") */
+  .acc details { border-radius: 0.5rem; }
+  .acc summary { display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; border-radius: 0.5rem; cursor: pointer; list-style: none; font-weight: 650; color: var(--color-brand); }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary::before { content: "+"; display: grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 999px; border: 1.5px solid currentColor; font-size: 0.95rem; line-height: 1; flex: none; }
+  .acc details[open] summary { background: var(--color-brand); color: #fff; }
+  .acc details[open] summary::before { content: "−"; }
+  .acc details p { padding: 0.9rem 1rem 0.4rem; color: var(--color-ink-soft); }
+
+  /* mavi simgeli ürün grubu kartı (eski ana sayfa) */
+  .icon-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; min-height: 15rem; padding: 2rem 1.25rem; border-radius: 0.6rem; text-decoration: none; color: #fff !important; background: linear-gradient(180deg, #006bb4 0%, #004f88 100%); transition: transform 0.2s, box-shadow 0.2s; }
+  .icon-card:hover { transform: translateY(-4px); box-shadow: 0 18px 32px -18px rgb(0 60 110 / 0.7); }
+  .icon-card svg { width: 4.5rem; height: 4.5rem; }
+  .icon-card h3 { font-size: 1.15rem; font-weight: 650; text-align: center; }
+  .icon-card h3::after { content: ""; display: block; width: 100%; min-width: 9rem; height: 1px; margin-top: 1rem; background: rgb(255 255 255 / 0.55); }
+
+  /* fotoğraf + mavi kutu ürün kartı (eski ürün ve grup sayfaları) */
+  .box-card { display: flex; flex-direction: column; width: 100%; text-decoration: none; color: inherit; }
+  .box-media { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 0.6rem 0.6rem 0 0; background: #fff; display: grid; place-items: center; }
+  .box-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .box-media.icon { background: linear-gradient(180deg, #006bb4 0%, #004f88 100%); color: #fff; }
+  .box-media.icon svg { width: 34%; height: auto; }
+  .box-body { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.1rem 1.25rem 1.3rem; background: var(--color-brand); color: #fff; border-radius: 0 0 0.6rem 0.6rem; text-align: center; }
+  .box-body h2, .box-body h3 { font-size: 1.1rem; font-weight: 650; }
+  .box-body p { font-size: 0.875rem; color: #d3e5f4; }
+  .box-btn { margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1.1rem; border: 1.5px solid #fff; border-radius: 0.3rem; font-size: 0.875rem; font-weight: 600; color: #fff; text-decoration: none; transition: background-color 0.15s, color 0.15s; }
+  a.box-card:hover .box-media img { transform: scale(1.04); }
+  a.box-card:hover .box-btn, a.box-btn:hover { background: #fff; color: var(--color-brand); }
+
+  /* "Siz de ... bize ulaşın!" şeridi (eski sitenin sayfa sonu) */
+  .cta-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; padding: 1.1rem 1.5rem; border-radius: 0.5rem; background: var(--color-brand); color: #fff; }
+  .cta-strip strong { font-size: 1.2rem; padding-right: 1.5rem; border-right: 1px solid rgb(255 255 255 / 0.5); }
+  .cta-strip p { flex: 1 1 16rem; }
+  .cta-strip a { margin-left: auto; padding: 0.45rem 1.4rem; border: 1.5px solid #fff; border-radius: 0.3rem; font-weight: 600; color: #fff; text-decoration: none; }
+  .cta-strip a:hover { background: #fff; color: var(--color-brand); }
+  @media (max-width: 639px) { .cta-strip strong { border-right: 0; padding-right: 0; } .cta-strip a { margin-left: 0; } }
+
+  /* mavi tonlu fotoğraf (eski Hakkımızda) */
+  .tinted { position: relative; overflow: hidden; border-radius: 0.5rem; }
+  .tinted::after { content: ""; position: absolute; inset: 0; background: rgb(0 97 163 / 0.35); mix-blend-mode: multiply; pointer-events: none; }
+  .tinted img { width: 100%; height: 100%; object-fit: cover; }
+
+  .map-frame { width: 100%; aspect-ratio: 16 / 10; border: 0; border-radius: 0.6rem; background: var(--color-mist); }
+  .footer-list a { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; color: #d8e7f4; }
+  .footer-list a:hover { color: #fff; }
+  .footer-list svg { width: 0.85rem; height: 0.85rem; opacity: 0.7; }
+
 
   .gallery { columns: 2; column-gap: 1rem; }
   @media (min-width: 768px) { .gallery { columns: 3; } }
   .gallery > * { break-inside: avoid; margin-bottom: 1rem; }
   .gallery img { width: 100%; height: auto; border-radius: 0.75rem; background: var(--color-paper); }
 
-  .feature-num { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; background: var(--color-brand-soft); color: var(--color-brand); font-weight: 700; }
 
   .crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.875rem; color: var(--color-ink-soft); }
   .crumbs a { color: inherit; text-decoration: none; }

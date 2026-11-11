@@ -17,33 +17,38 @@ const jsonLd = graph(
 <Base title="Hakkımızda" path="/hakkimizda/" description={lead} jsonLd={jsonLd}>
   <PageHero title="Hakkımızda" lead={lead} crumbs={[]} />
   <section class="section">
-    <div class="wrap grid items-start gap-14 lg:grid-cols-2">
+    <div class="wrap grid items-center gap-14 lg:grid-cols-2">
       <div>
-        <h2 class="title">{s.aboutTitle}</h2>
+        <h2 class="title text-brand">{s.companyName}</h2>
+        <p class="mt-3 text-lg font-semibold text-ink-soft">{s.aboutTitle}</p>
         {paragraphs.map((p) => <p class="muted mt-4 text-[1.05rem]">{p}</p>)}
       </div>
       {s.aboutImage && (
-        <div class="framed ml-3 aspect-[4/3]">
+        <div class="tinted aspect-[4/3]">
           <Photo img={s.aboutImage} alt={`${s.companyName} fabrika binası`} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" width={1200} />
         </div>
       )}
     </div>
   </section>
   {features.length > 0 && (
-    <section class="section border-t border-line bg-paper">
-      <div class="wrap grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+    <section class="section bg-mist">
+      <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+        {s.aboutImage2 && (
+          <div class="framed ml-3 aspect-[4/3]">
+            <Photo img={s.aboutImage2} alt={`${s.companyName} üretim alanı`} sizes="(min-width: 1024px) 560px, 100vw" width={1200} />
+          </div>
+        )}
         <div>
-          <h2 class="title">Neden Yücel Plast?</h2>
-          {s.aboutImage2 && <Photo img={s.aboutImage2} alt="Üretim alanı" class="mt-8 w-full rounded-xl" sizes="(min-width: 1024px) 480px, 100vw" width={1200} />}
+          <h2 class="title title-rule">Neden {s.companyName}?</h2>
+          <div class="acc mt-8 grid gap-2">
+            {features.map((f, i) => (
+              <details name="neden" open={i === 0}>
+                <summary>{f.title}</summary>
+                <p>{f.text}</p>
+              </details>
+            ))}
+          </div>
         </div>
-        <ul class="grid gap-5">
-          {features.map((f, i) => (
-            <li class="card flex gap-5 p-6">
-              <span class="feature-num shrink-0" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <div><h3 class="text-lg">{f.title}</h3><p class="muted mt-1.5">{f.text}</p></div>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   )}

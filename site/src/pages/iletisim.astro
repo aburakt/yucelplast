@@ -6,7 +6,7 @@ import Base from "../layouts/Base.astro"
 import { loadSite } from "../lib/content"
 import { lines, telHref } from "../lib/format"
 import { breadcrumbList, graph, webPage } from "../lib/jsonld"
-import { mapsHref } from "../lib/nav"
+import { mapsEmbed, mapsHref } from "../lib/nav"
 
 const { settings: s } = await loadSite()
 const lead = "Teklif, numune ve sorularınız için bize yazın ya da arayın."
@@ -18,39 +18,39 @@ const jsonLd = graph(
 <Base title="İletişim" path="/iletisim/" description={lead} jsonLd={jsonLd}>
   <PageHero title="İletişim" lead={lead} crumbs={[]} />
   <section class="section">
-    <div class="wrap grid items-start gap-12 lg:grid-cols-[1fr_1.4fr]">
-      <div class="grid gap-5">
-        <div class="card flex gap-4 p-6">
-          <Icon name="pin" class="h-6 w-6 shrink-0 text-brand" />
-          <div>
-            <h2 class="text-lg">Adres</h2>
-            <address class="muted mt-1 not-italic">{lines(s.address).map((l) => <span class="block">{l}</span>)}</address>
-            <a href={mapsHref(s.mapsUrl, s.address)} rel="noopener" target="_blank" class="arrow-link mt-3 text-sm">Yol tarifi al<Icon name="arrow" /></a>
-          </div>
-        </div>
-        {(s.phone || s.phone2) && (
-          <div class="card flex gap-4 p-6">
-            <Icon name="phone" class="h-6 w-6 shrink-0 text-brand" />
-            <div>
-              <h2 class="text-lg">Telefon</h2>
-              {[s.phone, s.phone2].filter(Boolean).map((t) => <a href={telHref(t!)} class="mt-1 block font-semibold no-underline">{t}</a>)}
-            </div>
-          </div>
-        )}
-        {s.email && (
-          <div class="card flex gap-4 p-6">
-            <Icon name="mail" class="h-6 w-6 shrink-0 text-brand" />
-            <div>
-              <h2 class="text-lg">E-posta</h2>
-              <a href={`mailto:${s.email}`} class="mt-1 block font-semibold no-underline">{s.email}</a>
-            </div>
-          </div>
-        )}
-      </div>
+    <div class="wrap grid items-start gap-12 lg:grid-cols-[1fr_1.3fr]">
       <div>
-        <h2 class="title mb-6">Teklif ve mesaj formu</h2>
-        <ContactForm />
+        <h2 class="title title-rule text-brand">Ankara</h2>
+        <ul class="mt-8 grid gap-5">
+          <li class="flex gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand text-white"><Icon name="pin" /></span>
+            <div>
+              <address class="not-italic font-medium">{lines(s.address).map((l) => <span class="block">{l}</span>)}</address>
+              <a href={mapsHref(s.mapsUrl, s.address)} rel="noopener" target="_blank" class="arrow-link mt-1 text-sm">Yol tarifi al<Icon name="arrow" /></a>
+            </div>
+          </li>
+          {[s.phone, s.phone2].filter(Boolean).map((t) => (
+            <li class="flex items-center gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand text-white"><Icon name="phone" /></span>
+              <a href={telHref(t!)} class="font-semibold text-ink no-underline hover:text-brand">{t}</a>
+            </li>
+          ))}
+          {s.email && (
+            <li class="flex items-center gap-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand text-white"><Icon name="mail" /></span>
+              <a href={`mailto:${s.email}`} class="font-semibold text-ink no-underline hover:text-brand">{s.email}</a>
+            </li>
+          )}
+        </ul>
       </div>
+      <iframe src={mapsEmbed(s.address)} title={`${s.companyName} konumu, Google Haritalar`} class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  <section class="section bg-mist">
+    <div class="wrap max-w-[52rem]">
+      <h2 class="title title-rule">Teklif ve mesaj formu</h2>
+      <p class="muted mt-4">Ürün, adet ve özelleştirme isteğinizi yazın; en kısa sürede dönüş yapalım.</p>
+      <div class="mt-8"><ContactForm /></div>
     </div>
   </section>
 </Base>

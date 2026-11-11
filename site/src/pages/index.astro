@@ -1,84 +1,99 @@
 ---
-import CategoryCard from "../components/CategoryCard.astro"
-import CtaBand from "../components/CtaBand.astro"
 import Icon from "../components/Icon.astro"
 import Photo from "../components/Photo.astro"
 import Base from "../layouts/Base.astro"
 import { loadSite, topCategories } from "../lib/content"
 
+// Eski ana sayfanın sırası: bina fotoğraflı hero, değişen kelimeli tanıtım, akordeonlu "Neden Yücel Plast?",
+// mavi simgeli ürün grubu kartları ve "Tüm Ürünler".
 const site = await loadSite()
 const { settings: s, features } = site
 const featured = topCategories(site).filter((c) => c.featured)
 const paragraphs = s.aboutText.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+// "Kaliteli Ürünler, Güvenilir Çözümler": virgülden sonrası ikinci satırda, açık mavi
+const [heroA, ...heroRest] = s.heroTitle.split(/,\s*/)
+const heroB = heroRest.join(", ")
+// "İnovasyon ve Kaliteli İşçiliğin Buluştuğu Nokta": "ve" ile "Buluştuğu" arası değişen kelime (eski sitedeki gibi)
+const m = s.aboutTitle.match(/^(.*?\bve)\s+(.+?)\s+(Buluştuğu.*)$/)
+const words = m ? [m[2]!, "Estetiğin", "Güvenin"] : []
 ---
 <Base path="/">
-  <section class="overflow-hidden">
-    <div class="wrap grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-      <div>
-        <p class="eyebrow">{s.since ? `${s.since}'den bu yana · Ankara` : "Ankara"}</p>
-        <h1 class="mt-5 text-[clamp(2.3rem,5.2vw,3.7rem)]">{s.heroTitle}</h1>
-        {s.heroText && <p class="lead mt-5">{s.heroText}</p>}
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="/urunler/" class="btn btn-primary">Ürünleri inceleyin<Icon name="arrow" /></a>
-          <a href="/iletisim/#form" class="btn btn-ghost">Teklif isteyin</a>
-        </div>
+  <section class="hero">
+    {s.heroImage && <Photo img={s.heroImage} alt="" class="hero-img" sizes="100vw" loading="eager" width={1920} />}
+    <div class="wrap py-24 md:py-36">
+      <p class="eyebrow !text-[#bfe0f8]">{s.since ? `${s.since}'den bu yana · Ankara` : "Ankara"}</p>
+      <h1 class="mt-5 max-w-[16ch] text-[clamp(2.4rem,6vw,4.4rem)]">{heroA}{heroB && <>, <em>{heroB}</em></>}</h1>
+      {s.heroText && <p class="mt-6 max-w-[56ch] text-[1.1rem] text-[#dbe9f5]">{s.heroText}</p>}
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="/hakkimizda/" class="btn btn-primary">Detaylı İncele<Icon name="arrow" /></a>
+        <a href="/urunler/" class="btn btn-ghost !border-white/50 !bg-transparent !text-white hover:!border-white">Ürünlerimiz</a>
       </div>
-      {s.heroImage && (
-        <div class="framed ml-3 aspect-[4/3]">
-          <Photo img={s.heroImage} alt={`${s.companyName} ürünleri`} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" width={1200} />
-        </div>
-      )}
-    </div>
-  </section>
-
-  <section class="section bg-paper">
-    <div class="wrap">
-      <div class="flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <p class="eyebrow">Ürün grupları</p>
-          <h2 class="title mt-3">Ne üretiyoruz?</h2>
-        </div>
-        <a href="/urunler/" class="arrow-link">Tüm ürün grupları<Icon name="arrow" /></a>
-      </div>
-      <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {featured.map((c) => <li class="flex"><CategoryCard category={c} /></li>)}
-      </ul>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+      <div>
+        {m ? (
+          <h2 class="title title-rule font-medium text-ink-soft">
+            <span class="sr-only">{s.aboutTitle}</span>
+            <span aria-hidden="true">{m[1]} <span class="rotator font-bold">{words.map((w) => <span>{w}</span>)}</span><br />{m[3]}</span>
+          </h2>
+        ) : <h2 class="title title-rule">{s.aboutTitle}</h2>}
+        {paragraphs.map((p) => <p class="muted mt-5">{p}</p>)}
+        <a href="/hakkimizda/" class="btn btn-primary mt-8">{s.companyName} Hakkında<Icon name="arrow" /></a>
+      </div>
       {s.aboutImage && (
         <div class="framed ml-3 aspect-[4/3]">
           <Photo img={s.aboutImage} alt={`${s.companyName} fabrika binası`} sizes="(min-width: 1024px) 560px, 100vw" width={1200} />
         </div>
       )}
-      <div>
-        <p class="eyebrow">Hakkımızda</p>
-        <h2 class="title mt-3">{s.aboutTitle}</h2>
-        {paragraphs.map((p) => <p class="muted mt-4">{p}</p>)}
-        <a href="/hakkimizda/" class="arrow-link mt-6">Yücel Plast hakkında<Icon name="arrow" /></a>
-      </div>
     </div>
   </section>
 
   {features.length > 0 && (
-    <section class="section border-t border-line bg-paper">
-      <div class="wrap">
-        <p class="eyebrow">Neden Yücel Plast?</p>
-        <h2 class="title mt-3">Tasarımdan teslimata tek elden</h2>
-        <ul class="mt-10 grid gap-5 md:grid-cols-3">
-          {features.map((f, i) => (
-            <li class="card p-6">
-              <span class="feature-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <h3 class="mt-4 text-lg">{f.title}</h3>
-              <p class="muted mt-2">{f.text}</p>
-            </li>
-          ))}
-        </ul>
+    <section class="section bg-mist">
+      <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+        {s.aboutImage2 && (
+          <div class="framed ml-3 aspect-[4/3]">
+            <Photo img={s.aboutImage2} alt={`${s.companyName} üretim alanı`} sizes="(min-width: 1024px) 560px, 100vw" width={1200} />
+          </div>
+        )}
+        <div>
+          <p class="text-[1.6rem] font-medium text-ink-soft">Neden {s.companyName}?</p>
+          <h2 class="title title-rule mt-1 text-brand">Tecrübe ve Güvenilirlik</h2>
+          <div class="acc mt-8 grid gap-2">
+            {features.map((f, i) => (
+              <details name="neden" open={i === 0}>
+                <summary>{f.title}</summary>
+                <p>{f.text}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )}
 
-  <CtaBand />
+  <section class="section">
+    <div class="wrap">
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="flex flex-col justify-center p-2 sm:col-span-2 lg:col-span-1">
+          <h2 class="title">Ürünler</h2>
+          <p class="muted mt-3">{s.companyName}, ürünleriyle müşterilerine özgün ve işlevsel ambalaj çözümleri sunar.</p>
+        </li>
+        {featured.map((c) => (
+          <li class="flex">
+            <a href={c.path} class="icon-card w-full">
+              <Icon name={c.icon} stroke={1.1} class="" />
+              <h3>{c.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10 text-center">
+        <a href="/urunler/" class="btn btn-primary"><Icon name="arrow" />Tüm Ürünler</a>
+      </div>
+    </div>
+  </section>
 </Base>
