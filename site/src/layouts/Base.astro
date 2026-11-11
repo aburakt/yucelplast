@@ -8,7 +8,7 @@ import Logo from "../components/Logo.astro"
 import { loadSite, topCategories } from "../lib/content"
 import { lines, telHref } from "../lib/format"
 import { type Alternate, DEFAULT_LANG, type Lang } from "../lib/i18n"
-import { MENU, mapsHref } from "../lib/nav"
+import { CORPORATE, MENU, mapsHref } from "../lib/nav"
 import { isFixtureMode } from "../lib/pb"
 import { cfBeacon } from "../lib/seo"
 
@@ -33,20 +33,36 @@ const beacon = isFixtureMode() ? undefined : cfBeacon(s.cfAnalyticsToken)
   <body class="flex min-h-dvh flex-col">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded focus:bg-paper focus:px-3 focus:py-2">İçeriğe geç</a>
     {isFixtureMode() && <p data-fixture-banner class="fixture-banner">Önizleme: örnek içerik (PocketBase bağlı değil)</p>}
-    <header class="sticky top-0 z-30 border-b border-line bg-paper/95 backdrop-blur">
+    <header class="band site-header">
       <div class="wrap flex h-[4.75rem] items-center justify-between gap-6">
-        <a href="/" class="text-brand no-underline" aria-label={`${s.companyName}, ana sayfa`}><Logo class="h-10 w-auto md:h-12" /></a>
+        <a href="/" class="text-white no-underline" aria-label={`${s.companyName}, ana sayfa`}><Logo class="h-10 w-auto md:h-12" /></a>
         <nav aria-label="Ana menü" class="site-nav hidden items-center gap-7 whitespace-nowrap text-[0.95rem] lg:flex">
+          <a href="/" class="home-btn" aria-label="Ana sayfa" aria-current={path === "/" ? "page" : undefined}><Icon name="home" stroke={2} /></a>
+          <div class="dd">
+            <a href="/hakkimizda/" aria-current={CORPORATE.some((n) => current(n.href)) ? "page" : undefined}>Kurumsal<Icon name="down" stroke={2} /></a>
+            <div class="dd-panel">
+              {CORPORATE.map((n) => <a href={n.href} aria-current={current(n.href)}>{n.label}</a>)}
+            </div>
+          </div>
+          <div class="dd">
+            <a href="/urunler/" aria-current={current("/urunler/")}>Ürünlerimiz<Icon name="down" stroke={2} /></a>
+            <div class="dd-panel cols">
+              {cats.map((c) => <a href={c.path} aria-current={current(c.path)}>{c.title}</a>)}
+            </div>
+          </div>
           {MENU.map((n) => <a href={n.href} aria-current={current(n.href)}>{n.label}</a>)}
         </nav>
         <div class="flex items-center gap-3">
-          {s.phone && <a href={telHref(s.phone)} class="hidden items-center gap-2 font-semibold text-ink no-underline xl:inline-flex"><Icon name="phone" class="h-4 w-4 text-brand" />{s.phone}</a>}
-          <a href="/iletisim/#form" class="btn btn-primary hidden sm:inline-flex">Teklif isteyin</a>
+          {s.phone && <a href={telHref(s.phone)} class="hidden items-center gap-2 font-semibold text-white no-underline xl:inline-flex"><Icon name="phone" class="h-4 w-4" />{s.phone}</a>}
           <details class="menu relative lg:hidden">
-            <summary class="btn btn-ghost px-3" aria-label="Menüyü aç"><Icon name="burger" /></summary>
-            <nav aria-label="Mobil menü" class="site-nav card absolute right-0 top-full z-40 mt-3 grid w-[min(20rem,calc(100vw-2.5rem))] gap-0.5 p-2 shadow-xl">
-              {MENU.map((n) => <a href={n.href} aria-current={current(n.href)} class="rounded-md px-3 py-2.5 hover:bg-canvas">{n.label}</a>)}
-              {s.phone && <a href={telHref(s.phone)} class="rounded-md px-3 py-2.5 hover:bg-canvas">{s.phone}</a>}
+            <summary class="btn px-3 text-white border border-white/40" aria-label="Menüyü aç"><Icon name="burger" /></summary>
+            <nav aria-label="Mobil menü" class="mobile-nav card absolute right-0 top-full z-40 mt-3 grid max-h-[calc(100dvh-6rem)] w-[min(20rem,calc(100vw-2.5rem))] gap-0.5 overflow-y-auto p-2 shadow-xl">
+              <a href="/" aria-current={path === "/" ? "page" : undefined} class="rounded-md px-3 py-2.5 hover:bg-mist">Ana sayfa</a>
+              {CORPORATE.map((n) => <a href={n.href} aria-current={current(n.href)} class="rounded-md px-3 py-2.5 hover:bg-mist">{n.label}</a>)}
+              <a href="/urunler/" aria-current={path === "/urunler/" ? "page" : undefined} class="rounded-md px-3 py-2.5 hover:bg-mist">Ürünlerimiz</a>
+              {cats.map((c) => <a href={c.path} aria-current={current(c.path)} class="rounded-md py-2 pl-7 pr-3 text-[0.92rem] hover:bg-mist">{c.title}</a>)}
+              {MENU.map((n) => <a href={n.href} aria-current={current(n.href)} class="rounded-md px-3 py-2.5 hover:bg-mist">{n.label}</a>)}
+              {s.phone && <a href={telHref(s.phone)} class="rounded-md px-3 py-2.5 hover:bg-mist">{s.phone}</a>}
               <a href="/iletisim/#form" class="btn btn-primary mt-2">Teklif isteyin</a>
             </nav>
           </details>
@@ -56,38 +72,34 @@ const beacon = isFixtureMode() ? undefined : cfBeacon(s.cfAnalyticsToken)
 
     <main id="main" class="flex-1"><slot /></main>
 
-    <footer class="on-dark">
-      <div class="wrap grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
+    <footer class="band">
+      <div class="wrap grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1.3fr]">
         <div>
           <Logo class="h-11 w-auto text-white" />
-          <p class="muted mt-5 max-w-[34ch] text-sm">{s.since ? `${s.since} yılından bu yana ` : ""}markalara özel dosya, kap, kutu ve promosyon ürünleri üretiyoruz. Sürekli gelişen teknolojiyi takip eden makine parkurumuzla ürün kalitemizi geliştiriyoruz.</p>
+          <h2 class="mt-6 text-lg font-semibold">Hakkımızda</h2>
+          <p class="muted mt-3 max-w-[36ch] text-sm">{s.since ? `${s.since} yılından bu yana ` : ""}markalara özel dosya, kap, kutu ve promosyon ürünleri üretiyoruz. Firmamız sürekli gelişen teknolojiyi takip eden makine parkuru ile ürün kalitesini sürekli geliştirmektedir.</p>
         </div>
         <div>
-          <h2 class="text-sm font-semibold tracking-wide text-white uppercase">Ürünler</h2>
-          <ul class="mt-4 grid gap-2 text-sm">
-            {cats.map((c) => <li><a href={c.path} class="no-underline hover:underline">{c.title}</a></li>)}
-          </ul>
-        </div>
-        <div>
-          <h2 class="text-sm font-semibold tracking-wide text-white uppercase">Kurumsal</h2>
-          <ul class="mt-4 grid gap-2 text-sm">
-            {MENU.filter((n) => n.href !== "/urunler/").map((n) => <li><a href={n.href} class="no-underline hover:underline">{n.label}</a></li>)}
-          </ul>
-        </div>
-        <div>
-          <h2 class="text-sm font-semibold tracking-wide text-white uppercase">İletişim</h2>
-          <address class="mt-4 grid gap-2 text-sm not-italic">
-            <span>{lines(s.address).map((l) => <span class="block">{l}</span>)}</span>
-            <a href={mapsHref(s.mapsUrl, s.address)} rel="noopener" target="_blank" class="arrow-link text-sm">Haritada aç<Icon name="arrow" /></a>
-            {s.phone && <a href={telHref(s.phone)} class="no-underline hover:underline">{s.phone}</a>}
-            {s.phone2 && <a href={telHref(s.phone2)} class="no-underline hover:underline">{s.phone2}</a>}
-            {s.email && <a href={`mailto:${s.email}`} class="no-underline hover:underline">{s.email}</a>}
+          <h2 class="text-lg font-semibold">İletişim</h2>
+          <address class="footer-list mt-4 grid gap-3 text-sm not-italic">
+            <span class="flex gap-2.5"><Icon name="pin" class="mt-0.5 h-4 w-4 shrink-0" /><span>{lines(s.address).map((l) => <span class="block">{l}</span>)}<a href={mapsHref(s.mapsUrl, s.address)} rel="noopener" target="_blank" class="mt-1 underline">Haritada aç</a></span></span>
+            {s.email && <a href={`mailto:${s.email}`}><Icon name="mail" class="h-4 w-4" />{s.email}</a>}
+            {s.phone && <a href={telHref(s.phone)}><Icon name="phone" class="h-4 w-4" />{s.phone}</a>}
+            {s.phone2 && <a href={telHref(s.phone2)}><Icon name="phone" class="h-4 w-4" />{s.phone2}</a>}
           </address>
         </div>
+        <div>
+          <h2 class="text-lg font-semibold">Ürünlerimiz</h2>
+          <ul class="footer-list mt-4 grid gap-2 text-sm sm:grid-cols-2">
+            {cats.map((c) => <li><a href={c.path}><Icon name="right" stroke={2} />{c.title}</a></li>)}
+          </ul>
+        </div>
       </div>
-      <div class="border-t border-white/10">
+      <div class="border-t border-white/15">
         <div class="wrap muted flex flex-wrap items-center gap-x-6 gap-y-2 py-6 text-xs">
           <p>© {year} {s.companyName}</p>
+          {CORPORATE.map((n) => <a href={n.href} class="no-underline hover:underline">{n.label}</a>)}
+          {MENU.map((n) => <a href={n.href} class="no-underline hover:underline">{n.label}</a>)}
           {pages.length > 0 && (
             <nav aria-label="Yasal bilgiler" class="flex flex-wrap gap-x-6 gap-y-2">
               {pages.map((p) => <a href={`/${p.slug}/`} class="no-underline hover:underline">{p.title}</a>)}

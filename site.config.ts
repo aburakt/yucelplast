@@ -16,20 +16,20 @@ const patch = async (pb: Pb, collection: string, id: string, body: Record<string
 export const SITE: SiteConfig = {
   checks: [
     // tek dilli: hreflang yok (çok dilli sitede hasNot kaldırılır, has'a hreflang eklenir; docs/i18n.md)
-    { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Kaliteli ürünler, güvenilir çözümler", 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün Seçimi Danışmanlığı", "1977", 'href="/kvkk-aydinlatma-metni/"'], hasNot: ["hreflang", 'href="/urunler/yillik/" class="card'] },
-    { name: "Ürünler", path: "/urunler/", has: ["<h1", 'href="/urunler/kutu-uretimi/"', 'href="/urunler/canta/"', '"@type":"BreadcrumbList"'], hasNot: ['href="/urunler/kutu-uretimi/kapakli-kutu/" class="card'] },
+    { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Kaliteli Ürünler, <em>Güvenilir Çözümler</em>", "Tüm Ürünler", 'class="icon-card', 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün Seçimi Danışmanlığı", "1977", 'href="/kvkk-aydinlatma-metni/"'], hasNot: ["hreflang", 'href="/urunler/yillik/" class="icon-card'] },
+    { name: "Ürünler", path: "/urunler/", has: ["<h1", 'href="/urunler/kutu-uretimi/"', 'href="/urunler/canta/"', '"@type":"BreadcrumbList"'], hasNot: ['href="/urunler/kutu-uretimi/kapakli-kutu/" class="box-card'] },
     { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "18 Yaprak İçten Körüklü İmza Dosyası", "Fotoğraflar", '"@type":"CollectionPage"'] },
     { name: "Üst grup alt gruplarını listeler", path: "/urunler/kutu-uretimi/", has: ["Kutu Üretimi çeşitleri", 'href="/urunler/kutu-uretimi/kapakli-kutu/"', 'href="/urunler/kutu-uretimi/miknatisli-kutu/"', "Diğer modeller", "Silindir Kutu"] },
     { name: "Alt grup sayfası", path: "/urunler/kutu-uretimi/miknatisli-kutu/", has: ["<h1", "Mıknatıslı Kutu", 'href="/urunler/kutu-uretimi/">Kutu Üretimi</a>'] },
     { name: "Fotoğrafsız grup simgeyle görünür", path: "/urunler/canta/", has: ["<h1", "Karton Çanta", '<svg viewBox="0 0 24 24"'] },
-    { name: "Hakkımızda", path: "/hakkimizda/", has: ["<h1", "İnovasyon ve kaliteli işçiliğin buluştuğu nokta", '"@type":"AboutPage"'] },
-    { name: "Tasarım ve Özelleştirme", path: "/tasarim-ve-ozellestirme/", has: ["<h1", "Sıvama kutu modelleri", "Nasıl çalışıyoruz?"] },
+    { name: "Hakkımızda", path: "/hakkimizda/", has: ["<h1", "İnovasyon ve Kaliteli İşçiliğin Buluştuğu Nokta", '"@type":"AboutPage"'] },
+    { name: "Tasarım ve Özelleştirme", path: "/tasarim-ve-ozellestirme/", has: ["<h1", "Ürün Seçimi Danışmanlığı", "Ürün Özellikleri", "Sıvama Kutu"] },
     { name: "İnsan Kaynakları formu", path: "/insan-kaynaklari/", has: ["<h1", 'name="topic" value="is-basvurusu"', 'toolname="job_application"', "/api/collections/messages/records"] },
-    { name: "İletişim formu PB'ye gönderir", path: "/iletisim/", has: ["İvedik Organize Sanayi Bölgesi", 'data-contact-form', 'id="form"', "/api/collections/messages/records", 'name="kvkk_consent"', 'name="website"', 'name="topic"', '"@type":"ContactPage"'] },
+    { name: "İletişim formu PB'ye gönderir", path: "/iletisim/", has: ["İvedik Organize Sanayi Bölgesi", 'data-contact-form', 'id="form"', "/api/collections/messages/records", 'name="kvkk_consent"', 'name="website"', 'name="topic"', '"@type":"ContactPage"', 'src="https://www.google.com/maps?q=', ">Ankara</h2>"] },
     { name: "KVKK aydınlatma metni", path: "/kvkk-aydinlatma-metni/", has: ["<h1", "KVKK Aydınlatma Metni", "Taslak metin, gözden geçirilmeli"] },
     { name: "Gizlilik ve çerez politikası", path: "/gizlilik-politikasi/", has: ["<h1", "Çerezler"] },
     // PB adresi build'de connect-src'ye eklenir (site/integrations/pb-csp.ts); verify PB'si 127.0.0.1'de çalışır
-    { name: "CSP form gönderimine izin verir", path: "/_headers", has: ["connect-src 'self' https://cloudflareinsights.com http://127.0.0.1:"] },
+    { name: "CSP form gönderimine izin verir", path: "/_headers", has: ["frame-src https://www.google.com", "connect-src 'self' https://cloudflareinsights.com http://127.0.0.1:"] },
     { name: "404 sayfası", path: "/yok-boyle-bir-sayfa/", status: 404, has: ["Sayfa bulunamadı"] },
     { name: "Sitemap", path: "/sitemap-index.xml" },
     { name: "Sitemap grupları", path: "/sitemap-0.xml", has: ["/urunler/kutu-uretimi/kapakli-kutu/</loc>"] },

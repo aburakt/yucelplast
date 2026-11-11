@@ -6,10 +6,10 @@
     "email": "info@yucelplast.com",
     "address": "İvedik Organize Sanayi Bölgesi\n1341. Cadde No: 73\nYenimahalle / Ankara",
     "mapsUrl": "",
-    "heroTitle": "Kaliteli ürünler, güvenilir çözümler",
+    "heroTitle": "Kaliteli Ürünler, Güvenilir Çözümler",
     "heroText": "Yücel Plast, sektördeki geniş tecrübesi ve yenilikçi teknolojileri kullanarak üstün kaliteli ürünler üretir. Müşterilerinin ihtiyaçlarını derinlemesine analiz ederek her birine uygun, güvenilir ve özelleştirilmiş çözümler sunar.",
-    "heroImage": "hero-dosyalar.webp",
-    "aboutTitle": "İnovasyon ve kaliteli işçiliğin buluştuğu nokta",
+    "heroImage": "hero-bina.webp",
+    "aboutTitle": "İnovasyon ve Kaliteli İşçiliğin Buluştuğu Nokta",
     "aboutText": "Yücel Plast olarak değişmeyen hedefimiz yenilikçi, araştırmacı ve yaratıcı projeler üretmektir. Müşterilerimizin markalarına özel talepleri doğrultusunda ürün tasarımlarını yenilikçi fikirlerle geliştiriyor, size en uygun promosyon ürünlerini hazırlıyoruz.\n\nGrafik tasarım ekibimiz, grafik düzenleme ve montaj sırasında sizin istekleriniz doğrultusunda şekillenen tasarımları üretim sürecine hazırlar.",
     "aboutImage": "bina.webp",
     "aboutImage2": "uretim.webp",
@@ -201,7 +201,7 @@
       "summary": "Renk ve malzeme seçeneklerinizi müşterinize sunmanız için kartela.",
       "body": "<p>Yücel Plast Kartela, müşterilerin ihtiyaçlarına uygun olarak farklı renk ve malzeme seçenekleri sunar. Bu sayede müşteriler, ürünlerin farklı renklerini ve dokularını inceleyerek kendilerine en uygun olanı seçme imkânına sahip olurlar. Kartela, ürünler hakkında daha iyi bir fikir edinmeyi sağlar ve doğru kararı vermeye yardımcı olur.</p><p>Yücel Plast’ın kalitesi ve geniş ürün yelpazesiyle desteklenen Kartela, müşterilerimize daha iyi bir alışveriş deneyimi sunmayı amaçlar. Müşteri memnuniyetini ön planda tutan Yücel Plast, Kartela ürünüyle de bu prensibe bağlı kalarak müşterilerinin beklentilerini karşılamayı hedefler.</p>",
       "gallery": [],
-      "featured": false,
+      "featured": true,
       "products": [
         {
           "title": "Sıvama Kartela",
@@ -220,7 +220,7 @@
       "summary": "Araç ruhsatı, sigorta ve önemli evraklar için logolu kaplar.",
       "body": "<p>Yücel Plast’ın ürettiği Ruhsat Kabı, önemli belgeleri düzenli ve güvenli bir şekilde saklamak için ideal bir çözümdür. Sağlam malzeme ve özenli işçilikle üretilen bu ürünle müşterilerimize güvenilir bir çözüm sunuyoruz.</p><p>Ruhsat Kabı; sürücü ruhsatı, araç belgeleri ve trafik sigortası gibi önemli evrakları saklamak için kullanılır. Şeffaf tasarımıyla belgelerin kolayca görünmesini sağlar ve düzenli dosyalanmasına yardımcı olur. Dayanıklı malzemeden üretildiği için uzun ömürlüdür.</p><p>Yücel Plast Ruhsat Kabı; araç sahipleri, sürücüler ve işletmeler için pratik bir çözümdür. Bayi ve kurum logonuzla promosyon ürünü olarak da tercih edilir.</p>",
       "gallery": [],
-      "featured": false,
+      "featured": true,
       "products": [
         {
           "title": "Termo Ruhsat Kabı",
@@ -311,7 +311,7 @@
         "klasor-termo-1.webp",
         "klasor-termo-2.webp"
       ],
-      "featured": true,
+      "featured": false,
       "products": [
         {
           "title": "Termo Suni Deri Klasör",
