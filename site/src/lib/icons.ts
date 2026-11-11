@@ -24,7 +24,7 @@ export const UI_ICONS = {
   mail: "M3.5 6h17v12h-17zM3.5 7l8.5 6.5L20.5 7",
   pin: "M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
   arrow: "M5 12h14M13 6l6 6-6 6",
-  menu: "M4 7h16M4 12h16M4 17h16",
+  burger: "M4 7h16M4 12h16M4 17h16",
   check: "M5 12.5l4.5 4.5L19 7.5",
   design: "M4 20l4-1 11-11-3-3L5 16zM14 7l3 3M4 20h16",
   factory: "M3 21V10l5 3V10l5 3V10l5 3V4h3v17zM7 17h2M12 17h2M17 17h2",

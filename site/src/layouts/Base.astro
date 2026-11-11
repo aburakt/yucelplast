@@ -43,7 +43,7 @@ const beacon = isFixtureMode() ? undefined : cfBeacon(s.cfAnalyticsToken)
           {s.phone && <a href={telHref(s.phone)} class="hidden items-center gap-2 font-semibold text-ink no-underline xl:inline-flex"><Icon name="phone" class="h-4 w-4 text-brand" />{s.phone}</a>}
           <a href="/iletisim/#form" class="btn btn-primary hidden sm:inline-flex">Teklif isteyin</a>
           <details class="menu relative lg:hidden">
-            <summary class="btn btn-ghost px-3" aria-label="Menüyü aç"><Icon name="menu" /></summary>
+            <summary class="btn btn-ghost px-3" aria-label="Menüyü aç"><Icon name="burger" /></summary>
             <nav aria-label="Mobil menü" class="site-nav card absolute right-0 top-full z-40 mt-3 grid w-[min(20rem,calc(100vw-2.5rem))] gap-0.5 p-2 shadow-xl">
               {MENU.map((n) => <a href={n.href} aria-current={current(n.href)} class="rounded-md px-3 py-2.5 hover:bg-canvas">{n.label}</a>)}
               {s.phone && <a href={telHref(s.phone)} class="rounded-md px-3 py-2.5 hover:bg-canvas">{s.phone}</a>}

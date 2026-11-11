@@ -2,12 +2,15 @@ import { describe, expect, test } from "bun:test"
 import { readFileSync } from "node:fs"
 import { join } from "node:path"
 import content from "../site/src/data/content.json"
-import { ICON_NAMES } from "../site/src/lib/icons"
+import { ICON_NAMES, UI_ICONS } from "../site/src/lib/icons"
 
 // SİTEYE ÖZEL: simge listesi şemayla aynı, örnek içerik tutarlı.
 const ROOT = join(import.meta.dir, "..")
 
 describe("ürün grupları", () => {
+  test("arayüz simgesi grup simgesiyle aynı adı taşımaz (Icon önce grup simgesine bakar)", () => {
+    expect(Object.keys(UI_ICONS).filter((n) => (ICON_NAMES as string[]).includes(n))).toEqual([])
+  })
   test("simgeler migration ICONS ile aynı", () => {
     const migration = readFileSync(join(ROOT, "pb/pb_migrations/1791800000_init.js"), "utf8")
     const icons = JSON.parse(/const ICONS = (\[[^\]]*\])/.exec(migration)![1]!) as string[]
