@@ -1,0 +1,22 @@
+# /etc/systemd/system/pb-yucelplast.service — Yücel Plast PocketBase. scripts/new-site.ts üretti.
+# Sunucudaki diğer unit'lerle karşılaştırın: systemctl cat pb-keyfince
+[Unit]
+Description=PocketBase yucelplast (cms.yucelplast.com)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/pb-yucelplast
+EnvironmentFile=/opt/pb-yucelplast/.env
+ExecStart=/opt/pb-yucelplast/pocketbase serve --http=127.0.0.1:8103 --dir /opt/pb-yucelplast/pb_data --migrationsDir /opt/pb-yucelplast/pb_migrations --hooksDir /opt/pb-yucelplast/pb_hooks --encryptionEnv=PB_ENCRYPTION_KEY
+Restart=always
+RestartSec=5
+LimitNOFILE=4096
+MemoryMax=512M
+CPUQuota=50%
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

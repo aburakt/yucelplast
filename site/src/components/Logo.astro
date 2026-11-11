@@ -1,0 +1,12 @@
+---
+import raw from "../../public/logo.svg?raw"
+
+// Logo (site/public/logo.svg, eski PNG'den vektöre çevrildi). Satır içi SVG: rengi currentColor, koyu zeminde beyaz olur.
+interface Props { class?: string }
+const { class: cls = "h-10 w-auto" } = Astro.props
+const svg = raw
+  .replace("<svg ", `<svg class="${cls}" aria-hidden="true" focusable="false" `)
+  .replace(' role="img" aria-label="Yücel Plast"', "")
+  .replace('fill="#0061a3"', 'fill="currentColor"')
+---
+<Fragment set:html={svg} />

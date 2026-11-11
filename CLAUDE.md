@@ -1,6 +1,14 @@
-# astro-pb-template
+# yucelplast
 
-Astro (statik) + PocketBase site şablonu ve ortak çekirdek (core). Standart: `astro-pocketbase` skill'i (ADR-002). Bu repo hem yeni sitenin başlangıcı ("Use this template") hem de mevcut sitelerin `bun run core:sync` ile çektiği ortak dosyaların kaynağıdır.
+yucelplast.com (Yücel Plast, 1977'den bu yana imza dosyası, menü/belge kabı, klasör, bloknot ve sıvama kutu üreticisi; İvedik OSB, Ankara; Expertup müşterisi): Astro (static) + PocketBase. `aburakt/astro-pb-template` core'u, standart `astro-pocketbase` skill'i (ADR-002). Tek dilli (TR). PB portu 8103, panel cms.yucelplast.com, önizleme yucelplast.aburakt.com, GlitchTip org expertup.
+
+## Site
+- Eski site WordPress + Elementor (Turhost). Teşhis ve açık yedek (REST JSON, sayfa HTML, medya) proje dosyalarında `yucelplast/`; `_yedek/` repoya girmez.
+- Koleksiyonlar: settings (tek kayıt; hakkımızda, tasarım, İK metinleri de burada), features ("Neden Yücel Plast?"), categories (ürün grupları; `parent` ile alt grup, adres `/urunler/<üst>/<slug>/`), products (grubun içindeki modeller, ayrı sayfası yok), messages (form; konu genel/teklif/is-basvurusu), redirects, pages (yasal).
+- Grup simgeleri `site/src/lib/icons.ts` CATEGORY_ICONS ile migration ICONS aynı tutulur (`tests/site.test.ts`).
+- Fiyat ve stok yazılmaz (eski sitedeki tablo şablon artığıydı); teklif formla alınır.
+- Tasarım: logodan kurumsal mavi #0061a3, buz mavisi-gri zemin #f3f6f9, lacivert bant #0b2a4a, DM Sans. Fotoğraflarda eski sitenin ince mavi kaydırılmış çerçevesi (`.framed`). Tek sabit tema.
+- Logo `site/public/logo.svg` ve `favicon.svg` eski PNG'den (yucel-antetli.png) potrace ile vektöre çevrildi; elle düzenlenmez.
 
 ## Komutlar (bun)
 - `bun install` · `bun run check` (astro check) · `bun run build` · `bun test` · `bun run verify`

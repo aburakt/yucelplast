@@ -1,33 +1,356 @@
 {
   "settings": {
-    "companyName": "Örnek Kurum",
-    "phone": "0 312 000 00 00",
-    "email": "info@ornek.com.tr",
-    "address": "Örnek Mah. 1. Cad. No: 1\nÇankaya / Ankara",
-    "heroTitle": "Astro ve PocketBase ile hızlı, panelden yönetilen site",
-    "heroText": "Bu sayfa template'in örnek içeriğidir. Yeni sitede şema, içerik ve tasarım değiştirilir.",
-    "seoDescription": "Örnek Kurum: template'in örnek ana sayfası."
+    "companyName": "Yücel Plast",
+    "phone": "0312 395 42 01",
+    "phone2": "0312 395 42 02",
+    "email": "info@yucelplast.com",
+    "address": "İvedik Organize Sanayi Bölgesi\n1341. Cadde No: 73\nYenimahalle / Ankara",
+    "mapsUrl": "",
+    "heroTitle": "Markanıza özel dosya, kap ve kutu üretimi",
+    "heroText": "İmza dosyasından menü kabına, sıvama kutudan ajanda kapağına: tasarımdan üretime kadar her aşama kendi tesisimizde.",
+    "heroImage": "hero-dosyalar.webp",
+    "aboutTitle": "İnovasyon ve kaliteli işçiliğin buluştuğu nokta",
+    "aboutText": "Yücel Plast olarak değişmeyen hedefimiz yenilikçi, araştırmacı ve yaratıcı projeler üretmektir. Müşterilerimizin markalarına özel talepleri doğrultusunda ürün tasarımlarını yenilikçi fikirlerle geliştiriyor, size en uygun promosyon ürünlerini hazırlıyoruz.\n\nGrafik tasarım ekibimiz, grafik düzenleme ve montaj sırasında sizin istekleriniz doğrultusunda şekillenen tasarımları üretim sürecine hazırlar.",
+    "aboutImage": "bina.webp",
+    "aboutImage2": "uretim.webp",
+    "since": 1977,
+    "designText": "Farklı promosyon ürünleri arasından en etkili olanını seçmeniz için tecrübeli ekibimiz, hedef kitlenize ve bütçenize uygun ürünler hakkında danışmanlık sağlar.\n\nSıvama kutu modelleri kuşe kağıt, fantazi kağıt, kumaş, cilt bezi, termo deri, suni deri ve hakiki deri gibi kaplama malzemelerinin 1 mm'den 3 mm'ye kadar sert mukavvaların üzerine kaplanmasıyla üretilir. Kozmetik, gıda, tekstil, mücevherat, kırtasiye, promosyon ve cihaz kutuları gibi farklı sektörlerin ihtiyacını karşılar.\n\nKatma değeri yüksek, üretimi ve tüm aşamaları titizlikle tasarlanması gereken kutu ve ambalajlar uzman ekibimiz tarafından geliştirilir.",
+    "designImage": "kutu-sivama.webp",
+    "hrText": "Yücel Plast ailesine katılmak isterseniz aşağıdaki formdan bize kısaca kendinizi ve ilgilendiğiniz pozisyonu yazın. Başvurunuzu inceleyip size dönüş yapacağız.",
+    "seoDescription": "Yücel Plast: 1977'den bu yana Ankara İvedik OSB'de imza dosyası, menü kabı, belge kabı, klasör, bloknot ve sıvama kutu üretimi. Markanıza özel tasarım."
   },
-  "posts": [
+  "features": [
     {
-      "title": "Örnek yazı",
-      "slug": "ornek-yazi",
-      "date": "2026-10-01",
-      "summary": "Panelden yazılan, Cloudflare Pages'e yeniden yayınla gelen ilk yazı.",
-      "body": "<p>Yazının metni panelin zengin metin düzenleyicisinden gelir ve build'de temizlenir.</p>"
+      "title": "Ürün seçimi danışmanlığı",
+      "text": "Farklı promosyon ürünleri arasından en etkili olanını seçmeniz için hedef kitlenize ve bütçenize uygun ürünler öneririz."
     },
     {
-      "title": "İkinci yazı",
-      "slug": "ikinci-yazi",
-      "date": "2026-09-15",
-      "summary": "Türkçe karakterli başlıktan adres kendiliğinden üretilir.",
-      "body": "<p>İkinci yazının metni.</p>"
+      "title": "Estetik tasarımlar",
+      "text": "Şık tasarımlarımız kullanıcıların beğenisini kazanır ve markanızın prestijini artırır."
+    },
+    {
+      "title": "Tecrübe ve güvenilirlik",
+      "text": "Uzun yıllara dayanan deneyimimizle müşterilerimize kaliteli ve güvenilir ürünler sunarız."
+    }
+  ],
+  "categories": [
+    {
+      "title": "Kutu Üretimi",
+      "slug": "kutu-uretimi",
+      "icon": "kutu",
+      "summary": "Kapaklı, mıknatıslı, çekmeceli ve silindir kutular; markanıza özel ölçü ve kaplamayla.",
+      "body": "<p>Kozmetikten gıdaya, mücevherata promosyona kadar farklı sektörlerin kutu ihtiyacını sıvama tekniğiyle karşılıyoruz. Kutularımız 1-3 mm sert mukavvanın kuşe kağıt, fantazi kağıt, kumaş, cilt bezi, termo deri ya da suni deriyle kaplanmasıyla üretilir.</p><p>Ölçü, kaplama, baskı ve iç düzen (köpük, oluk, bölme) tamamen ürününüze göre tasarlanır.</p>",
+      "cover": "kutu-sivama.webp",
+      "gallery": [],
+      "featured": true,
+      "products": [
+        {
+          "title": "Çekmeceli Kutu",
+          "description": "Kızaklı çekmece yapısıyla takı, kalem ve aksesuar için."
+        },
+        {
+          "title": "Arşiv Kutusu",
+          "description": "Belge ve dosya saklamak için dayanıklı, etiket alanlı kutu."
+        },
+        {
+          "title": "Magazinlik Kutu",
+          "description": "Dergi, katalog ve broşürleri dik tutan açık kutu."
+        },
+        {
+          "title": "Silindir Kutu",
+          "description": "İçecek, parfüm ve hediye ürünleri için yuvarlak kutu."
+        },
+        {
+          "title": "Kitap Kutusu",
+          "description": "Kitap ve set ürünler için kapaklı kutu.",
+          "image": "kitap-kutusu.webp"
+        }
+      ]
+    },
+    {
+      "title": "Kapaklı Kutu",
+      "slug": "kapakli-kutu",
+      "icon": "kutu",
+      "summary": "Ayrı kapaklı sıvama kutular: hediye, kozmetik ve kurumsal set ambalajları için.",
+      "body": "<p>Yücel Plast, kapaklı kutu üretimindeki uzmanlığıyla şık ve dayanıklı çözümler sunar. Her kutu özenle seçilmiş malzeme ve detaylı işçilikle üretilir; içeriğinizi korurken estetik bir görünüm sağlar.</p><h2>Özellikler</h2><ul><li><strong>Dayanıklı malzeme:</strong> Uzun ömürlü kullanım için yüksek kaliteli mukavva ve kaplama.</li><li><strong>Şık tasarım:</strong> Ürünlerinizi sergilemek için estetik görünüm.</li><li><strong>Fonksiyonellik:</strong> Kolay açılıp kapanan kapak.</li><li><strong>Özelleştirme:</strong> İhtiyacınıza uygun ölçü ve renk.</li></ul><h2>Kullanım alanları</h2><ul><li>Hediye ve özel gün kutuları</li><li>Kurumsal promosyon setleri</li><li>Kozmetik ve mücevherat ambalajı</li></ul>",
+      "cover": "kapakli-kutu-kapak.webp",
+      "gallery": [
+        "kapakli-kutu-1.webp",
+        "kapakli-kutu-2.webp",
+        "kapakli-kutu-3.webp",
+        "kapakli-kutu-4.webp",
+        "kapakli-kutu-5.webp",
+        "kapakli-kutu-6.webp"
+      ],
+      "featured": false,
+      "products": [],
+      "parent": "kutu-uretimi"
+    },
+    {
+      "title": "Mıknatıslı Kutu",
+      "slug": "miknatisli-kutu",
+      "icon": "kutu",
+      "summary": "Mıknatıslı kapaklı, iç köpüğü ürüne göre kesilen prestij kutuları.",
+      "body": "<p>Mıknatıslı kapak sistemi kutuya kolay açılış ve güvenli kapanış sağlar. İç köpük ya da karton yuvalar ürününüzün ölçüsüne göre kesilir; kalem, saat, elektronik cihaz ve kurumsal hediye setleri için idealdir.</p>",
+      "cover": "miknatisli-kutu-kapak.webp",
+      "gallery": [
+        "miknatisli-kutu-1.webp",
+        "miknatisli-kutu-2.webp",
+        "miknatisli-kutu-3.webp",
+        "miknatisli-kutu-4.webp"
+      ],
+      "featured": false,
+      "products": [],
+      "parent": "kutu-uretimi"
+    },
+    {
+      "title": "Belge Kabı",
+      "slug": "belge-kabi",
+      "icon": "belge",
+      "summary": "Diploma, sertifika ve resmi belgeler için kurumsal belge kapları.",
+      "body": "<p>Belge kaplarımız sağlam ve dayanıklı yapısıyla diploma, sertifika ve resmi belgeleri düzenli ve güvenli saklar. Kurum logonuz yaldız, gofre ya da baskıyla kapağa uygulanır.</p><p>İş hayatında, ofislerde ve eğitim kurumlarında belgeleri korumak için güvenilir bir çözümdür.</p>",
+      "cover": "belge-kabi.webp",
+      "gallery": [],
+      "featured": true,
+      "products": [
+        {
+          "title": "Belge Kabı",
+          "description": "Suni deri ya da termo kaplama, logolu kapak.",
+          "image": "belge-kabi.webp"
+        },
+        {
+          "title": "Deri Belge Kabı",
+          "description": "Hakiki ya da suni deri, prestijli sunum için."
+        }
+      ]
+    },
+    {
+      "title": "İmza Dosyası",
+      "slug": "imza-dosyasi",
+      "icon": "imza",
+      "summary": "10 ve 18 yapraklı, köşe aksesuarlı kurumsal imza dosyaları.",
+      "body": "<p>1977'den bu yana üretimini yaptığımız imza dosyaları; iş görüşmeleri, resmi yazışmalar ve kurumsal iletişimde güvenilir ve profesyonel bir görünüm sağlar. Yaprak sayısı, kaplama malzemesi, köşe aksesuarı ve kapak etiketi isteğe göre belirlenir.</p>",
+      "cover": "imza-suni-deri-1.webp",
+      "gallery": [
+        "imza-suni-deri-1.webp",
+        "imza-suni-deri-2.webp",
+        "imza-suni-deri-4.webp",
+        "imza-koruklu-2.webp",
+        "imza-suet-2.webp",
+        "imza-pvc-2.webp"
+      ],
+      "featured": true,
+      "products": [
+        {
+          "title": "10 Yaprak Suni Deri İmza Dosyası",
+          "description": "Suni deri kaplama, metal köşe aksesuarı, etiket cebi.",
+          "image": "imza-suni-deri-3.webp"
+        },
+        {
+          "title": "18 Yaprak İçten Körüklü İmza Dosyası",
+          "description": "Körüklü iç yapı, kalın evrak için geniş hacim.",
+          "image": "imza-koruklu-1.webp"
+        },
+        {
+          "title": "İçi Süet İmza Dosyası",
+          "description": "Süet iç yüzey, şık ve yumuşak dokunuş.",
+          "image": "imza-suet-1.webp"
+        },
+        {
+          "title": "PVC İmza Dosyası",
+          "description": "Hafif, silinebilir PVC kaplama, canlı renk seçenekleri.",
+          "image": "imza-pvc-1.webp"
+        }
+      ]
+    },
+    {
+      "title": "Menü Kabı ve Adisyon",
+      "slug": "menu-kabi-adisyon",
+      "icon": "menu",
+      "summary": "Restoran, kafe ve oteller için menü kapları ve adisyon dosyaları.",
+      "body": "<p>Termo deri ve suni deri menü kaplarımız yoğun kullanıma dayanıklıdır; logonuz yaldız ya da gofreyle uygulanır. Vidalı, halkalı ya da cepli iç yapı seçenekleri vardır.</p>",
+      "cover": "menu-termo-1.webp",
+      "gallery": [
+        "menu-termo-1.webp",
+        "menu-termo-2.webp",
+        "menu-termo-3.webp"
+      ],
+      "featured": true,
+      "products": [
+        {
+          "title": "Termo Deri Menü Kabı",
+          "description": "Vidalı ya da cepli iç yapı, köşe aksesuarı.",
+          "image": "menu-termo-1.webp"
+        },
+        {
+          "title": "Suni Deri Menü Kabı",
+          "description": "Logolu kapak, dikişli kenar.",
+          "image": "menu-kabi-gri.webp"
+        }
+      ]
+    },
+    {
+      "title": "Kartela",
+      "slug": "kartela",
+      "icon": "kartela",
+      "summary": "Renk ve malzeme seçeneklerinizi müşterinize sunmanız için kartela.",
+      "body": "<p>Kartelalarımız ürünlerinizin farklı renk ve dokularını tek bakışta gösterir; müşterilerinizin doğru seçimi yapmasına yardımcı olur. Sıvama ve termo/suni deri kapak seçenekleriyle üretilir.</p>",
+      "gallery": [],
+      "featured": false,
+      "products": [
+        {
+          "title": "Sıvama Kartela",
+          "description": ""
+        },
+        {
+          "title": "Termo ve Suni Deri Kartela",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "title": "Ruhsat Kabı",
+      "slug": "ruhsat-kabi",
+      "icon": "ruhsat",
+      "summary": "Araç ruhsatı, sigorta ve önemli evraklar için logolu kaplar.",
+      "body": "<p>Ruhsat kaplarımız sürücü ruhsatı, araç belgeleri ve trafik sigortası gibi önemli evrakları düzenli ve güvenli saklar. Bayi ve kurum logonuzla promosyon olarak da tercih edilir.</p>",
+      "gallery": [],
+      "featured": false,
+      "products": [
+        {
+          "title": "Termo Ruhsat Kabı",
+          "description": ""
+        },
+        {
+          "title": "Suni Deri Ruhsat Kabı",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "title": "Bloknot ve Organizer",
+      "slug": "bloknot-organizer",
+      "icon": "bloknot",
+      "summary": "Toplantı ve seminerler için bloknotluk ve masa organizerleri.",
+      "body": "<p>Bloknot ve organizerlerimiz farklı boyutlardaki bloknotları ve kalemleri bir arada tutar. Şeffaf cep ve bölmelerle ek dokümanları da saklayabilirsiniz; iş toplantıları, seminerler ve günlük not alma için idealdir.</p>",
+      "cover": "yazi-altligi.webp",
+      "gallery": [
+        "bloknot-pvc-1.webp",
+        "bloknot-pvc-2.webp"
+      ],
+      "featured": true,
+      "products": [
+        {
+          "title": "PVC Bloknotluk",
+          "description": "Hafif PVC kaplama, renk seçenekli.",
+          "image": "bloknot-pvc-1.webp"
+        },
+        {
+          "title": "Termo ve Suni Deri Bloknot",
+          "description": "Logolu kapak, kalemlik.",
+          "image": "yazi-altligi.webp"
+        },
+        {
+          "title": "Masa Organizeri",
+          "description": "Not kağıdı ve kalem için masaüstü kutu.",
+          "image": "not-kutusu.webp"
+        }
+      ]
+    },
+    {
+      "title": "Yıllık",
+      "slug": "yillik",
+      "icon": "yillik",
+      "summary": "Termo ve suni deri kapaklı kurumsal yıllıklar.",
+      "body": "<p>Yıllıklarımız yıl boyunca randevu, toplantı ve önemli tarihleri takip etmenizi sağlar. Hafif ve taşınabilir yapısıyla her zaman yanınızda taşıyabileceğiniz pratik bir üründür.</p>",
+      "gallery": [],
+      "featured": false,
+      "products": [
+        {
+          "title": "Termo Yıllık",
+          "description": ""
+        },
+        {
+          "title": "Suni Deri Yıllık",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "title": "Ajanda Kapağı",
+      "slug": "ajanda-kapagi",
+      "icon": "ajanda",
+      "summary": "Ajandalarınız için logolu, dayanıklı kapaklar.",
+      "body": "<p>Ajanda kapaklarımız ajandanızı dış etkenlere karşı korur ve uzun süre kullanım sağlar. Farklı renk ve desen seçenekleriyle markanızın tarzını yansıtır.</p>",
+      "gallery": [],
+      "featured": false,
+      "products": [
+        {
+          "title": "Termo ve Suni Deri Kapak",
+          "description": ""
+        },
+        {
+          "title": "Sıvama Kapak",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "title": "Klasör",
+      "slug": "klasor",
+      "icon": "klasor",
+      "summary": "Mekanizmalı, sıvama ve PVC klasörler.",
+      "body": "<p>Klasörlerimiz belgelerinizi düzenli saklar ve profesyonel bir görünüm sunar. Farklı boyut, renk ve mekanizma seçenekleri vardır.</p>",
+      "cover": "klasor-termo-1.webp",
+      "gallery": [
+        "klasor-termo-1.webp",
+        "klasor-termo-2.webp"
+      ],
+      "featured": true,
+      "products": [
+        {
+          "title": "Termo Suni Deri Klasör",
+          "description": "Halka mekanizmalı, logolu kapak.",
+          "image": "klasor-termo-1.webp"
+        },
+        {
+          "title": "Sıvama Klasör",
+          "description": ""
+        },
+        {
+          "title": "PVC Klasör",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "title": "Çanta",
+      "slug": "canta",
+      "icon": "canta",
+      "summary": "Kongre, evrak ve promosyon çantaları.",
+      "body": "<p>Çanta koleksiyonumuz kongre, seminer ve günlük kullanım için geniş seçenek sunar. Kurum logonuzla üretilir.</p>",
+      "gallery": [],
+      "featured": false,
+      "products": [
+        {
+          "title": "Elyaf Çanta",
+          "description": ""
+        },
+        {
+          "title": "Suni Deri Evrak Çantası",
+          "description": ""
+        },
+        {
+          "title": "Karton Çanta",
+          "description": ""
+        }
+      ]
     }
   ],
   "redirects": [
     {
-      "from": "/eski-yazi",
-      "to": "/yazilar/ornek-yazi/",
+      "from": "/urunler/kutu-uretimi/miknatisli-kutuzz",
+      "to": "/urunler/kutu-uretimi/miknatisli-kutu/",
       "code": "301"
     }
   ],

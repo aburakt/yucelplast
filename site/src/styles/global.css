@@ -1,41 +1,114 @@
 @import "tailwindcss";
+@import "@fontsource-variable/dm-sans/wght.css";
 
 /*
- * Template'in sade başlangıç teması. Yeni sitede sektöre uygun tasarımla değiştirilir (ne simsiyah ne bembeyaz).
- * Tek sabit tema: koyu moda otomatik geçiş yok. CSP style-src 'self': stil yalnız bu dosyada, style= özniteliği kullanılmaz.
+ * Yücel Plast teması: eski sitenin kurumsal mavisi (#0061a3, logodan) ve beyaz kartları korunur; zemin buz mavisi-gri,
+ * koyu bantlar lacivert. Ürün fotoğrafları öne çıkar; ince mavi çerçeveli yuvarlak köşeli fotoğraf eski sitenin imzasıdır.
+ * Tek sabit tema: koyu moda otomatik geçiş yok. CSP style-src 'self': stil yalnız bu dosyada, style= yok.
+ * Renkler pb/pb_hooks/site.js BRAND ile aynı (color = brand, ink = ink, paper = canvas).
  */
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --color-canvas: #f6f5f1;
+  --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-canvas: #f3f6f9;
   --color-paper: #ffffff;
-  --color-line: #e2dfd6;
-  --color-ink: #1f2124;
-  --color-ink-soft: #5d6066;
-  --color-accent: #2f5d50;
+  --color-line: #d9e2ea;
+  --color-ink: #14202e;
+  --color-ink-soft: #4f5d6c;
+  --color-brand: #0061a3;
+  --color-brand-deep: #004a7f;
+  --color-brand-soft: #e3eef7;
+  --color-navy: #0b2a4a;
+  --color-navy-2: #0f355c;
 }
 
 @layer base {
   :root { color-scheme: light; }
+  html { scroll-padding-top: 6rem; }
   body { font-family: var(--font-sans); color: var(--color-ink); background: var(--color-canvas); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-  h1, h2, h3 { font-weight: 650; line-height: 1.15; text-wrap: balance; }
-  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
-  a { color: var(--color-accent); text-underline-offset: 0.22em; }
-  p, li, h1, h2, h3, a, address { overflow-wrap: anywhere; }
+  h1, h2, h3 { font-weight: 650; line-height: 1.12; text-wrap: balance; letter-spacing: -0.02em; }
+  :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
+  a { color: var(--color-brand); text-underline-offset: 0.22em; }
+  p, li, h1, h2, h3, a, address, dd, dt { overflow-wrap: anywhere; }
+  [hidden] { display: none !important; }
 }
 
 @layer components {
-  .wrap { margin-inline: auto; width: 100%; max-width: 72rem; padding-inline: 1.25rem; }
+  .wrap { margin-inline: auto; width: 100%; max-width: 76rem; padding-inline: 1.25rem; }
   @media (min-width: 768px) { .wrap { padding-inline: 2.5rem; } }
-  .lead { font-size: 1.1rem; color: var(--color-ink-soft); max-width: 60ch; }
+  .section { padding-block: 4.5rem; }
+  @media (min-width: 768px) { .section { padding-block: 6rem; } }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-brand); }
+  .eyebrow::before { content: ""; width: 1.75rem; height: 2px; background: currentColor; }
+  .on-dark .eyebrow { color: #8ec5ef; }
+  .title { font-size: clamp(1.9rem, 3.6vw, 2.75rem); }
+  .lead { font-size: 1.125rem; color: var(--color-ink-soft); max-width: 62ch; }
+  .muted { color: var(--color-ink-soft); }
+
+  .on-dark { background: var(--color-navy); color: #e8eef5; }
+  .on-dark .muted { color: #a9bacb; }
+  .on-dark a { color: #fff; }
+
   .card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: 1rem; }
+
+  /* eski sitenin imzası: ince mavi çerçeve, fotoğraftan kaydırılmış, sol alt köşe yuvarlak */
+  .framed { position: relative; isolation: isolate; }
+  .framed::before { content: ""; position: absolute; inset: -0.6rem 0.6rem 0.6rem -0.6rem; border: 2px solid var(--color-brand); border-radius: 0.25rem 0.25rem 0.25rem 2.5rem; z-index: -1; }
+  .framed img { border-radius: 0.25rem 0.25rem 0.25rem 2.5rem; width: 100%; height: 100%; object-fit: cover; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.875rem; border-radius: 0.5rem; padding: 0.6rem 1.35rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.15s, color 0.15s, border-color 0.15s; }
+  .btn svg { width: 1.1rem; height: 1.1rem; }
+  .btn-primary { background: var(--color-brand); color: #fff; }
+  .btn-primary:hover { background: var(--color-brand-deep); }
+  .btn-ghost { border: 1.5px solid var(--color-line); color: var(--color-ink); background: var(--color-paper); }
+  .btn-ghost:hover { border-color: var(--color-brand); color: var(--color-brand); }
+  .on-dark .btn-ghost { background: transparent; color: #fff; border-color: rgb(255 255 255 / 0.35); }
+  .on-dark .btn-ghost:hover { border-color: #fff; }
+  .btn:disabled { opacity: 0.6; cursor: wait; }
+  .arrow-link { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; text-decoration: none; }
+  .arrow-link svg { width: 1rem; height: 1rem; transition: transform 0.15s; }
+  .arrow-link:hover svg { transform: translateX(3px); }
+
+  /* üst menü */
+  .site-nav a { color: var(--color-ink); text-decoration: none; font-weight: 500; }
+  .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--color-brand); }
+  .menu > summary { list-style: none; }
+  .menu > summary::-webkit-details-marker { display: none; }
+
+  /* ürün grubu kartı */
+  .cat-card { display: flex; flex-direction: column; overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s; }
+  .cat-card:hover { border-color: var(--color-brand); transform: translateY(-2px); box-shadow: 0 12px 28px -18px rgb(11 42 74 / 0.45); }
+  .cat-media { aspect-ratio: 4 / 3; background: linear-gradient(160deg, var(--color-brand) 0%, var(--color-navy) 100%); display: grid; place-items: center; color: #fff; overflow: hidden; }
+  .cat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .cat-card:hover .cat-media img { transform: scale(1.03); }
+  .cat-media svg { width: 30%; height: auto; opacity: 0.95; }
+  .product-media { aspect-ratio: 3 / 2; background: var(--color-brand-soft); display: grid; place-items: center; color: var(--color-brand); overflow: hidden; }
+  .product-media img { width: 100%; height: 100%; object-fit: cover; }
+  .product-media svg { width: 22%; height: auto; }
+
+  .gallery { columns: 2; column-gap: 1rem; }
+  @media (min-width: 768px) { .gallery { columns: 3; } }
+  .gallery > * { break-inside: avoid; margin-bottom: 1rem; }
+  .gallery img { width: 100%; height: auto; border-radius: 0.75rem; background: var(--color-paper); }
+
+  .feature-num { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px; background: var(--color-brand-soft); color: var(--color-brand); font-weight: 700; }
+
+  .crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.875rem; color: var(--color-ink-soft); }
+  .crumbs a { color: inherit; text-decoration: none; }
+  .crumbs a:hover { color: var(--color-brand); }
+  .crumbs li + li::before { content: "/"; margin-right: 0.4rem; opacity: 0.6; }
+
+  .prose-body { max-width: 68ch; }
   .prose-body > * + * { margin-top: 1em; }
-  .prose-body h2 { font-size: 1.5rem; margin-top: 1.6em; }
+  .prose-body h2 { font-size: 1.4rem; margin-top: 1.7em; }
+  .prose-body h3 { font-size: 1.15rem; margin-top: 1.4em; }
   .prose-body ul { list-style: disc; padding-left: 1.4rem; }
   .prose-body ol { list-style: decimal; padding-left: 1.4rem; }
-  .field { display: grid; gap: 0.35rem; font-size: 0.95rem; }
-  .field input, .field textarea { width: 100%; border: 1px solid var(--color-line); border-radius: 0.5rem; padding: 0.6rem 0.75rem; background: var(--color-paper); font: inherit; }
-  .btn { background: var(--color-accent); color: #fff; border-radius: 0.5rem; padding: 0.6rem 1.4rem; font-weight: 600; cursor: pointer; }
-  .btn:disabled { opacity: 0.6; cursor: wait; }
+  .prose-body li + li { margin-top: 0.35em; }
+
+  .field { display: grid; gap: 0.35rem; font-size: 0.95rem; font-weight: 500; }
+  .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--color-line); border-radius: 0.5rem; padding: 0.65rem 0.8rem; background: var(--color-paper); font: inherit; font-weight: 400; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--color-brand); outline: 2px solid var(--color-brand-soft); }
   /* spam tuzağı: ekranda ve ekran okuyucuda yok, botlar doldurur */
   .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .fixture-banner { background: #fff4d6; border-bottom: 1px solid #ecd9a0; font-size: 0.85rem; text-align: center; padding: 0.4rem 1rem; }

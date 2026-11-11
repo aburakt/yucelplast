@@ -1,0 +1,20 @@
+---
+import Icon from "./Icon.astro"
+import Photo from "./Photo.astro"
+import type { Category } from "../lib/types"
+
+// Ürün grubu kartı: fotoğraf yoksa eski sitedeki gibi mavi zeminde simge. level: kart başlığının seviyesi.
+interface Props { category: Category; level?: 2 | 3 }
+const { category: c, level = 3 } = Astro.props
+const H = `h${level}` as "h2" | "h3"
+---
+<a href={c.path} class="card cat-card">
+  <div class="cat-media">
+    {c.cover ? <Photo img={c.cover} alt="" sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width={800} /> : <Icon name={c.icon} stroke={1.2} class="" />}
+  </div>
+  <div class="flex flex-1 flex-col p-5">
+    <H class="text-lg">{c.title}</H>
+    <p class="muted mt-1.5 flex-1 text-[0.95rem]">{c.summary}</p>
+    <span class="arrow-link mt-4 text-brand text-sm">İncele<Icon name="arrow" /></span>
+  </div>
+</a>

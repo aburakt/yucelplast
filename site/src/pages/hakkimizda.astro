@@ -1,0 +1,51 @@
+---
+import CtaBand from "../components/CtaBand.astro"
+import PageHero from "../components/PageHero.astro"
+import Photo from "../components/Photo.astro"
+import Base from "../layouts/Base.astro"
+import { loadSite } from "../lib/content"
+import { breadcrumbList, graph, webPage } from "../lib/jsonld"
+
+const { settings: s, features } = await loadSite()
+const paragraphs = s.aboutText.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+const lead = s.since ? `${s.since} yılından bu yana Ankara'da markalara özel dosya, kap ve kutu üretiyoruz.` : undefined
+const jsonLd = graph(
+  webPage({ site: Astro.site!, path: "/hakkimizda/", name: "Hakkımızda", description: lead, type: "AboutPage" }),
+  breadcrumbList([{ name: "Ana sayfa", path: "/" }, { name: "Hakkımızda", path: "/hakkimizda/" }], Astro.site!),
+)
+---
+<Base title="Hakkımızda" path="/hakkimizda/" description={lead} jsonLd={jsonLd}>
+  <PageHero title="Hakkımızda" lead={lead} crumbs={[]} />
+  <section class="section">
+    <div class="wrap grid items-start gap-14 lg:grid-cols-2">
+      <div>
+        <h2 class="title">{s.aboutTitle}</h2>
+        {paragraphs.map((p) => <p class="muted mt-4 text-[1.05rem]">{p}</p>)}
+      </div>
+      {s.aboutImage && (
+        <div class="framed ml-3 aspect-[4/3]">
+          <Photo img={s.aboutImage} alt={`${s.companyName} fabrika binası`} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" width={1200} />
+        </div>
+      )}
+    </div>
+  </section>
+  {features.length > 0 && (
+    <section class="section border-t border-line bg-paper">
+      <div class="wrap grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+        <div>
+          <h2 class="title">Neden Yücel Plast?</h2>
+          {s.aboutImage2 && <Photo img={s.aboutImage2} alt="Üretim alanı" class="mt-8 w-full rounded-xl" sizes="(min-width: 1024px) 480px, 100vw" width={1200} />}
+        </div>
+        <ul class="grid gap-5">
+          {features.map((f, i) => (
+            <li class="card flex gap-5 p-6">
+              <span class="feature-num shrink-0" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <div><h3 class="text-lg">{f.title}</h3><p class="muted mt-1.5">{f.text}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+  <CtaBand />
+</Base>

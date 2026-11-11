@@ -23,24 +23,32 @@ const create = (c: string, body: Record<string, unknown>) => pb.admin(`/api/coll
 const patch = (c: string, id: string, body: Record<string, unknown>) => pb.admin(`/api/collections/${c}/records/${id}`, { method: "PATCH", body: JSON.stringify(body) })
 const del = (c: string, id: string) => pb.admin(`/api/collections/${c}/records/${id}`, { method: "DELETE" })
 const firstId = async (c: string): Promise<string> => ((await (await pb.admin(`/api/collections/${c}/records?perPage=1`)).json()) as { items: Rec[] }).items[0]!.id
-const post = { date: "2026-10-08 00:00:00.000Z", summary: "x", body: "<p>x</p>" }
+const cat = { summary: "x", icon: "kutu" }
 
 describe("içerik tohumlandı", () => {
   test("anonim okuyucu beklenen sayıda kayıt görür", async () => {
     expect((await list("settings")).total).toBe(1)
-    expect((await list("posts")).total).toBe(content.posts.length)
+    expect((await list("features")).total).toBe(content.features.length)
+    expect((await list("categories")).total).toBe(content.categories.length)
+    expect((await list("products")).total).toBe(content.categories.reduce((n, c) => n + c.products.length, 0))
     expect((await list("redirects")).total).toBe(content.redirects.length)
     expect((await list("pages")).total).toBe(content.pages.filter((p) => p.published).length)
   })
 })
 
 describe("taslak sızıntısı", () => {
-  test("yayında olmayan yazı anonim listede ve id ile görünmez", async () => {
-    const res = await create("posts", { ...post, title: "Taslak", published: false })
+  test("yayında olmayan grup ve ürün anonim listede ve id ile görünmez", async () => {
+    const res = await create("categories", { ...cat, title: "Taslak", published: false })
     expect(res.status).toBe(200)
     const id = ((await res.json()) as Rec).id
-    expect((await list("posts", "filter=" + encodeURIComponent("published = false"))).total).toBe(0)
-    expect((await pb.api(`/api/collections/posts/records/${id}`)).status).toBe(404)
+    expect((await list("categories", "filter=" + encodeURIComponent("published = false"))).total).toBe(0)
+    expect((await pb.api(`/api/collections/categories/records/${id}`)).status).toBe(404)
+    const p = await create("products", { title: "Taslak ürün", category: id, published: false })
+    expect(p.status).toBe(200)
+    expect((await pb.api(`/api/collections/products/records/${((await p.json()) as Rec).id}`)).status).toBe(404)
+  })
+  test("ürün grubu olmadan açılamaz", async () => {
+    expect((await create("products", { title: "Grupsuz", published: true })).status).toBe(400)
   })
 })
 
@@ -55,13 +63,13 @@ describe("panel korumaları", () => {
     expect((await create("settings", { company_name: "x", hero_title: "x" })).status).toBe(400)
     expect((await del("settings", await firstId("settings"))).status).toBe(400)
   })
-  test("yazı adresi Türkçe başlıktan üretilir, benzersizdir ve sonra değiştirilemez", async () => {
-    const a = (await (await create("posts", { ...post, title: "Şubat'ta İğdır Gezisi", published: true })).json()) as Rec
-    expect(a.slug).toBe("subatta-igdir-gezisi")
-    const b = (await (await create("posts", { ...post, title: "Şubat'ta İğdır Gezisi", published: true })).json()) as Rec
-    expect(b.slug).toBe("subatta-igdir-gezisi-2")
-    expect((await patch("posts", a.id, { slug: "baska" })).status).toBe(400)
-    expect((await patch("posts", a.id, { title: "Yeni başlık" })).status).toBe(200)
+  test("grup adresi Türkçe addan üretilir, benzersizdir ve sonra değiştirilemez", async () => {
+    const a = (await (await create("categories", { ...cat, title: "Çekmeceli İç Kutu", published: true })).json()) as Rec
+    expect(a.slug).toBe("cekmeceli-ic-kutu")
+    const b = (await (await create("categories", { ...cat, title: "Çekmeceli İç Kutu", published: true })).json()) as Rec
+    expect(b.slug).toBe("cekmeceli-ic-kutu-2")
+    expect((await patch("categories", a.id, { slug: "baska" })).status).toBe(400)
+    expect((await patch("categories", a.id, { title: "Yeni ad" })).status).toBe(200)
   })
 })
 
@@ -70,11 +78,11 @@ describe("yönlendirmeler", () => {
     const r = (from: string, to: string) => create("redirects", { from, to, code: "301", published: true })
     expect((await r("eski-adres", "/")).status).toBe(400)
     expect((await r("/x", "ornek.com")).status).toBe(400)
-    expect((await r("/kampanya", "/yazilar/")).status).toBe(200)
+    expect((await r("/kampanya", "/urunler/")).status).toBe(200)
     expect((await r("/kampanya/", "/")).status).toBe(400)
     expect((await r("/dongu-a", "/dongu-b/")).status).toBe(200)
     expect((await r("/dongu-b", "/dongu-a")).status).toBe(400)
-    const res = await r("/dongu-c", "/yazilar/")
+    const res = await r("/dongu-c", "/urunler/")
     expect(res.status).toBe(200)
     const id = ((await res.json()) as Rec).id
     expect((await patch("redirects", id, { to: "/dongu-c/" })).status).toBe(400)

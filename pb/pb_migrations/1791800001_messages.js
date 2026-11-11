@@ -1,10 +1,9 @@
 /// <reference path="../pb_data/types.d.ts" />
 
 /**
- * Örnek ziyaretçi formu: İletişim mesajları (messages) ve Site Ayarları'na bildirim alıcısı (form_recipient).
+ * Ziyaretçi formu: İletişim mesajları (messages; konu: genel, teklif, iş başvurusu) ve Site Ayarları'na bildirim alıcısı (form_recipient).
  * Ziyaretçi yalnız gönderir (createRule ""), okuma ve yönetim yalnız superuser (null). Kutu site.js FORMS'ta;
  * spam tuzağı, KVKK onayı, e-posta bildirimi ve saklama süresi ortak pb_hooks/forms.pb.js'te.
- * Formu olmayan sitede bu dosya silinir (ve FORMS boş bırakılır).
  */
 migrate((app) => {
   const settings = app.findCollectionByNameOrId("settings")
@@ -22,6 +21,10 @@ migrate((app) => {
       {
         name: "status", type: "select", maxSelect: 1, values: ["new", "contacted", "closed", "spam"],
         help: "Mesajın durumu: new = yeni, contacted = dönüş yapıldı, closed = kapandı, spam = istenmeyen (bot tuzağına takılanlar otomatik spam olur).",
+      },
+      {
+        name: "topic", type: "select", maxSelect: 1, values: ["genel", "teklif", "is-basvurusu"],
+        help: "Formun konusu: genel = soru/görüş, teklif = ürün/fiyat teklifi isteği, is-basvurusu = İnsan Kaynakları sayfasından iş başvurusu.",
       },
       { name: "name", type: "text", required: true, max: 200, presentable: true, help: "Ziyaretçinin formda yazdığı ad soyad." },
       { name: "email", type: "email", required: true, help: "Ziyaretçinin e-postası. Bildirim e-postasını yanıtlarsanız bu adrese gider." },
