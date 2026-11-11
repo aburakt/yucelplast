@@ -34,7 +34,7 @@ function fromFixture(): Site {
       companyName: s.companyName, phone: s.phone, phone2: s.phone2, email: s.email, address: s.address, mapsUrl: s.mapsUrl,
       heroTitle: s.heroTitle, heroText: s.heroText, heroImage: opt(s.heroImage),
       aboutTitle: s.aboutTitle, aboutText: s.aboutText, aboutImage: opt(s.aboutImage), aboutImage2: opt(s.aboutImage2), since: s.since,
-      designText: s.designText, designImage: opt(s.designImage), hrText: s.hrText, seoDescription: s.seoDescription,
+      designText: s.designText, designImage: opt(s.designImage), hrText: s.hrText, hrImage: opt(s.hrImage), seoDescription: s.seoDescription,
     },
     features: content.features,
     categories,

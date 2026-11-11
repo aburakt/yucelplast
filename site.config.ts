@@ -16,7 +16,7 @@ const patch = async (pb: Pb, collection: string, id: string, body: Record<string
 export const SITE: SiteConfig = {
   checks: [
     // tek dilli: hreflang yok (çok dilli sitede hasNot kaldırılır, has'a hreflang eklenir; docs/i18n.md)
-    { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Markanıza özel dosya, kap ve kutu üretimi", 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün seçimi danışmanlığı", "1977", 'href="/kvkk-aydinlatma-metni/"'], hasNot: ["hreflang", 'href="/urunler/yillik/" class="card'] },
+    { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Kaliteli ürünler, güvenilir çözümler", 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün Seçimi Danışmanlığı", "1977", 'href="/kvkk-aydinlatma-metni/"'], hasNot: ["hreflang", 'href="/urunler/yillik/" class="card'] },
     { name: "Ürünler", path: "/urunler/", has: ["<h1", 'href="/urunler/kutu-uretimi/"', 'href="/urunler/canta/"', '"@type":"BreadcrumbList"'], hasNot: ['href="/urunler/kutu-uretimi/kapakli-kutu/" class="card'] },
     { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "18 Yaprak İçten Körüklü İmza Dosyası", "Fotoğraflar", '"@type":"CollectionPage"'] },
     { name: "Üst grup alt gruplarını listeler", path: "/urunler/kutu-uretimi/", has: ["Kutu Üretimi çeşitleri", 'href="/urunler/kutu-uretimi/kapakli-kutu/"', 'href="/urunler/kutu-uretimi/miknatisli-kutu/"', "Diğer modeller", "Silindir Kutu"] },

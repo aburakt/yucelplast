@@ -8,7 +8,7 @@ export type Settings = {
   heroTitle: string; heroText: string; heroImage?: Img
   aboutTitle: string; aboutText: string; aboutImage?: Img; aboutImage2?: Img; since?: number
   designText: string; designImage?: Img
-  hrText: string
+  hrText: string; hrImage?: Img
   seoDescription: string; shareImage?: Img
   /** Cloudflare Web Analytics anahtarı; boşsa sayaç eklenmez. */
   cfAnalyticsToken?: string

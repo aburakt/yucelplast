@@ -8,7 +8,7 @@ type RawSettings = Rec & {
   company_name: string; phone: string; phone_2: string; email: string; address: string; maps_url: string
   hero_title: string; hero_text: string; hero_image: string
   about_title: string; about_text: string; about_image: string; about_image_2: string; since: number
-  design_text: string; design_image: string; hr_text: string
+  design_text: string; design_image: string; hr_text: string; hr_image: string
   seo_description: string; share_image: string; cf_analytics_token: string
 }
 type RawFeature = Rec & { title: string; text: string }
@@ -54,7 +54,7 @@ export async function loadFromPb(): Promise<Site> {
       companyName: s.company_name, phone: s.phone, phone2: s.phone_2, email: s.email, address: s.address, mapsUrl: s.maps_url,
       heroTitle: s.hero_title, heroText: s.hero_text, heroImage: file(s, s.hero_image),
       aboutTitle: s.about_title, aboutText: s.about_text, aboutImage: file(s, s.about_image), aboutImage2: file(s, s.about_image_2),
-      since: s.since || undefined, designText: s.design_text, designImage: file(s, s.design_image), hrText: s.hr_text,
+      since: s.since || undefined, designText: s.design_text, designImage: file(s, s.design_image), hrText: s.hr_text, hrImage: file(s, s.hr_image),
       seoDescription: s.seo_description, shareImage: file(s, s.share_image), cfAnalyticsToken: s.cf_analytics_token,
     },
     features: features.map((f) => ({ title: f.title, text: f.text })),
