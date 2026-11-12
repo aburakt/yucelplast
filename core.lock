@@ -1,7 +1,7 @@
 {
   "source": "https://github.com/aburakt/astro-pb-template",
-  "ref": "claude/project-thread-m6vy0j",
-  "commit": "44f44df87cd671784e2080a515b82256e85a5917",
+  "ref": "main",
+  "commit": "878b318ed6aabc7dc4db9ecf2ce2cbe483c2662c",
   "files": {
     ".github/dependabot.yml": "7515cd724bc61e7e3093aa440bbaad358d5abbcf00fcb1fa3f3b28ef1a77f433",
     ".github/workflows/ci.yml": "bcb239457ea95872dfe02ae18beff55e88d2c2e02acc3b6a4c0dd3083752d049",
