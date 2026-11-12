@@ -61,31 +61,31 @@
       "title": "Kutu Üretimi",
       "slug": "kutu-uretimi",
       "icon": "kutu",
-      "summary": "Kapaklı, mıknatıslı, çekmeceli ve silindir kutular; markanıza özel ölçü ve kaplamayla.",
-      "body": "<p>Kozmetikten gıdaya, mücevherata promosyona kadar farklı sektörlerin kutu ihtiyacını sıvama tekniğiyle karşılıyoruz. Kutularımız 1-3 mm sert mukavvanın kuşe kağıt, fantazi kağıt, kumaş, cilt bezi, termo deri ya da suni deriyle kaplanmasıyla üretilir.</p><p>Ölçü, kaplama, baskı ve iç düzen (köpük, oluk, bölme) tamamen ürününüze göre tasarlanır.</p>",
+      "summary": "Kapaklı Kutu, Mıknatıslı Kutu, Çekmeceli Kutu, Arşiv Kutusu, Magazinlik Kutu, Silindir Kutu ve Kitap Kutusu.",
+      "body": "",
       "cover": "kutu-sivama.webp",
       "gallery": [],
       "featured": true,
       "products": [
         {
           "title": "Çekmeceli Kutu",
-          "description": "Kızaklı çekmece yapısıyla takı, kalem ve aksesuar için."
+          "description": ""
         },
         {
           "title": "Arşiv Kutusu",
-          "description": "Belge ve dosya saklamak için dayanıklı, etiket alanlı kutu."
+          "description": ""
         },
         {
           "title": "Magazinlik Kutu",
-          "description": "Dergi, katalog ve broşürleri dik tutan açık kutu."
+          "description": ""
         },
         {
           "title": "Silindir Kutu",
-          "description": "İçecek, parfüm ve hediye ürünleri için yuvarlak kutu."
+          "description": ""
         },
         {
           "title": "Kitap Kutusu",
-          "description": "Kitap ve set ürünler için kapaklı kutu.",
+          "description": "",
           "image": "kitap-kutusu.webp"
         }
       ]
@@ -94,8 +94,8 @@
       "title": "Kapaklı Kutu",
       "slug": "kapakli-kutu",
       "icon": "kutu",
-      "summary": "Ayrı kapaklı sıvama kutular: hediye, kozmetik ve kurumsal set ambalajları için.",
-      "body": "<p>Yücel Plast, yılların verdiği deneyimle, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine kaliteli ve şık çözümler sunmaktadır. Her bir ürünümüz, titizlikle seçilmiş malzemeler ve detaylı işçilikle üretilerek, içeriğinizi korurken estetik bir görünüm sağlar.</p><p>Ürünlerimizin temel özelliklerinden biri, dayanıklı ve uzun ömürlü olmalarıdır. Seçtiğimiz malzemeler çevresel etkilere karşı dirençlidir; böylece içerisindeki eşyaları güvenle saklar ve uzun yıllar kullanım sağlar.</p><h2>Özellikler</h2><ul><li><strong>Dayanıklı malzeme:</strong> Kapaklı kutularımız uzun ömürlü kullanım için özel olarak seçilmiş yüksek kaliteli malzemelerden üretilir.</li><li><strong>Şık tasarım:</strong> Estetik açıdan dikkat çeken tasarımlarımız, ürünlerinizi sergilemek için mükemmel bir seçenektir.</li><li><strong>Fonksiyonellik:</strong> Kolay açılıp kapanabilen kapaklarıyla kullanımı pratik ve kullanıcı dostudur.</li><li><strong>Özelleştirilebilirlik:</strong> İhtiyacınıza uygun olarak farklı boyut ve renklerde üretilir.</li></ul><h2>Kullanım alanları</h2><ul><li><strong>Hediye kutuları:</strong> Özel günlerde sevdiklerinize hediye vermek için mükemmel bir seçenek.</li><li><strong>Ürün ambalajı:</strong> Ürünlerinizi güvenle saklamak ve göstermek için ideal bir ambalaj çözümü.</li><li><strong>Organizasyon kutuları:</strong> Ev ve ofis düzeninde küçük eşyaları düzenlemek için pratik bir çözüm.</li></ul>",
+      "summary": "Yücel Plast, yılların verdiği deneyimle, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine kaliteli ve şık çözümler sunmaktadır.",
+      "body": "<p>Yücel Plast, yılların verdiği deneyimle, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine kaliteli ve şık çözümler sunmaktadır. Her bir ürünümüz, titizlikle seçilmiş malzemeler ve detaylı işçilikle üretilerek, içeriğinizi korurken estetik bir görünüm sağlar.</p><p>Ürünlerimizin temel özelliklerinden biri, dayanıklı ve uzun ömürlü olmalarıdır. Seçtiğimiz malzemeler, çevresel etkilere karşı dirençli ve dayanıklıdır, böylece içerisindeki eşyaları güvenle saklarlar ve uzun yıllar boyunca kullanım sağlarlar.</p><h2>Teknik Özellikler</h2><p>Yücel Plast, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine şıklık, dayanıklılık ve fonksiyonellik sunmaktadır. Her bir kutu, özenle seçilmiş malzemeler ve detaylı işçilikle üretilerek, içeriğinizi korurken zarafet ve pratik kullanım sunar.</p><h2>Özellikler</h2><ul><li><strong>Dayanıklı Malzeme:</strong> Kapaklı kutularımız, uzun ömürlü kullanım için özel olarak seçilmiş yüksek kaliteli malzemelerden üretilmiştir.</li><li><strong>Şık Tasarım:</strong> Estetik açıdan dikkat çeken tasarımlarımız, ürünlerinizi sergilemek için mükemmel bir seçenektir.</li><li><strong>Fonksiyonellik:</strong> Kolay açılıp kapanabilen kapaklarıyla kullanımı pratik ve kullanıcı dostudur.</li><li><strong>Özelleştirilebilirlik:</strong> Müşterilerimizin ihtiyaçlarına uygun olarak farklı boyutlarda ve renklerde özelleştirilebilir.</li></ul><h2>Kullanım Alanları</h2><ul><li><strong>Hediye Kutuları:</strong> Özel günlerde sevdiklerinize hediye vermek için mükemmel bir seçenek.</li><li><strong>Ürün Ambalajı:</strong> Ürünlerinizi güvenle saklamak ve göstermek için ideal bir ambalaj çözümü.</li><li><strong>Organizasyon Kutuları:</strong> Ev ve ofis düzeninde kullanılmak üzere küçük eşyaları düzenlemek için pratik bir çözüm.</li></ul>",
       "cover": "kapakli-kutu-kapak.webp",
       "gallery": [
         "kapakli-kutu-1.webp",
@@ -116,8 +116,8 @@
       "title": "Mıknatıslı Kutu",
       "slug": "miknatisli-kutu",
       "icon": "kutu",
-      "summary": "Mıknatıslı kapaklı, iç köpüğü ürüne göre kesilen prestij kutuları.",
-      "body": "<p>Yücel Plast, yılların verdiği deneyimle, kutu üretimindeki uzmanlığıyla müşterilerine şıklık, dayanıklılık ve fonksiyonellik sunmaktadır. Her bir kutu, özenle seçilmiş malzemeler ve detaylı işçilikle üretilerek, içeriğinizi korurken zarafet ve pratik kullanım sunar.</p><p>Mıknatıslı kapak sistemi kutuya kolay açılış ve güvenli kapanış sağlar. İç köpük ya da karton yuvalar ürününüzün ölçüsüne göre kesilir; kalem, saat, elektronik cihaz ve kurumsal hediye setleri için idealdir.</p><p>Ürünlerimizin temel özelliklerinden biri, dayanıklı ve uzun ömürlü olmalarıdır. Seçtiğimiz malzemeler çevresel etkilere karşı dirençlidir; böylece içerisindeki eşyaları güvenle saklar ve uzun yıllar kullanım sağlar.</p><h2>Özellikler</h2><ul><li><strong>Dayanıklı malzeme:</strong> Mıknatıslı kutularımız uzun ömürlü kullanım için özel olarak seçilmiş yüksek kaliteli malzemelerden üretilir.</li><li><strong>Şık tasarım:</strong> Estetik açıdan dikkat çeken tasarımlarımız, ürünlerinizi sergilemek için mükemmel bir seçenektir.</li><li><strong>Fonksiyonellik:</strong> Mıknatıslı kapağı tek hareketle açılır, kendiliğinden kapanır.</li><li><strong>Özelleştirilebilirlik:</strong> İhtiyacınıza uygun olarak farklı boyut ve renklerde üretilir.</li></ul><h2>Kullanım alanları</h2><ul><li><strong>Hediye kutuları:</strong> Özel günlerde sevdiklerinize hediye vermek için mükemmel bir seçenek.</li><li><strong>Ürün ambalajı:</strong> Ürünlerinizi güvenle saklamak ve göstermek için ideal bir ambalaj çözümü.</li><li><strong>Organizasyon kutuları:</strong> Ev ve ofis düzeninde küçük eşyaları düzenlemek için pratik bir çözüm.</li></ul>",
+      "summary": "Yücel Plast, yılların verdiği deneyimle, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine kaliteli ve şık çözümler sunmaktadır.",
+      "body": "<p>Yücel Plast, yılların verdiği deneyimle, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine kaliteli ve şık çözümler sunmaktadır. Her bir ürünümüz, titizlikle seçilmiş malzemeler ve detaylı işçilikle üretilerek, içeriğinizi korurken estetik bir görünüm sağlar.</p><p>Ürünlerimizin temel özelliklerinden biri, dayanıklı ve uzun ömürlü olmalarıdır. Seçtiğimiz malzemeler, çevresel etkilere karşı dirençli ve dayanıklıdır, böylece içerisindeki eşyaları güvenle saklarlar ve uzun yıllar boyunca kullanım sağlarlar.</p><h2>Teknik Özellikler</h2><p>Yücel Plast, kapaklı kutu üretimindeki uzmanlığıyla müşterilerine şıklık, dayanıklılık ve fonksiyonellik sunmaktadır. Her bir kutu, özenle seçilmiş malzemeler ve detaylı işçilikle üretilerek, içeriğinizi korurken zarafet ve pratik kullanım sunar.</p><h2>Özellikler</h2><ul><li><strong>Dayanıklı Malzeme:</strong> Kapaklı kutularımız, uzun ömürlü kullanım için özel olarak seçilmiş yüksek kaliteli malzemelerden üretilmiştir.</li><li><strong>Şık Tasarım:</strong> Estetik açıdan dikkat çeken tasarımlarımız, ürünlerinizi sergilemek için mükemmel bir seçenektir.</li><li><strong>Fonksiyonellik:</strong> Kolay açılıp kapanabilen kapaklarıyla kullanımı pratik ve kullanıcı dostudur.</li><li><strong>Özelleştirilebilirlik:</strong> Müşterilerimizin ihtiyaçlarına uygun olarak farklı boyutlarda ve renklerde özelleştirilebilir.</li></ul><h2>Kullanım Alanları</h2><ul><li><strong>Hediye Kutuları:</strong> Özel günlerde sevdiklerinize hediye vermek için mükemmel bir seçenek.</li><li><strong>Ürün Ambalajı:</strong> Ürünlerinizi güvenle saklamak ve göstermek için ideal bir ambalaj çözümü.</li><li><strong>Organizasyon Kutuları:</strong> Ev ve ofis düzeninde kullanılmak üzere küçük eşyaları düzenlemek için pratik bir çözüm.</li></ul>",
       "cover": "miknatisli-kutu-kapak.webp",
       "gallery": [
         "miknatisli-kutu-1.webp",
@@ -134,20 +134,20 @@
       "title": "Belge Kabı",
       "slug": "belge-kabi",
       "icon": "belge",
-      "summary": "Diploma, sertifika ve resmi belgeler için kurumsal belge kapları.",
-      "body": "<p>Yücel Plast, uzun yıllardır sektöründe kalitesiyle tanınan bir firma olarak öne çıkmaktadır. Ürün yelpazesinde yer alan Belge Kabı, sağlam ve dayanıklı yapısıyla dikkat çekmektedir.</p><p>Belge Kabı; imperteks çantalar, suni deri kongre ve evrak çantaları, körüklü dershane çantaları gibi ürünlerle birlikte kullanılabilecek şekilde tasarlanmıştır. En önemli özelliği, içindeki belgeleri düzenli ve güvenli bir şekilde saklamasıdır. Mekanizmalı klasör ve dosyalar, ajanda, bloknot ve kimlik kılıfları, ehliyet, ruhsat ve gözlük kılıfları gibi farklı belgeleri de kolayca barındırabilir.</p><p>Yücel Plast, sürekli gelişen teknolojiyi yakından takip eder. Belge Kabı gibi ürünlerinde de en son teknolojiyi ve kalite standartlarını kullanır. Sağlam malzeme ve özenli işçilikle üretilen Belge Kabı, uzun ömürlü kullanım ve kullanıcı memnuniyeti sağlar.</p><p>Belge Kabı; iş hayatında, ofis ortamlarında ve eğitim alanlarında belgeleri düzenli tutmak ve korumak için mükemmel bir çözümdür. Yücel Plast’ın tecrübesi ve kalitesiyle üretilen Belge Kabı, güvenilirliği ve işlevselliğiyle kullanıcılarına kolaylık ve konfor sağlamaktadır. Kurum logonuz yaldız, gofre ya da baskıyla kapağa uygulanır.</p>",
+      "summary": "Yücel Plast, uzun yıllardır plastik sektöründe kalitesiyle tanınan bir firma olarak öne çıkmaktadır.",
+      "body": "<p>Yücel Plast, uzun yıllardır plastik sektöründe kalitesiyle tanınan bir firma olarak öne çıkmaktadır. Ürün yelpazesinde yer alan Belge Kabı, sağlam ve dayanıklı yapısıyla dikkat çekmektedir.</p><p>Belge Kabı, İmperteks Çantalar, Sunideri Kongre-Evrak Çantaları ve Körüklü Dersane Çantaları gibi çeşitli ürünlerle birlikte kullanılabilecek şekilde tasarlanmıştır. Bu kabın en önemli özelliklerinden biri, içindeki belgeleri düzenli ve güvenli bir şekilde saklamak için ideal olmasıdır. Ayrıca, Mekanizmalı Klasörler-Dosyalar, Ajanda-Bloknot-Kimlik Kılıfları ve Ehliyet-Ruhsat-Gözlük Kılıfları gibi farklı belgeleri de kolayca içinde barındırabilir.</p><p>Yücel Plast, sürekli olarak gelişen teknolojiyi yakından takip eden bir yapıya sahiptir. Bu sayede Belge Kabı gibi ürünlerinde de en son teknolojiyi ve kalite standartlarını kullanarak müşterilerine yüksek kaliteli ürünler sunmaktadır. Sağlam malzeme kullanımı ve özenli işçilik ile üretilen Belge Kabı, uzun ömürlü kullanım ve kullanıcı memnuniyeti sağlamaktadır.</p><p>Belge Kabı, iş hayatında, ofis ortamlarında ve eğitim alanlarında belgeleri düzenli tutmak ve korumak için mükemmel bir çözüm sunmaktadır. Yücel Plast’ın tecrübesi ve kalitesiyle üretilen Belge Kabı, güvenilirliği ve işlevselliğiyle kullanıcılarına kolaylık ve konfor sağlamaktadır.</p>",
       "cover": "belge-kabi.webp",
       "gallery": [],
       "featured": true,
       "products": [
         {
           "title": "Belge Kabı",
-          "description": "Suni deri ya da termo kaplama, logolu kapak.",
+          "description": "",
           "image": "belge-kabi.webp"
         },
         {
           "title": "Deri Belge Kabı",
-          "description": "Hakiki ya da suni deri, prestijli sunum için."
+          "description": ""
         }
       ]
     },
@@ -155,8 +155,8 @@
       "title": "İmza Dosyası",
       "slug": "imza-dosyasi",
       "icon": "imza",
-      "summary": "10 ve 18 yapraklı, köşe aksesuarlı kurumsal imza dosyaları.",
-      "body": "<p>Yücel Plast, 1977 yılından bu yana kaliteli ürünleriyle öne çıkan bir firma olarak faaliyet göstermektedir. Şirketimiz, müşterilerine sağladığı yüksek kaliteli ürünlerin yanı sıra, kurumsal kimliğimizi yansıtan profesyonel imza dosyalarıyla da dikkat çekmektedir. Kurumsal kimliğinizi yansıtan profesyonel imza dosyalarımız; iş görüşmeleri, resmi yazışmalar ve diğer kurumsal iletişimlerde kullanılarak kurumunuzun güvenilirliğini ve profesyonelliğini temsil eder.</p><p>Yaprak sayısı, kaplama malzemesi (cilt bezi, termo deri, suni deri, PVC), köşe aksesuarı ve kapak etiketi isteğe göre belirlenir.</p>",
+      "summary": "Yücel Plast, 1977 yılından bu yana kaliteli plastik ürünleriyle öne çıkan bir firma olarak faaliyet göstermektedir.",
+      "body": "<p>Yücel Plast, 1977 yılından bu yana kaliteli plastik ürünleriyle öne çıkan bir firma olarak faaliyet göstermektedir. Şirketimiz, müşterilerine sağladığı yüksek kaliteli ürünlerin yanı sıra, kurumsal kimliğimizi yansıtan profesyonel imza dosyalarıyla da dikkat çekmektedir. İmza dosyamız, iş görüşmeleri, resmi yazışmalar ve diğer kurumsal iletişimlerde kullanılarak şirketimizin güvenilirliğini ve profesyonelliğini temsil etmektedir.</p>",
       "cover": "imza-suni-deri-1.webp",
       "gallery": [
         "imza-suni-deri-1.webp",
@@ -173,24 +173,9 @@
           "description": ""
         },
         {
-          "title": "10 Yaprak Suni Deri İmza Dosyası",
-          "description": "Suni deri kaplama, metal köşe aksesuarı, etiket cebi.",
+          "title": "Deri İmza Dosyası",
+          "description": "",
           "image": "imza-suni-deri-3.webp"
-        },
-        {
-          "title": "18 Yaprak İçten Körüklü İmza Dosyası",
-          "description": "Körüklü iç yapı, kalın evrak için geniş hacim.",
-          "image": "imza-koruklu-1.webp"
-        },
-        {
-          "title": "İçi Süet İmza Dosyası",
-          "description": "Süet iç yüzey, şık ve yumuşak dokunuş.",
-          "image": "imza-suet-1.webp"
-        },
-        {
-          "title": "PVC İmza Dosyası",
-          "description": "Hafif, silinebilir PVC kaplama, canlı renk seçenekleri.",
-          "image": "imza-pvc-1.webp"
         }
       ]
     },
@@ -198,8 +183,8 @@
       "title": "Menü Kabı ve Adisyon",
       "slug": "menu-kabi-adisyon",
       "icon": "menu",
-      "summary": "Restoran, kafe ve oteller için menü kapları ve adisyon dosyaları.",
-      "body": "<p>Restoran, kafe ve oteller için ürettiğimiz menü kapları ve adisyon dosyaları, yoğun kullanıma dayanıklı termo deri ve suni deri kaplamalarla üretilir. Logonuz yaldız ya da gofreyle uygulanır; vidalı, halkalı ya da cepli iç yapı seçenekleri vardır.</p>",
+      "summary": "Termo ve Sunideri Menü Kabı.",
+      "body": "",
       "cover": "menu-termo-1.webp",
       "gallery": [
         "menu-termo-1.webp",
@@ -210,12 +195,12 @@
       "products": [
         {
           "title": "Termo Deri Menü Kabı",
-          "description": "Vidalı ya da cepli iç yapı, köşe aksesuarı.",
+          "description": "",
           "image": "menu-termo-1.webp"
         },
         {
           "title": "Suni Deri Menü Kabı",
-          "description": "Logolu kapak, dikişli kenar.",
+          "description": "",
           "image": "menu-kabi-gri.webp"
         }
       ]
@@ -224,8 +209,8 @@
       "title": "Kartela",
       "slug": "kartela",
       "icon": "kartela",
-      "summary": "Renk ve malzeme seçeneklerinizi müşterinize sunmanız için kartela.",
-      "body": "<p>Yücel Plast Kartela, müşterilerin ihtiyaçlarına uygun olarak farklı renk ve malzeme seçenekleri sunar. Bu sayede müşteriler, ürünlerin farklı renklerini ve dokularını inceleyerek kendilerine en uygun olanı seçme imkânına sahip olurlar. Kartela, ürünler hakkında daha iyi bir fikir edinmeyi sağlar ve doğru kararı vermeye yardımcı olur.</p><p>Yücel Plast’ın kalitesi ve geniş ürün yelpazesiyle desteklenen Kartela, müşterilerimize daha iyi bir alışveriş deneyimi sunmayı amaçlar. Müşteri memnuniyetini ön planda tutan Yücel Plast, Kartela ürünüyle de bu prensibe bağlı kalarak müşterilerinin beklentilerini karşılamayı hedefler.</p>",
+      "summary": "Yücel Plast Kartela, müşterilerin ihtiyaçlarına uygun olarak farklı renk ve malzeme seçenekleri sunar.",
+      "body": "<p>Yücel Plast Kartela, müşterilerin ihtiyaçlarına uygun olarak farklı renk ve malzeme seçenekleri sunar. Bu sayede müşteriler, ürünlerin farklı renklerini ve dokularını inceleyerek kendilerine en uygun olanı seçme imkanına sahip olurlar. Kartela, müşterilerin ürünler hakkında daha iyi bir fikir edinmelerini sağlar ve doğru kararı vermelerine yardımcı olur.</p><p>Yücel Plast’ın kalitesi ve geniş ürün yelpazesiyle desteklenen Kartela, müşterilerimize daha iyi bir alışveriş deneyimi sunmayı amaçlamaktadır. Müşteri memnuniyetini ön planda tutan Yücel Plast, Kartela ürünüyle de bu prensibe bağlı kalarak müşterilerinin beklentilerini karşılamayı hedeflemektedir.</p>",
       "gallery": [],
       "featured": true,
       "products": [
@@ -243,8 +228,8 @@
       "title": "Ruhsat Kabı",
       "slug": "ruhsat-kabi",
       "icon": "ruhsat",
-      "summary": "Araç ruhsatı, sigorta ve önemli evraklar için logolu kaplar.",
-      "body": "<p>Yücel Plast’ın ürettiği Ruhsat Kabı, önemli belgeleri düzenli ve güvenli bir şekilde saklamak için ideal bir çözümdür. Sağlam malzeme ve özenli işçilikle üretilen bu ürünle müşterilerimize güvenilir bir çözüm sunuyoruz.</p><p>Ruhsat Kabı; sürücü ruhsatı, araç belgeleri ve trafik sigortası gibi önemli evrakları saklamak için kullanılır. Şeffaf tasarımıyla belgelerin kolayca görünmesini sağlar ve düzenli dosyalanmasına yardımcı olur. Dayanıklı malzemeden üretildiği için uzun ömürlüdür.</p><p>Yücel Plast Ruhsat Kabı; araç sahipleri, sürücüler ve işletmeler için pratik bir çözümdür. Belgelerinizi düzenli tutarak gerektiğinde kolayca erişebilir ve güvende tutabilirsiniz. Yücel Plast’ın kalite ve güvenilirliğiyle birleşen Ruhsat Kabı, müşterilerine konfor ve kullanışlılık sağlamaktadır. Bayi ve kurum logonuzla promosyon ürünü olarak da tercih edilir.</p>",
+      "summary": "Yücel Plast’ın ürettiği Ruhsat Kabı, önemli belgeleri düzenli ve güvenli bir şekilde saklamak için ideal bir çözümdür.",
+      "body": "<p>Yücel Plast’ın ürettiği Ruhsat Kabı, önemli belgeleri düzenli ve güvenli bir şekilde saklamak için ideal bir çözümdür. Şirketimiz, sağlam malzeme kullanımı ve özenli işçilikle üretilen bu ürünüyle müşterilerine güvenilir bir çözüm sunmaktadır.</p><p>Ruhsat Kabı, sürücü ruhsatı, araç belgeleri, trafik sigortası gibi önemli evrakları saklamak için kullanılabilir. Şeffaf tasarımıyla belgelerin kolayca görünmesini sağlar ve düzenli bir şekilde dosyalanmasına yardımcı olur. Ayrıca, dayanıklı plastik malzemeden üretilmiş olması sayesinde uzun ömürlü kullanım sağlar.</p><p>Yücel Plast Ruhsat Kabı, araç sahipleri, sürücüler ve işletmeler için pratik bir çözüm sunar. Belgelerinizi düzenli tutarak gerektiğinde kolayca erişebilir ve güvende tutabilirsiniz. Yücel Plast’ın kalite ve güvenilirliğiyle birleşen Ruhsat Kabı, müşterilerine konfor ve kullanışlılık sağlamaktadır.</p>",
       "gallery": [],
       "featured": true,
       "products": [
@@ -262,8 +247,8 @@
       "title": "Bloknot ve Organizer",
       "slug": "bloknot-organizer",
       "icon": "bloknot",
-      "summary": "Toplantı ve seminerler için bloknotluk ve masa organizerleri.",
-      "body": "<p>Bloknot Organizer, çeşitli boyutlardaki bloknotları ve kalemleri bir arada tutmak için idealdir. İş toplantıları, seminerler veya günlük not alma gibi durumlarda kullanılabilir. Şeffaf cebiyle ekstra dokümanları da saklayabilir ve her şeyi tek bir yerde tutabilirsiniz.</p><p>Yücel Plast Bloknot Organizer, iş hayatınızı kolaylaştırmak için tasarlanmıştır. Notlarınızı düzenli bir şekilde tutarak verimliliğinizi artırabilir ve önemli bilgilerinizi kaybetmeden organize edebilirsiniz. Günlük kullanıma uygun pratik boyutuyla da dikkat çeker.</p><p>Yücel Plast’ın kalite ve işlevselliği bir araya getiren Bloknot Organizer, müşterilerine kullanışlılık ve konfor sağlar.</p>",
+      "summary": "Bloknot Organize, çeşitli boyutlardaki bloknotları ve kalemleri bir arada tutmak için idealdir.",
+      "body": "<p>Bloknot Organize, çeşitli boyutlardaki bloknotları ve kalemleri bir arada tutmak için idealdir. İş toplantıları, seminerler veya günlük not alma gibi durumlarda kullanılabilir. Şeffaf cebiyle ekstra dokümanları da saklayabilir ve her şeyi tek bir yerde tutabilirsiniz.</p><p>Yücel Plast Bloknot Organize, iş hayatınızı kolaylaştırmak için tasarlanmıştır. Notlarınızı düzenli bir şekilde tutarak verimliliğinizi artırabilir ve önemli bilgilerinizi kaybetmeden organize edebilirsiniz. Günlük kullanıma uygun pratik boyutuyla da dikkat çeker.</p><p>Yücel Plast’ın kalite ve işlevselliği bir araya getiren Bloknot Organize, müşterilerine kullanışlılık ve konfor sağlamaktadır.</p>",
       "cover": "yazi-altligi.webp",
       "gallery": [
         "bloknot-pvc-1.webp",
@@ -273,17 +258,17 @@
       "products": [
         {
           "title": "PVC Bloknotluk",
-          "description": "Hafif PVC kaplama, renk seçenekli.",
+          "description": "",
           "image": "bloknot-pvc-1.webp"
         },
         {
           "title": "Termo ve Suni Deri Bloknot",
-          "description": "Logolu kapak, kalemlik.",
+          "description": "",
           "image": "yazi-altligi.webp"
         },
         {
           "title": "Masa Organizeri",
-          "description": "Not kağıdı ve kalem için masaüstü kutu.",
+          "description": "",
           "image": "not-kutusu.webp"
         }
       ]
@@ -292,8 +277,8 @@
       "title": "Yıllık",
       "slug": "yillik",
       "icon": "yillik",
-      "summary": "Termo ve suni deri kapaklı kurumsal yıllıklar.",
-      "body": "<p>Yücel Plast’ın ürettiği Yıllık, yıl içindeki önemli tarihleri takip etmenizi sağlayan ve not almanıza olanak tanıyan kullanışlı bir üründür. Kaliteli malzemeler ve şık tasarımıyla müşterilerimize güvenilir bir çözüm sunuyoruz.</p><p>Yıllık, tüm yıl boyunca günlük randevularınızı, toplantılarınızı, doğum günlerini ve diğer önemli etkinlikleri organize etmenize yardımcı olur. Not almak için geniş alan sunar ve kişisel bilgilerinizi düzenli bir şekilde saklamanıza olanak tanır.</p><p>Yücel Plast Yıllık, iş ve özel yaşamınızı organize etmek için ideal bir araçtır. Hafif ve taşınabilir olmasıyla dikkat çeker; her zaman yanınızda taşıyabileceğiniz pratik bir çözümdür.</p><p>Yücel Plast’ın kalite ve işlevselliği bir araya getiren Yıllık, müşterilerine konfor ve kullanışlılık sağlamaktadır.</p>",
+      "summary": "Yücel Plast’ın ürettiği Yıllık, yıl içindeki önemli tarihleri takip etmenizi sağlayan ve not almanıza olanak tanıyan kullanışlı bir üründür.",
+      "body": "<p>Yücel Plast’ın ürettiği Yıllık, yıl içindeki önemli tarihleri takip etmenizi sağlayan ve not almanıza olanak tanıyan kullanışlı bir üründür. Şirketimiz, kaliteli malzemeler ve şık tasarımıyla müşterilerine güvenilir bir çözüm sunmaktadır.</p><p>Yıllık, tüm yıl boyunca günlük randevularınızı, toplantılarınızı, doğum günlerini ve diğer önemli etkinlikleri organize etmenize yardımcı olur. Ayrıca, not almak için geniş alan sunar ve kişisel bilgilerinizi düzenli bir şekilde saklamanıza olanak tanır.</p><p>Yücel Plast Yıllık, iş ve özel yaşamınızı organize etmek için ideal bir araçtır. Hafif ve taşınabilir olmasıyla da dikkat çeker ve her zaman yanınızda taşıyabileceğiniz pratik bir çözümdür.</p><p>Yücel Plast’ın kalite ve işlevselliği bir araya getiren Yıllık, müşterilerine konfor ve kullanışlılık sağlamaktadır.</p>",
       "gallery": [],
       "featured": false,
       "products": [
@@ -311,8 +296,8 @@
       "title": "Ajanda Kapağı",
       "slug": "ajanda-kapagi",
       "icon": "ajanda",
-      "summary": "Ajandalarınız için logolu, dayanıklı kapaklar.",
-      "body": "<p>Ajandalarınızı özel ve şık bir görünüme kavuşturan Yücel Plast Ajanda Kapağı, iş ve günlük yaşamınızı düzenli tutmanıza yardımcı olur. Kaliteli malzemelerle üretilen kapağın dayanıklı yapısı, ajandanızı dış etkenlere karşı korur ve uzun süre kullanım sağlar.</p><p>Ajanda Kapağı, farklı renk ve desen seçenekleriyle kişisel tarzınıza uyum sağlar. Hem profesyonel bir izlenim bırakır hem de tarzınızı yansıtmanıza imkân tanır. Şık ve kullanışlı tasarımıyla ajandanızı tamamlayarak işlevselliği ve estetiği bir arada sunar.</p><p>Yücel Plast’ın özenli işçiliği ve kaliteli malzemeleriyle üretilen Ajanda Kapağı, iş ve kişisel yaşamında düzen ve şıklık arayanlar için ideal bir tercihtir. Ajandalarınızı koruyarak onları daha uzun ömürlü hale getiren bu kapağın kullanımı, günlük yaşantınızı daha pratik hale getirecek.</p>",
+      "summary": "Ajandalarınızı özel ve şık bir görünüme kavuşturan Yücel Plast Ajanda Kapağı, iş ve günlük yaşamınızı düzenli tutmanıza yardımcı olur.",
+      "body": "<p>Ajandalarınızı özel ve şık bir görünüme kavuşturan Yücel Plast Ajanda Kapağı, iş ve günlük yaşamınızı düzenli tutmanıza yardımcı olur. Kaliteli malzemelerle üretilmiş olan bu kapağın dayanıklı yapısı, ajandanızı dış etkenlere karşı korur ve uzun süre kullanım sağlar.</p><p>Ajanda Kapağı, farklı renk ve desen seçenekleriyle kişisel tarzınıza uyum sağlar. Hem profesyonel bir izlenim bırakırken hem de tarzınızı yansıtmanıza imkan tanır. Şık ve kullanışlı tasarımıyla ajandanızı tamamlayarak işlevselliği ve estetiği bir arada sunar.</p><p>Yücel Plast’ın özenli işçiliği ve kaliteli malzemeleriyle üretilen Ajanda Kapağı, iş ve kişisel yaşamınızda düzen ve şıklık arayanlar için ideal bir tercihtir. Ajandalarınızı koruyarak onları daha uzun ömürlü hale getiren bu kapağın kullanımı, günlük yaşantınızı daha pratik hale getirecek.</p>",
       "gallery": [],
       "featured": false,
       "products": [
@@ -330,8 +315,8 @@
       "title": "Klasör",
       "slug": "klasor",
       "icon": "klasor",
-      "summary": "Mekanizmalı, sıvama ve PVC klasörler.",
-      "body": "<p>Yücel Plast’ın kaliteli ve dayanıklı malzemelerden ürettiği Klasör, belgelerinizi düzenli bir şekilde saklayarak işlerinizi kolaylaştırır. Şık tasarımıyla dikkat çeken bu klasör, profesyonel bir görünüm sunar ve dosyalarınızı güvenle korur.</p><p>Klasör, farklı boyut ve renk seçenekleriyle tercihinize uyum sağlar. İş yerinde veya okulda kullanabileceğiniz pratik boyutlarıyla önemli belgelerinizi organize etmenizi sağlar. Şeffaf cepleri ve iç bölümleriyle ekstra dokümanları ve küçük malzemeleri de düzenli saklayabilirsiniz.</p><p>Yücel Plast Klasör, iş yaşamında düzen ve organizasyon arayanlar için ideal bir tercihtir. Belgelerinizi kolayca bulabilmeniz ve dosyalarınızı güvenle saklayabilmeniz için tasarlanmıştır. Yüksek kaliteli malzeme ve özenli işçilikle uzun süre kullanabileceğiniz bir üründür.</p>",
+      "summary": "Yücel Plast’ın kaliteli ve dayanıklı malzemelerden ürettiği Klasör, belgelerinizi düzenli bir şekilde saklayarak işlerinizi kolaylaştırır.",
+      "body": "<p>Yücel Plast’ın kaliteli ve dayanıklı malzemelerden ürettiği Klasör, belgelerinizi düzenli bir şekilde saklayarak işlerinizi kolaylaştırır. Şık tasarımıyla da dikkat çeken bu klasör, profesyonel bir görünüm sunar ve dosyalarınızı güvenle korur.</p><p>Klasör, farklı boyut ve renk seçenekleriyle kişisel tercihinize uyum sağlar. İş yerinde veya okulda kullanabileceğiniz pratik boyutlarıyla önemli belgelerinizi organize etmenizi sağlar. Şeffaf cepleri ve iç bölümleriyle de ekstra dokümanları ve küçük malzemeleri düzenli bir şekilde saklayabilirsiniz.</p><p>Yücel Plast Klasör, iş yaşamınızda düzen ve organizasyon arayanlar için ideal bir tercihtir. Belgelerinizi kolayca bulabilmeniz ve dosyalarınızı güvenle saklayabilmeniz için tasarlanmıştır. Yüksek kaliteli malzeme kullanımı ve özenli işçiliğiyle uzun süre kullanabileceğiniz bir üründür.</p>",
       "cover": "klasor-termo-1.webp",
       "gallery": [
         "klasor-termo-1.webp",
@@ -341,7 +326,7 @@
       "products": [
         {
           "title": "Termo Suni Deri Klasör",
-          "description": "Halka mekanizmalı, logolu kapak.",
+          "description": "",
           "image": "klasor-termo-1.webp"
         },
         {
@@ -358,8 +343,8 @@
       "title": "Çanta",
       "slug": "canta",
       "icon": "canta",
-      "summary": "Kongre, evrak ve promosyon çantaları.",
-      "body": "<p>Yücel Plast’ın ürettiği çanta koleksiyonu, şıklığı ve işlevselliği bir araya getirerek geniş bir seçenek sunar. Her ihtiyaca uygun çeşitler arasında seçim yapabileceğiniz bu koleksiyon, kaliteli malzeme ve özenli işçilikle üretilir.</p><p>Çanta koleksiyonu, günlük kullanımdan kongre, seminer ve özel etkinliklere kadar geniş bir yelpazede kullanıma uygun çeşitler sunar. Spor çantaları, iş çantaları, seyahat çantaları ve daha fazlasıyla her tarza ve ihtiyaca hitap eder. Dayanıklı yapıları ve şık tasarımlarıyla dikkat çeker.</p><p>Yücel Plast Çanta koleksiyonu, kullanıcılarına konfor ve kullanışlılık sağlarken aynı zamanda tarzlarını da yansıtmalarına imkan tanır. Geniş iç bölmeleri, fermuarlı cepleri ve ergonomik tasarımlarıyla günlük yaşamı kolaylaştırır. Kurum logonuzla üretilir.</p><p>Yücel Plast’ın çanta koleksiyonu, kalite ve şıklığı birleştirerek kullanıcılarına güvenilir ve fonksiyonel bir çözüm sunar.</p>",
+      "summary": "Yücel Plast’ın ürettiği çanta koleksiyonu, şıklığı ve işlevselliği bir araya getirerek kullanıcılarına geniş bir seçenek sunar.",
+      "body": "<p>Yücel Plast’ın ürettiği çanta koleksiyonu, şıklığı ve işlevselliği bir araya getirerek kullanıcılarına geniş bir seçenek sunar. Her ihtiyaca uygun çeşitler arasında seçim yapabileceğiniz bu koleksiyon, kaliteli malzeme ve özenli işçilikle üretilmiştir.</p><p>Çanta koleksiyonu, günlük kullanımdan özel etkinliklere kadar geniş bir yelpazede kullanıma uygun çeşitler sunar. Spor çantaları, iş çantaları, seyahat çantaları ve daha fazlasıyla her tarza ve ihtiyaca hitap eder. Dayanıklı yapıları ve şık tasarımlarıyla da dikkat çekerler.</p><p>Yücel Plast Çanta koleksiyonu, kullanıcılarına konfor ve kullanışlılık sağlarken aynı zamanda tarzlarını da yansıtmalarına imkan tanır. Geniş iç bölmeleri, fermuarlı cepleri ve ergonomik tasarımlarıyla günlük yaşamı kolaylaştırır ve organizasyonu artırır.</p><p>Yücel Plast’ın çanta koleksiyonu, kalite ve şıklığı birleştirerek kullanıcılarına güvenilir ve fonksiyonel bir çözüm sunar.</p>",
       "gallery": [],
       "featured": false,
       "products": [
@@ -391,14 +376,14 @@
       "slug": "kvkk-aydinlatma-metni",
       "seoDescription": "Kişisel verilerin korunması hakkında aydınlatma metni.",
       "body": "<p><strong>Taslak metin, gözden geçirilmeli:</strong> Bu metin template ile gelen genel bir örnektir. Yayına almadan önce kurumunuzun hukuk ya da KVKK danışmanı tarafından kurumun gerçek veri işleme faaliyetlerine göre düzenlenmeli, köşeli parantez içindeki yerler doldurulmalıdır.</p><h2>Veri sorumlusu</h2>\n<p>6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") uyarınca kişisel verileriniz, veri sorumlusu sıfatıyla [Ticari unvan] (\"Kurum\") tarafından, aşağıda açıklanan kapsamda işlenmektedir. Adres: [Açık adres]. E-posta: [E-posta adresi].</p>\n<h2>İşlenen kişisel veriler</h2>\n<ul>\n<li>Kimlik ve iletişim bilgileri (ad soyad, telefon, e-posta): bizimle telefon, e-posta ya da WhatsApp ile iletişime geçtiğinizde paylaştığınız kadarıyla.</li>\n<li>İşlem güvenliği bilgileri (IP adresi, tarayıcı bilgisi, ziyaret zamanı): sitenin barındırıldığı altyapının güvenlik kayıtlarında.</li>\n<li>[Kurumun işlediği diğer veri kategorileri]</li>\n</ul>\n<h2>İşleme amaçları ve hukuki sebepler</h2>\n<p>Kişisel verileriniz; taleplerinize cevap verilmesi, hizmetlerimize ilişkin bilgi verilmesi, sitenin güvenliğinin sağlanması ve yasal yükümlülüklerin yerine getirilmesi amaçlarıyla, KVKK'nın 5. maddesindeki bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması, veri sorumlusunun hukuki yükümlülüğü ve meşru menfaati hukuki sebeplerine dayanılarak işlenir.</p>\n<h2>Toplama yöntemi</h2>\n<p>Veriler; site, e-posta, telefon ve yüz yüze görüşmeler aracılığıyla, otomatik ya da kısmen otomatik yollarla toplanır.</p>\n<h2>Aktarım</h2>\n<p>Kişisel verileriniz yalnız yukarıdaki amaçlarla sınırlı olarak, hizmet aldığımız barındırma ve altyapı sağlayıcılarına [yurt içi/yurt dışı sağlayıcılar] ve talep hâlinde yetkili kamu kurumlarına aktarılabilir.</p>\n<h2>Haklarınız</h2>\n<p>KVKK'nın 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini, şartları oluşmuşsa silinmesini veya yok edilmesini isteme, bu işlemlerin aktarılan üçüncü kişilere bildirilmesini isteme, münhasıran otomatik sistemlerle analiz sonucu aleyhinize bir sonuç çıkmasına itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme haklarına sahipsiniz.</p>\n<p>Başvurularınızı [E-posta adresi] adresine ya da [Açık adres] adresine yazılı olarak iletebilirsiniz. Başvurular en geç otuz gün içinde ücretsiz olarak sonuçlandırılır.</p>",
-      "published": true
+      "published": false
     },
     {
       "title": "Gizlilik ve Çerez Politikası",
       "slug": "gizlilik-politikasi",
       "seoDescription": "Sitenin gizlilik ve çerez politikası.",
       "body": "<p><strong>Taslak metin, gözden geçirilmeli:</strong> Bu metin template ile gelen genel bir örnektir. Yayına almadan önce kurumunuzun hukuk ya da KVKK danışmanı tarafından kurumun gerçek veri işleme faaliyetlerine göre düzenlenmeli, köşeli parantez içindeki yerler doldurulmalıdır.</p><h2>Genel</h2>\n<p>Bu politika, [Ticari unvan] tarafından işletilen bu sitenin ziyaretçilerine ilişkin bilgilerin nasıl ele alındığını açıklar. Kişisel verilerin işlenmesine ilişkin ayrıntılı bilgi KVKK Aydınlatma Metni'ndedir.</p>\n<h2>Çerezler</h2>\n<p>Bu site reklam ya da takip çerezi kullanmaz ve ziyaretçi profili oluşturmaz. Site statik sayfalardan oluşur; ziyaretinizde tarayıcınıza çerez yazılmaz. [Sonradan çerez kullanan bir hizmet eklenirse burada adı, amacı ve süresiyle belirtilmelidir.]</p>\n<h2>Ziyaret istatistikleri</h2>\n<p>Sitenin hangi sayfalarının ne kadar ziyaret edildiğini anlamak için çerez kullanmayan, ziyaretçiyi tanımlamayan Cloudflare Web Analytics kullanılabilir. Bu hizmet IP adresini ve tarayıcı parmak izini kullanıcı takibi için kullanmaz; yalnız toplu sayfa görüntüleme ve performans ölçümleri tutar.</p>\n<h2>Bağlantılar ve üçüncü taraf hizmetler</h2>\n<p>Sitede başka sitelere (ör. harita, sosyal medya) bağlantılar bulunabilir. Bu sitelerin kendi gizlilik politikaları geçerlidir.</p>\n<h2>Güvenlik</h2>\n<p>Site yalnız şifreli bağlantı (HTTPS) üzerinden yayınlanır ve güvenlik başlıklarıyla korunur.</p>\n<h2>Değişiklikler ve iletişim</h2>\n<p>Bu politika gerektiğinde güncellenir; güncel hâli bu sayfadadır. Sorularınız için: [E-posta adresi].</p>",
-      "published": true
+      "published": false
     }
   ]
 }
