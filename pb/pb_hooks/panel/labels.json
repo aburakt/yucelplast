@@ -12,6 +12,7 @@
   "fields": {
     "settings.company_name": "Firma adı",
     "settings.phone_2": "İkinci telefon",
+    "settings.email_2": "İkinci e-posta",
     "settings.maps_url": "Google Haritalar bağlantısı",
     "settings.about_title": "Tanıtım başlığı",
     "settings.about_text": "Tanıtım metni",
