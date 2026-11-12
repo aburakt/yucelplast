@@ -30,3 +30,27 @@
 /feed/ / 301
 /comments/feed/ / 301
 /category/genel/ / 301
+
+# Aynı adresler sonda slash olmadan (eski WP ikisini de açıyordu; yeni sayfaları Cloudflare kendisi slash'a yönlendirir)
+/kutu-uretimi /urunler/kutu-uretimi/ 301
+/belge-kabi /urunler/belge-kabi/ 301
+/imza-dosyasi /urunler/imza-dosyasi/ 301
+/menu-kabi-adisyon /urunler/menu-kabi-adisyon/ 301
+/kartela /urunler/kartela/ 301
+/ruhsat-kabi /urunler/ruhsat-kabi/ 301
+/bloknot-organizer /urunler/bloknot-organizer/ 301
+/yillik /urunler/yillik/ 301
+/ajanda-kapagi /urunler/ajanda-kapagi/ 301
+/klasor /urunler/klasor/ 301
+/canta /urunler/canta/ 301
+/kapakli-kutu /urunler/kutu-uretimi/kapakli-kutu/ 301
+/miknatisli-kutu /urunler/kutu-uretimi/miknatisli-kutu/ 301
+/miknatisli-kutuzz /urunler/kutu-uretimi/miknatisli-kutu/ 301
+/kutu-uretimi/kapakli-kutu /urunler/kutu-uretimi/kapakli-kutu/ 301
+/urunler/kapakli-kutu /urunler/kutu-uretimi/kapakli-kutu/ 301
+/hizmetler/kutu-uretimi /urunler/kutu-uretimi/ 301
+/index.php/urunler/kutu-uretimi /urunler/kutu-uretimi/ 301
+/main-home / 301
+/feed / 301
+/comments/feed / 301
+/category/genel / 301
