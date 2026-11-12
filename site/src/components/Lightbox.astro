@@ -1,0 +1,15 @@
+---
+import Icon from "./Icon.astro"
+---
+<dialog id="lightbox" class="lightbox" aria-label="Fotoğraf">
+  <figure class="lb-figure">
+    <img class="lb-img" alt="" />
+    <figcaption class="lb-caption" aria-live="polite"></figcaption>
+  </figure>
+  <button type="button" class="lb-btn lb-close" data-lb="close" aria-label="Kapat"><Icon name="close" /></button>
+  <button type="button" class="lb-btn lb-prev" data-lb="prev" aria-label="Önceki fotoğraf"><Icon name="left" /></button>
+  <button type="button" class="lb-btn lb-next" data-lb="next" aria-label="Sonraki fotoğraf"><Icon name="right" /></button>
+</dialog>
+<script>
+  import "../scripts/lightbox"
+</script>

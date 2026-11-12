@@ -29,6 +29,8 @@ export const UI_ICONS = {
   home: "M3.5 11 12 4l8.5 7M6 9.5V20h4.5v-5.5h3V20H18V9.5",
   down: "M6 9l6 6 6-6",
   right: "M9 6l6 6-6 6",
+  left: "M15 6l-6 6 6 6",
+  close: "M6 6l12 12M18 6 6 18",
   check: "M5 12.5l4.5 4.5L19 7.5",
   design: "M4 20l4-1 11-11-3-3L5 16zM14 7l3 3M4 20h16",
   factory: "M3 21V10l5 3V10l5 3V10l5 3V4h3v17zM7 17h2M12 17h2M17 17h2",

@@ -18,7 +18,8 @@ export const SITE: SiteConfig = {
     // tek dilli: hreflang yok (çok dilli sitede hasNot kaldırılır, has'a hreflang eklenir; docs/i18n.md)
     { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Kaliteli Ürünler, <em>Güvenilir Çözümler</em>", "Tüm Ürünler", 'class="icon-card', 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün Seçimi Danışmanlığı", "1977", 'href="/kvkk-aydinlatma-metni/"', 'class="mega-tile"', 'href="/ara/"', "Ülkeye İhracat", 'data-count="2514"'], hasNot: ["hreflang", 'href="/urunler/yillik/" class="icon-card'] },
     { name: "Ürünler", path: "/urunler/", has: ["<h1", 'href="/urunler/kutu-uretimi/"', 'href="/urunler/canta/"', '"@type":"BreadcrumbList"'], hasNot: ['href="/urunler/kutu-uretimi/kapakli-kutu/" class="box-card'] },
-    { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "18 Yaprak İçten Körüklü İmza Dosyası", "Fotoğraflar", '"@type":"CollectionPage"'] },
+    { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "18 Yaprak İçten Körüklü İmza Dosyası", "Ciltbezi İmza Dosyası", "imza dosyalarıyla da dikkat çekmektedir", "Fotoğraflar", '"@type":"CollectionPage"', 'data-lightbox="galeri"', '<dialog id="lightbox"'] },
+    { name: "Eski sitenin cümleleri geri geldi", path: "/urunler/canta/", has: ["Spor çantaları, iş çantaları, seyahat çantaları", "kalite ve şıklığı birleştirerek"] },
     { name: "Üst grup alt gruplarını listeler", path: "/urunler/kutu-uretimi/", has: ["Kutu Üretimi çeşitleri", 'href="/urunler/kutu-uretimi/kapakli-kutu/"', 'href="/urunler/kutu-uretimi/miknatisli-kutu/"', "Diğer modeller", "Silindir Kutu"] },
     { name: "Alt grup sayfası", path: "/urunler/kutu-uretimi/miknatisli-kutu/", has: ["<h1", "Mıknatıslı Kutu", 'href="/urunler/kutu-uretimi/">Kutu Üretimi</a>'] },
     { name: "Fotoğrafsız grup simgeyle görünür", path: "/urunler/canta/", has: ["<h1", "Karton Çanta", 'class="cat-ico i-canta"'] },
@@ -44,7 +45,7 @@ export const SITE: SiteConfig = {
     { name: "Markdown eşi ve WebMCP betiği sayfada", path: "/urunler/kutu-uretimi/", has: ['<link rel="alternate" type="text/markdown" href="/urunler/kutu-uretimi/index.md">'] },
     { name: "WebMCP verisi", path: "/webmcp.json", has: ['"name":"Yücel Plast"', '"path":"/urunler/klasor/"', '"kind":"form"'] },
     { name: "İletişim formu WebMCP bildirimsel araç", path: "/iletisim/", has: ['toolname="contact_message"', "toolparamdescription="], hasNot: ["toolautosubmit"] },
-    { name: "Yönlendirmeler", path: "/_redirects", has: ["\n/index.html / 301\n", "/urunler/kutu-uretimi/miknatisli-kutuzz /urunler/kutu-uretimi/miknatisli-kutu/ 301"] },
+    { name: "Yönlendirmeler", path: "/_redirects", has: ["\n/index.html / 301\n", "/urunler/kutu-uretimi/miknatisli-kutuzz /urunler/kutu-uretimi/miknatisli-kutu/ 301", "\n/kutu-uretimi/ /urunler/kutu-uretimi/ 301\n", "\n/main-home/ / 301\n", "\n/wp-sitemap.xml /sitemap-index.xml 301\n"] },
   ],
   hookSample: {
     collection: "features",
