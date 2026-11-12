@@ -70,6 +70,7 @@
     "site/src/webmcp.d.ts",
     "tests/a11y.test.ts",
     "tests/core.test.ts",
+    "tests/em-dash.test.ts",
     "tests/fixtures/1792199999_shop_test_reset.js",
     "tests/forms.test.ts",
     "tests/geo.test.ts",

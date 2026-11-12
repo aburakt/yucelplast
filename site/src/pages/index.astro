@@ -1,4 +1,5 @@
 ---
+import CategoryIcon from "../components/CategoryIcon.astro"
 import Icon from "../components/Icon.astro"
 import Photo from "../components/Photo.astro"
 import Base from "../layouts/Base.astro"
@@ -7,7 +8,7 @@ import { loadSite, topCategories } from "../lib/content"
 // Eski ana sayfanın sırası: bina fotoğraflı hero, değişen kelimeli tanıtım, akordeonlu "Neden Yücel Plast?",
 // mavi simgeli ürün grubu kartları ve "Tüm Ürünler".
 const site = await loadSite()
-const { settings: s, features } = site
+const { settings: s, features, stats } = site
 const featured = topCategories(site).filter((c) => c.featured)
 const paragraphs = s.aboutText.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
 // "Kaliteli Ürünler, Güvenilir Çözümler": virgülden sonrası ikinci satırda, açık mavi
@@ -31,7 +32,8 @@ const words = m ? [m[2]!, "Estetiğin", "Güvenin"] : []
     </div>
   </section>
 
-  <section class="section">
+  <section class="section relative">
+    <div class="watermark left-6 top-16" aria-hidden="true"><span></span></div>
     <div class="wrap grid items-center gap-14 lg:grid-cols-2">
       <div>
         {m ? (
@@ -52,7 +54,8 @@ const words = m ? [m[2]!, "Estetiğin", "Güvenin"] : []
   </section>
 
   {features.length > 0 && (
-    <section class="section bg-mist">
+    <section class="section relative bg-mist">
+      <div class="watermark right-6 top-16" aria-hidden="true"><span></span></div>
       <div class="wrap grid items-center gap-14 lg:grid-cols-2">
         {s.aboutImage2 && (
           <div class="framed ml-3 aspect-[4/3]">
@@ -85,8 +88,9 @@ const words = m ? [m[2]!, "Estetiğin", "Güvenin"] : []
         {featured.map((c) => (
           <li class="flex">
             <a href={c.path} class="icon-card w-full">
-              <Icon name={c.icon} stroke={1.1} class="" />
+              <CategoryIcon name={c.icon} />
               <h3>{c.title}</h3>
+              <span class="icon-more" aria-hidden="true">İncele</span>
             </a>
           </li>
         ))}
@@ -96,4 +100,23 @@ const words = m ? [m[2]!, "Estetiğin", "Güvenin"] : []
       </div>
     </div>
   </section>
+
+  {stats.length > 0 && (
+    <section class="band py-14 md:py-16" aria-labelledby="rakamlar">
+      <div class="wrap">
+        <h2 id="rakamlar" class="sr-only">Rakamlarla {s.companyName}</h2>
+        <ul class="grid grid-cols-2 gap-y-10 text-center lg:grid-cols-4">
+          {stats.map((x) => (
+            <li class="px-2">
+              <p class="stat-num"><span data-count={x.value}>{x.value.toLocaleString("tr")}</span>{x.suffix}</p>
+              <p class="mt-3 font-medium text-[#d3e5f4]">{x.label}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+  <script>
+    import "../scripts/count-up"
+  </script>
 </Base>

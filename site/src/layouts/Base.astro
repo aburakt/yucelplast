@@ -3,6 +3,7 @@ import "../styles/global.css"
 import ErrorTracking from "../components/ErrorTracking.astro"
 import Geo from "../components/Geo.astro"
 import Head from "../components/Head.astro"
+import CategoryIcon from "../components/CategoryIcon.astro"
 import Icon from "../components/Icon.astro"
 import Logo from "../components/Logo.astro"
 import { loadSite, topCategories } from "../lib/content"
@@ -44,15 +45,21 @@ const beacon = isFixtureMode() ? undefined : cfBeacon(s.cfAnalyticsToken)
               {CORPORATE.map((n) => <a href={n.href} aria-current={current(n.href)}>{n.label}</a>)}
             </div>
           </div>
-          <div class="dd">
+          <div class="dd mega">
             <a href="/urunler/" aria-current={current("/urunler/")}>Ürünlerimiz<Icon name="down" stroke={2} /></a>
-            <div class="dd-panel cols">
-              {cats.map((c) => <a href={c.path} aria-current={current(c.path)}>{c.title}</a>)}
+            <div class="dd-panel">
+              <div class="wrap">
+                <div class="mega-grid">
+                  {cats.map((c) => <a href={c.path} class="mega-tile" aria-current={current(c.path)}><CategoryIcon name={c.icon} /><span>{c.title}</span></a>)}
+                </div>
+                <a href="/urunler/" class="mega-all">Tüm ürünler<Icon name="arrow" class="h-4 w-4" /></a>
+              </div>
             </div>
           </div>
           {MENU.map((n) => <a href={n.href} aria-current={current(n.href)}>{n.label}</a>)}
         </nav>
         <div class="flex items-center gap-3">
+          <a href="/ara/" class="search-btn" aria-label="Sitede ara" aria-current={path === "/ara/" ? "page" : undefined}><Icon name="search" stroke={2} /></a>
           {s.phone && <a href={telHref(s.phone)} class="hidden items-center gap-2 font-semibold text-white no-underline xl:inline-flex"><Icon name="phone" class="h-4 w-4" />{s.phone}</a>}
           <details class="menu relative lg:hidden">
             <summary class="btn px-3 text-white border border-white/40" aria-label="Menüyü aç"><Icon name="burger" /></summary>

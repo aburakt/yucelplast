@@ -1,0 +1,46 @@
+---
+import CategoryIcon from "../components/CategoryIcon.astro"
+import PageHero from "../components/PageHero.astro"
+import Base from "../layouts/Base.astro"
+import { loadSite } from "../lib/content"
+import { lower } from "../lib/tr"
+
+// Sitede arama (eski sitenin üst menüsündeki arama): ürün grupları ve modeller sayfada hazır listelenir,
+// scripts/search.ts yazılan kelimeye göre süzer. Betik yoksa liste olduğu gibi görünür.
+const site = await loadSite()
+const parentOf = (slug?: string) => site.categories.find((c) => c.slug === slug)
+const items = [
+  ...site.categories.map((c) => ({ title: c.title, text: c.summary, path: c.path, group: parentOf(c.parent)?.title ?? "Ürün grubu", icon: c.icon })),
+  ...site.categories.flatMap((c) => c.products.map((p) => ({ title: p.title, text: p.description, path: c.path, group: c.title, icon: c.icon }))),
+]
+const lead = "Ürün grubu ya da model adı yazın."
+---
+<Base title="Ara" path="/ara/" description={lead}>
+  <PageHero title="Ara" lead={lead} crumbs={[]} />
+  <section class="section">
+    <div class="wrap max-w-[52rem]">
+      <form action="/ara/" method="get" role="search" class="flex gap-3" data-search>
+        <label class="sr-only" for="q">Aranacak kelime</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="ör. kutu, imza dosyası, termo" class="min-w-0 flex-1 rounded-lg border border-line px-4 py-3 text-lg" />
+        <button class="btn btn-primary">Ara</button>
+      </form>
+      <p class="muted mt-4 text-sm" data-search-status role="status">{items.length} sonuç</p>
+      <ul class="mt-6 grid gap-3" data-search-list>
+        {items.map((x) => (
+          <li data-search-text={lower(`${x.title} ${x.group} ${x.text}`)}>
+            <a href={x.path} class="card flex items-center gap-4 p-4 no-underline hover:border-brand">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand text-white"><CategoryIcon name={x.icon} class="w-8" /></span>
+              <span class="min-w-0">
+                <span class="block font-semibold text-ink">{x.title}</span>
+                <span class="muted block text-sm">{x.group}{x.text ? `: ${x.text}` : ""}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <script>
+    import "../scripts/search"
+  </script>
+</Base>

@@ -1,4 +1,4 @@
-# /etc/systemd/system/pb-yucelplast.service — Yücel Plast PocketBase. scripts/new-site.ts üretti.
+# /etc/systemd/system/pb-yucelplast.service: Yücel Plast PocketBase. scripts/new-site.ts üretti.
 # Sunucudaki diğer unit'lerle karşılaştırın: systemctl cat pb-keyfince
 [Unit]
 Description=PocketBase yucelplast (cms.yucelplast.com)
