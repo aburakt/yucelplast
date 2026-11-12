@@ -13,7 +13,7 @@ export async function geo(): Promise<GeoSite> {
   const site = await loadSite()
   const { settings: s, features, pages } = site
   const contact = [
-    s.phone && `- Telefon: ${s.phone}`, s.phone2 && `- Telefon 2: ${s.phone2}`, s.email && `- E-posta: ${s.email}`,
+    s.phone && `- Telefon: ${s.phone}`, s.phone2 && `- Telefon 2: ${s.phone2}`, s.email && `- E-posta: ${s.email}`, s.email2 && `- E-posta 2: ${s.email2}`,
     s.address && `- Adres: ${lines(s.address).join(", ")}`,
   ].filter(Boolean).join("\n")
   const catLine = (c: Category) => `- [${c.title}](${c.path}): ${c.summary}`

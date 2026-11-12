@@ -4,6 +4,7 @@
     "phone": "0312 395 42 01",
     "phone2": "0312 395 42 02",
     "email": "info@yucelplast.com",
+    "email2": "yucelplast@yucelplast.com",
     "address": "İvedik Organize Sanayi Bölgesi\n1341. Cadde No: 73\nYenimahalle / Ankara",
     "mapsUrl": "",
     "heroTitle": "Kaliteli Ürünler, Güvenilir Çözümler",
@@ -173,9 +174,24 @@
           "description": ""
         },
         {
-          "title": "Deri İmza Dosyası",
+          "title": "10 Yaprak Suni Deri İmza Dosyası",
           "description": "",
           "image": "imza-suni-deri-3.webp"
+        },
+        {
+          "title": "18 Yaprak İçten Körüklü İmza Dosyası",
+          "description": "",
+          "image": "imza-koruklu-1.webp"
+        },
+        {
+          "title": "İçi Süet İmza Dosyası",
+          "description": "",
+          "image": "imza-suet-1.webp"
+        },
+        {
+          "title": "PVC İmza Dosyası",
+          "description": "",
+          "image": "imza-pvc-1.webp"
         }
       ]
     },

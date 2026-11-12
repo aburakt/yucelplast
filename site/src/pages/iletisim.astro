@@ -35,12 +35,12 @@ const jsonLd = graph(
               <a href={telHref(t!)} class="font-semibold text-ink no-underline hover:text-brand">{t}</a>
             </li>
           ))}
-          {s.email && (
+          {[s.email, s.email2].filter(Boolean).map((e) => (
             <li class="flex items-center gap-4">
               <span class="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand text-white"><Icon name="mail" /></span>
-              <a href={`mailto:${s.email}`} class="font-semibold text-ink no-underline hover:text-brand">{s.email}</a>
+              <a href={`mailto:${e}`} class="font-semibold text-ink no-underline hover:text-brand">{e}</a>
             </li>
-          )}
+          ))}
         </ul>
       </div>
       <iframe src={mapsEmbed(s.address)} title={`${s.companyName} konumu, Google Haritalar`} class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

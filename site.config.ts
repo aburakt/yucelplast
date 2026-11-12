@@ -18,7 +18,7 @@ export const SITE: SiteConfig = {
     // tek dilli: hreflang yok (çok dilli sitede hasNot kaldırılır, has'a hreflang eklenir; docs/i18n.md)
     { name: "Ana sayfa", path: "/", has: ['<html lang="tr"', "<h1", "Kaliteli Ürünler, <em>Güvenilir Çözümler</em>", "Tüm Ürünler", 'class="icon-card', 'rel="canonical"', 'property="og:image"', '"@type":"LocalBusiness"', 'href="/urunler/imza-dosyasi/"', "Ürün Seçimi Danışmanlığı", "1977", 'class="mega-tile"', 'href="/ara/"', "Ülkeye İhracat", 'data-count="2514"'], hasNot: ["hreflang", 'href="/kvkk-aydinlatma-metni/"', 'href="/gizlilik-politikasi/"', 'href="/urunler/yillik/" class="icon-card'] },
     { name: "Ürünler", path: "/urunler/", has: ["<h1", 'href="/urunler/kutu-uretimi/"', 'href="/urunler/canta/"', '"@type":"BreadcrumbList"'], hasNot: ['href="/urunler/kutu-uretimi/kapakli-kutu/" class="box-card'] },
-    { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "Ciltbezi İmza Dosyası", "Deri İmza Dosyası", "kaliteli plastik ürünleriyle", "imza dosyalarıyla da dikkat çekmektedir", "Fotoğraflar", '"@type":"CollectionPage"', 'data-lightbox="galeri"', '<dialog id="lightbox"'], hasNot: ["18 Yaprak İçten Körüklü", "İçi Süet", "PVC İmza Dosyası"] },
+    { name: "Ürün grubu ve modelleri", path: "/urunler/imza-dosyasi/", has: ["<h1", "İmza Dosyası", "Ciltbezi İmza Dosyası", "18 Yaprak İçten Körüklü İmza Dosyası", "İçi Süet İmza Dosyası", "PVC İmza Dosyası", "kaliteli plastik ürünleriyle", "imza dosyalarıyla da dikkat çekmektedir", "Fotoğraflar", '"@type":"CollectionPage"', 'data-lightbox="galeri"', '<dialog id="lightbox"'] },
     { name: "Eski sitenin cümleleri geri geldi", path: "/urunler/canta/", has: ["Spor çantaları, iş çantaları, seyahat çantaları", "kalite ve şıklığı birleştirerek"] },
     { name: "Üst grup alt gruplarını listeler", path: "/urunler/kutu-uretimi/", has: ["Kutu Üretimi çeşitleri", 'href="/urunler/kutu-uretimi/kapakli-kutu/"', 'href="/urunler/kutu-uretimi/miknatisli-kutu/"', "Diğer modeller", "Silindir Kutu"], hasNot: ["Kızaklı çekmece"] },
     { name: "Alt grup sayfası", path: "/urunler/kutu-uretimi/miknatisli-kutu/", has: ["<h1", "Mıknatıslı Kutu", 'href="/urunler/kutu-uretimi/">Kutu Üretimi</a>'] },
@@ -26,7 +26,7 @@ export const SITE: SiteConfig = {
     { name: "Hakkımızda", path: "/hakkimizda/", has: ["<h1", "İnovasyon ve Kaliteli İşçiliğin Buluştuğu Nokta", '"@type":"AboutPage"'] },
     { name: "Tasarım ve Özelleştirme", path: "/tasarim-ve-ozellestirme/", has: ["<h1", "Ürün Seçimi Danışmanlığı", "Ürün Özellikleri", "Sıvama Kutu"] },
     { name: "İnsan Kaynakları formu", path: "/insan-kaynaklari/", has: ["<h1", 'name="topic" value="is-basvurusu"', 'toolname="job_application"', "/api/collections/messages/records"] },
-    { name: "İletişim formu PB'ye gönderir", path: "/iletisim/", has: ["İvedik Organize Sanayi Bölgesi", 'data-contact-form', 'id="form"', "/api/collections/messages/records", 'name="kvkk_consent"', 'name="website"', 'name="topic"', '"@type":"ContactPage"', 'src="https://www.google.com/maps?q=', ">Ankara</h2>"] },
+    { name: "İletişim formu PB'ye gönderir", path: "/iletisim/", has: ["İvedik Organize Sanayi Bölgesi", 'data-contact-form', 'id="form"', "/api/collections/messages/records", 'name="kvkk_consent"', 'name="website"', 'name="topic"', '"@type":"ContactPage"', 'src="https://www.google.com/maps?q=', ">Ankara</h2>", 'href="mailto:info@yucelplast.com"', 'href="mailto:yucelplast@yucelplast.com"'] },
     { name: "KVKK hukuk onayına kadar taslak", path: "/kvkk-aydinlatma-metni/", status: 404 },
     { name: "Gizlilik hukuk onayına kadar taslak", path: "/gizlilik-politikasi/", status: 404 },
     // PB adresi build'de connect-src'ye eklenir (site/integrations/pb-csp.ts); verify PB'si 127.0.0.1'de çalışır
@@ -40,7 +40,7 @@ export const SITE: SiteConfig = {
     ...GEO_CHECKS,
     { name: "Robots: eğitim tarayıcıları izinli (geo.ts aiTraining)", path: "/robots.txt", has: ["User-agent: meta-externalagent\nAllow: /\n"] },
     { name: "llms.txt", path: "/llms.txt", has: ["Yücel Plast", "/urunler/imza-dosyasi/): ", "## Ürünler"], hasNot: ["## Yasal bilgiler"] },
-    { name: "llms-full.txt", path: "/llms-full.txt", has: ["## İmza Dosyası", "Deri İmza Dosyası"], hasNot: ["## Veri sorumlusu"] },
+    { name: "llms-full.txt", path: "/llms-full.txt", has: ["## İmza Dosyası", "PVC İmza Dosyası", "yucelplast@yucelplast.com"], hasNot: ["## Veri sorumlusu"] },
     { name: "Grubun markdown eşi", path: "/urunler/kutu-uretimi/index.md", has: ["# Kutu Üretimi", "Kaynak: ", "## Kutu Üretimi çeşitleri"] },
     { name: "Markdown eşi ve WebMCP betiği sayfada", path: "/urunler/kutu-uretimi/", has: ['<link rel="alternate" type="text/markdown" href="/urunler/kutu-uretimi/index.md">'] },
     { name: "WebMCP verisi", path: "/webmcp.json", has: ['"name":"Yücel Plast"', '"path":"/urunler/klasor/"', '"kind":"form"'] },
@@ -59,7 +59,7 @@ export const SITE: SiteConfig = {
     await patch(pb, "settings", await first(pb, "settings"), { cf_analytics_token: TOKEN })
     await patch(pb, "pages", await first(pb, "pages", 'slug = "gizlilik-politikasi"'), { published: true })
     await patch(pb, "categories", await first(pb, "categories", 'slug = "kutu-uretimi"'), { published: false })
-    await patch(pb, "products", await first(pb, "products", 'title = "Deri İmza Dosyası"'), { published: false })
+    await patch(pb, "products", await first(pb, "products", 'title = "PVC İmza Dosyası"'), { published: false })
   },
   testChecks: [
     {
@@ -70,7 +70,7 @@ export const SITE: SiteConfig = {
     { name: "Taslak sayfa yayınlanmaz", path: "/kvkk-aydinlatma-metni/", status: 404 },
     { name: "Yayındaki yasal sayfa", path: "/gizlilik-politikasi/", has: ["<h1", "Çerezler"] },
     { name: "Taslak üst grup ve alt grupları yayınlanmaz", path: "/urunler/kutu-uretimi/miknatisli-kutu/", status: 404 },
-    { name: "Taslak ürün görünmez", path: "/urunler/imza-dosyasi/", has: ["Ciltbezi İmza Dosyası"], hasNot: ["Deri İmza Dosyası"] },
+    { name: "Taslak ürün görünmez", path: "/urunler/imza-dosyasi/", has: ["Ciltbezi İmza Dosyası", "İçi Süet İmza Dosyası"], hasNot: ["PVC İmza Dosyası"] },
     { name: "Taslak grup menüde yok", path: "/urunler/", hasNot: ['href="/urunler/kutu-uretimi/"'] },
   ],
 }
