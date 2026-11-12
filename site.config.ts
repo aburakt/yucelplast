@@ -45,7 +45,7 @@ export const SITE: SiteConfig = {
     { name: "Markdown eşi ve WebMCP betiği sayfada", path: "/urunler/kutu-uretimi/", has: ['<link rel="alternate" type="text/markdown" href="/urunler/kutu-uretimi/index.md">'] },
     { name: "WebMCP verisi", path: "/webmcp.json", has: ['"name":"Yücel Plast"', '"path":"/urunler/klasor/"', '"kind":"form"'] },
     { name: "İletişim formu WebMCP bildirimsel araç", path: "/iletisim/", has: ['toolname="contact_message"', "toolparamdescription="], hasNot: ["toolautosubmit"] },
-    { name: "Yönlendirmeler", path: "/_redirects", has: ["\n/index.html / 301\n", "/urunler/kutu-uretimi/miknatisli-kutuzz /urunler/kutu-uretimi/miknatisli-kutu/ 301", "\n/kutu-uretimi/ /urunler/kutu-uretimi/ 301\n", "\n/main-home/ / 301\n", "\n/wp-sitemap.xml /sitemap-index.xml 301\n"] },
+    { name: "Yönlendirmeler", path: "/_redirects", has: ["\n/index.html / 301\n", "/urunler/kutu-uretimi/miknatisli-kutuzz /urunler/kutu-uretimi/miknatisli-kutu/ 301", "\n/kutu-uretimi/ /urunler/kutu-uretimi/ 301\n", "\n/main-home/ / 301\n", "\n/wp-sitemap.xml /sitemap-index.xml 301\n", "\n/kutu-uretimi /urunler/kutu-uretimi/ 301\n", "\n/main-home / 301\n"] },
   ],
   hookSample: {
     collection: "features",
