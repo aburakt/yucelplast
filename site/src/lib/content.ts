@@ -31,7 +31,7 @@ function fromFixture(): Site {
   const pages = content.pages.filter((p) => p.published).map((p) => ({ title: p.title, slug: p.slug, body: p.body, seoDescription: p.seoDescription }))
   return {
     settings: {
-      companyName: s.companyName, phone: s.phone, phone2: s.phone2, email: s.email, address: s.address, mapsUrl: s.mapsUrl,
+      companyName: s.companyName, phone: s.phone, phone2: s.phone2, email: s.email, email2: s.email2, address: s.address, mapsUrl: s.mapsUrl,
       heroTitle: s.heroTitle, heroText: s.heroText, heroImage: opt(s.heroImage),
       aboutTitle: s.aboutTitle, aboutText: s.aboutText, aboutImage: opt(s.aboutImage), aboutImage2: opt(s.aboutImage2), since: s.since,
       designText: s.designText, designImage: opt(s.designImage), hrText: s.hrText, hrImage: opt(s.hrImage), seoDescription: s.seoDescription,

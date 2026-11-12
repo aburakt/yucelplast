@@ -4,7 +4,7 @@ export type Img = { src: ImageMetadata | string }
 
 /** Site Ayarları (PB `settings`, tek kayıt). */
 export type Settings = {
-  companyName: string; phone: string; phone2?: string; email: string; address: string; mapsUrl?: string
+  companyName: string; phone: string; phone2?: string; email: string; email2?: string; address: string; mapsUrl?: string
   heroTitle: string; heroText: string; heroImage?: Img
   aboutTitle: string; aboutText: string; aboutImage?: Img; aboutImage2?: Img; since?: number
   designText: string; designImage?: Img

@@ -31,9 +31,9 @@ const hr = topic === "is-basvurusu"
     <label class="field">Ad soyad<input name="name" toolparamdescription="Ziyaretçinin adı ve soyadı" autocomplete="name" required maxlength="200" /></label>
     <div class="grid gap-4 md:grid-cols-2">
       <label class="field">E-posta<input name="email" type="email" toolparamdescription="Dönüş yapılacak e-posta adresi" autocomplete="email" required /></label>
-      <label class="field">{hr ? "Telefon" : "Telefon (isteğe bağlı)"}<input name="phone" type="tel" toolparamdescription="Telefon numarası" autocomplete="tel" maxlength="50" required={hr} /></label>
+      <label class="field">"Telefon (isteğe bağlı)"<input name="phone" type="tel" toolparamdescription="Telefon numarası" autocomplete="tel" maxlength="50" /></label>
     </div>
-    <label class="field">{hr ? "Kendinizi ve ilgilendiğiniz pozisyonu kısaca anlatın" : "Mesajınız (ürün, adet, ölçü, logo)"}<textarea name="message" toolparamdescription={hr ? "Eğitim, deneyim ve ilgilenilen pozisyon" : "Talep: ürün, adet, ölçü, malzeme, logo"} required maxlength="5000" rows="5"></textarea></label>
+    <label class="field">{hr ? "Kendinizi ve ilgilendiğiniz pozisyonu kısaca anlatın (isteğe bağlı)" : "Mesajınız (ürün, adet, ölçü, logo)"}<textarea name="message" toolparamdescription={hr ? "Eğitim, deneyim ve ilgilenilen pozisyon" : "Talep: ürün, adet, ölçü, malzeme, logo"} required={!hr} maxlength="5000" rows="5"></textarea></label>
     <label class="flex items-start gap-2.5 text-sm"><input name="kvkk_consent" type="checkbox" required class="mt-1" /><span>Kişisel verilerimin, {hr ? "başvurumun değerlendirilmesi" : "mesajıma dönüş yapılması"} amacıyla işlenmesine ilişkin {kvkk ? <a href={`/${kvkk.slug}/`}>aydınlatma metnini</a> : "aydınlatma metnini"} okudum ve onaylıyorum.</span></label>
     <div aria-hidden="true" class="hp"><label>Web sitesi<input name="website" tabindex="-1" autocomplete="off" /></label></div>
     <div class="flex flex-wrap items-center gap-4">
