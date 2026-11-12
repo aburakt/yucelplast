@@ -29,8 +29,7 @@ const htmlOf = (dir: string) => Object.fromEntries(walk(dir).filter((f) => f.end
 const visible = (html: string): string =>
   html.replace(/<(script|style|svg|form)[\s\S]*?<\/\1>/g, "").replace(/<p data-fixture-[\w-]+[\s\S]*?<\/p>/g, "").replace(/<[^>]+>/g, " ").replace(/&[a-z#0-9]+;/g, " ").replace(/\s+/g, " ").trim()
 
-// — Erişilebilirlik ve performans bütçesi (bağımlılıksız; build çıktısındaki her HTML üzerinde) —
-
+// Erişilebilirlik ve performans bütçesi (bağımlılıksız; build çıktısındaki her HTML üzerinde)
 type Tag = { name: string; close: boolean; attrs: Record<string, string>; at: number; end: number }
 const TAG = /<(\/?)([a-zA-Z][\w:-]*)((?:[^>"']|"[^"]*"|'[^']*')*)>/g
 const ATTR = /([^\s=/]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'>]+)))?/g
@@ -210,17 +209,17 @@ async function main(): Promise<number> {
   const external = process.env.BASE_URL
   if (external) return (await runChecks(external.replace(/\/$/, ""))) ? 0 : 1
 
-  out("— Standart ve API kuralları (bun test)")
+  out("== Standart ve API kuralları (bun test)")
   const suites = ["tests/core.test.ts", "tests/rules.test.ts"].filter((f) => existsSync(join(ROOT, f)))
   const rules = Bun.spawnSync(["bun", "test", ...suites], { cwd: ROOT, stdout: "inherit", stderr: "inherit" })
   if (!report(rules.exitCode === 0, "Standart ve API kuralları", `${suites.join(", ")} kırmızı`)) return 1
 
-  out("— Fixture build (referans)")
+  out("== Fixture build (referans)")
   if (!report(build({ CONTENT_SOURCE: "fixture" }).exitCode === 0, "Fixture build", "çıkış kodu ≠ 0")) return 1
   const fixtureDir = mkdtempSync(join(tmpdir(), `${SITE_ID}-fixture-`))
   cpSync(DIST, fixtureDir, { recursive: true })
 
-  out("— PB build (geçici PB'ye karşı, gerçek içerikle)")
+  out("== PB build (geçici PB'ye karşı, gerçek içerikle)")
   const pb = await startPb()
   try {
     await seed(pb)
@@ -240,7 +239,7 @@ async function main(): Promise<number> {
   all = (await serveAndCheck(SITE.checks)) && all
   if (!SITE.testSeed || !SITE.testChecks?.length) return all ? 0 : 1
 
-  out("— Test verisiyle PB build (taslak, çevirisiz kayıt, panel görseli gibi durumlar)")
+  out("== Test verisiyle PB build (taslak, çevirisiz kayıt, panel görseli gibi durumlar)")
   const test = await startPb()
   try {
     await SITE.testSeed(test)

@@ -6,7 +6,8 @@
     "products": "Ürünler",
     "messages": "Mesajlar ve başvurular",
     "redirects": "Yönlendirmeler",
-    "pages": "Yasal sayfalar"
+    "pages": "Yasal sayfalar",
+    "stats": "Rakamlarla Yücel Plast"
   },
   "fields": {
     "settings.company_name": "Firma adı",
@@ -38,6 +39,9 @@
     "messages.notes": "Notlar",
     "redirects.from": "Eski adres",
     "redirects.to": "Yeni adres",
-    "redirects.code": "Yönlendirme türü"
+    "redirects.code": "Yönlendirme türü",
+    "stats.label": "Açıklama",
+    "stats.value": "Sayı",
+    "stats.suffix": "Sayı eki"
   }
 }

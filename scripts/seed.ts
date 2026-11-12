@@ -19,6 +19,7 @@ export type Content = {
     since: number; designText: string; designImage: string; hrText: string; hrImage?: string; seoDescription: string; cfAnalyticsToken?: string
   }
   features: { title: string; text: string }[]
+  stats: { label: string; value: number; suffix: string }[]
   categories: Category[]
   redirects: { from: string; to: string; code: string }[]
   pages: { title: string; slug: string; seoDescription: string; body: string; published: boolean }[]
@@ -47,13 +48,14 @@ export async function seed(pb: Pb): Promise<void> {
   const existing = await pb.admin("/api/collections/settings/records?perPage=1")
   if (!existing.ok) throw new Error(`seed settings: ${existing.status}`)
   if (((await existing.json()) as { totalItems: number }).totalItems > 0) throw new Error("PB dolu (settings kaydı var); tohumlama yalnız boş PB'ye yapılır")
-  const { settings: s, features, categories, redirects, pages } = await loadContent()
+  const { settings: s, features, stats, categories, redirects, pages } = await loadContent()
   await save(pb, "settings", {
     company_name: s.companyName, phone: s.phone, phone_2: s.phone2, email: s.email, address: s.address, maps_url: s.mapsUrl,
     hero_title: s.heroTitle, hero_text: s.heroText, about_title: s.aboutTitle, about_text: s.aboutText, since: s.since,
     design_text: s.designText, hr_text: s.hrText, seo_description: s.seoDescription, cf_analytics_token: s.cfAnalyticsToken,
   }, { hero_image: s.heroImage, about_image: s.aboutImage, about_image_2: s.aboutImage2, design_image: s.designImage, hr_image: s.hrImage })
   for (const [i, f] of features.entries()) await save(pb, "features", { title: f.title, text: f.text, position: (i + 1) * 10, published: true })
+  for (const [i, x] of stats.entries()) await save(pb, "stats", { label: x.label, value: x.value, suffix: x.suffix, position: (i + 1) * 10, published: true })
 
   // önce üst gruplar (alt grup üst grubun id'sine bağlanır)
   const ids = new Map<string, string>()

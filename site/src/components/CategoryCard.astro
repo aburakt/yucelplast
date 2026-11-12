@@ -1,5 +1,5 @@
 ---
-import Icon from "./Icon.astro"
+import CategoryIcon from "./CategoryIcon.astro"
 import Photo from "./Photo.astro"
 import type { Category } from "../lib/types"
 
@@ -11,7 +11,7 @@ const H = `h${level}` as "h2" | "h3"
 ---
 <a href={c.path} class="box-card">
   <div class:list={["box-media", !c.cover && "icon"]}>
-    {c.cover ? <Photo img={c.cover} alt="" sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width={800} /> : <Icon name={c.icon} stroke={1.1} class="" />}
+    {c.cover ? <Photo img={c.cover} alt="" sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width={800} /> : <CategoryIcon name={c.icon} />}
   </div>
   <div class="box-body">
     <H>{c.title}</H>

@@ -1,4 +1,5 @@
 ---
+import CategoryIcon from "../../components/CategoryIcon.astro"
 import CategoryCard from "../../components/CategoryCard.astro"
 import CtaBand from "../../components/CtaBand.astro"
 import Icon from "../../components/Icon.astro"
@@ -50,7 +51,7 @@ const body = c.body ? sanitize(c.body) : ""
             <li class="flex">
               <div class="box-card">
                 <div class:list={["box-media", !p.image && "icon"]}>
-                  {p.image ? <Photo img={p.image} alt={p.title} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width={800} /> : <Icon name={c.icon} stroke={1.1} class="" />}
+                  {p.image ? <Photo img={p.image} alt={p.title} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width={800} /> : <CategoryIcon name={c.icon} />}
                 </div>
                 <div class="box-body">
                   <h3>{p.title}</h3>

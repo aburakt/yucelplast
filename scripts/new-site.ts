@@ -195,7 +195,7 @@ if (oldId !== id && existsSync(path("deploy", "server", `pb-${oldId}.service`)))
   out(`  silindi: deploy/server/pb-${oldId}.service`)
 }
 
-write(`deploy/server/${unit}.service`, `# /etc/systemd/system/${unit}.service — ${name} PocketBase. scripts/new-site.ts üretti.
+write(`deploy/server/${unit}.service`, `# /etc/systemd/system/${unit}.service: ${name} PocketBase. scripts/new-site.ts üretti.
 # Sunucudaki diğer unit'lerle karşılaştırın: systemctl cat pb-keyfince
 [Unit]
 Description=PocketBase ${id} (${cmsHost})
@@ -229,7 +229,7 @@ ${cmsHost} {
 }
 `)
 
-write("deploy/server/env.example", `# ${dir}/.env (root:root, 600) — systemd EnvironmentFile. scripts/new-site.ts üretti.
+write("deploy/server/env.example", `# ${dir}/.env (root:root, 600): systemd EnvironmentFile. scripts/new-site.ts üretti.
 # Buraya gerçek değer yazılmaz; gerçek değerler Infisical'da ve yalnız sunucudaki dosyada. Yorumlar ayrı satırda kalmalı
 # (systemd satır sonu yorumunu değerin parçası sayar).
 

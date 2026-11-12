@@ -4,7 +4,7 @@ module.exports = {
   ID: "yucelplast",
 
   // Değişince siteyi yeniden yayınlatan koleksiyonlar. Yeni içerik koleksiyonu buraya da eklenir (test ölçer).
-  CONTENT: ["settings", "features", "categories", "products", "redirects", "pages"],
+  CONTENT: ["settings", "features", "stats", "categories", "products", "redirects", "pages"],
 
   // Ziyaretçi formlarının kutusu (ör. form_submissions): yayın tetiklemez, CONTENT'e girmez; ziyaretçi yalnız gönderir (test ölçer).
   // Spam tuzağı, KVKK onayı, e-posta bildirimi ve saklama süresi: pb_hooks/forms.pb.js (core).

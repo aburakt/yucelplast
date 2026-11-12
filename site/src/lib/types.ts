@@ -17,6 +17,9 @@ export type Settings = {
 /** "Neden Yücel Plast?" maddesi (PB `features`). */
 export type Feature = { title: string; text: string }
 
+/** "Rakamlarla Yücel Plast" sayısı (PB `stats`): ana sayfada sayılarak görünür. */
+export type Stat = { label: string; value: number; suffix: string }
+
 /** Ürün (PB `products`): grup sayfasında kart. */
 export type Product = { title: string; description: string; image?: Img }
 
@@ -35,4 +38,4 @@ export type Redirect = { from: string; to: string; code: "301" | "302" }
 /** Sayfa (PB `pages`): yasal metinler gibi tek metinlik sayfa, /<slug>/ adresinde. Yalnız yayındakiler gelir. */
 export type Page = { title: string; slug: string; body: string; seoDescription: string }
 
-export type Site = { settings: Settings; features: Feature[]; categories: Category[]; redirects: Redirect[]; pages: Page[] }
+export type Site = { settings: Settings; features: Feature[]; stats: Stat[]; categories: Category[]; redirects: Redirect[]; pages: Page[] }

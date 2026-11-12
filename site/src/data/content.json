@@ -34,6 +34,28 @@
       "text": "Yücel Plast, uzun yıllara dayanan deneyimiyle sektörde güvenilir bir konuma sahiptir. Bu tecrübe sayesinde müşterilerine kaliteli ve güvenilir ürünler sunar."
     }
   ],
+  "stats": [
+    {
+      "label": "Ülkeye İhracat",
+      "value": 22,
+      "suffix": ""
+    },
+    {
+      "label": "İş Ortağı",
+      "value": 12,
+      "suffix": ""
+    },
+    {
+      "label": "Ürün Çeşidi",
+      "value": 54,
+      "suffix": ""
+    },
+    {
+      "label": "Üretilen Ürün",
+      "value": 2514,
+      "suffix": ""
+    }
+  ],
   "categories": [
     {
       "title": "Kutu Üretimi",

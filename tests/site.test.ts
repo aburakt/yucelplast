@@ -11,6 +11,13 @@ describe("ürün grupları", () => {
   test("arayüz simgesi grup simgesiyle aynı adı taşımaz (Icon önce grup simgesine bakar)", () => {
     expect(Object.keys(UI_ICONS).filter((n) => (ICON_NAMES as string[]).includes(n))).toEqual([])
   })
+  test("her grup simgesinin eski siteden çizimi ve CSS sınıfı var (site/public/icons, CategoryIcon)", () => {
+    const css = readFileSync(join(ROOT, "site", "src", "styles", "global.css"), "utf8")
+    for (const n of ICON_NAMES) {
+      expect(readFileSync(join(ROOT, "site", "public", "icons", `${n}.svg`), "utf8")).toStartWith("<svg")
+      expect(css).toContain(`.i-${n} { --ico: url("/icons/${n}.svg"); }`)
+    }
+  })
   test("simgeler migration ICONS ile aynı", () => {
     const migration = readFileSync(join(ROOT, "pb/pb_migrations/1791800000_init.js"), "utf8")
     const icons = JSON.parse(/const ICONS = (\[[^\]]*\])/.exec(migration)![1]!) as string[]

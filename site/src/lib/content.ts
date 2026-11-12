@@ -37,6 +37,7 @@ function fromFixture(): Site {
       designText: s.designText, designImage: opt(s.designImage), hrText: s.hrText, hrImage: opt(s.hrImage), seoDescription: s.seoDescription,
     },
     features: content.features,
+    stats: content.stats,
     categories,
     redirects: content.redirects as Redirect[],
     pages,

@@ -1,0 +1,9 @@
+---
+import type { IconName } from "../lib/icons"
+
+// Ürün grubu simgesi: eski sitenin kendi çizimleri (site/public/icons/<ad>.svg, PNG'den vektöre çevrildi).
+// Renk currentColor (CSS mask): mavi kartta beyaz, beyaz menüde mavi. Dekoratif; anlamı yanındaki ad taşır.
+interface Props { name: IconName; class?: string }
+const { name, class: cls } = Astro.props
+---
+<span class:list={["cat-ico", `i-${name}`, cls]} aria-hidden="true"></span>

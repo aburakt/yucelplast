@@ -12,6 +12,7 @@ type RawSettings = Rec & {
   seo_description: string; share_image: string; cf_analytics_token: string
 }
 type RawFeature = Rec & { title: string; text: string }
+type RawStat = Rec & { label: string; value: number; suffix: string }
 type RawCategory = Rec & {
   title: string; slug: string; parent: string; summary: string; body: string; icon: string; cover: string; gallery: string[]
   featured: boolean; updated: string
@@ -24,9 +25,10 @@ const file = (r: Rec, name: string): Img | undefined => (name ? { src: fileUrl(r
 
 /** Tüm içeriği PB'den çeker (yalnız public kurallarla) ve doğrular. Eksik zorunlu içerik build'i kırar. */
 export async function loadFromPb(): Promise<Site> {
-  const [settingsList, features, rawCategories, products, redirects, pages] = await Promise.all([
+  const [settingsList, features, stats, rawCategories, products, redirects, pages] = await Promise.all([
     listAll<RawSettings>("settings", { sort: "created" }),
     listAll<RawFeature>("features"),
+    listAll<RawStat>("stats"),
     listAll<RawCategory>("categories"),
     listAll<RawProduct>("products"),
     listAll<RawRedirect>("redirects"),
@@ -58,6 +60,7 @@ export async function loadFromPb(): Promise<Site> {
       seoDescription: s.seo_description, shareImage: file(s, s.share_image), cfAnalyticsToken: s.cf_analytics_token,
     },
     features: features.map((f) => ({ title: f.title, text: f.text })),
+    stats: stats.map((x) => ({ label: x.label, value: x.value, suffix: x.suffix })),
     categories,
     pages: pages.map((p) => ({ title: p.title, slug: p.slug, body: p.body, seoDescription: p.seo_description })),
     redirects: redirects.map((r) => ({ from: r.from, to: r.to, code: r.code })),
